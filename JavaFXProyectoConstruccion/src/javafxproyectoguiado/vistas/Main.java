@@ -28,13 +28,6 @@ public class Main extends Application{
         stage.setScene(scene);
         stage.show();
     }
-    
-    public void openMenu(Stage stage)throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLMainMenu.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     /**
      * @param args the command line arguments

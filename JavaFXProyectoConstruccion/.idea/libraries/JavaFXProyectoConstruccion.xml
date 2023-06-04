@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaFXProyectoConstruccion">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/JavaFXProyectoConstruccion.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

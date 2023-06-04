@@ -76,9 +76,6 @@ public class FXMLInicioSesionController implements Initializable {
         }
         if(sonValidos){
             validarCredencialesUsuario(usuario, password);
-            /*Utilidades.mostrarDiallogoSimple("Bienvenido(a)", "BIENVENIDO USUARIO AL SISTEMA", Alert.AlertType.INFORMATION);
-            irPantallaPrincipal();
-            */
         }
     }
     
@@ -110,14 +107,17 @@ public class FXMLInicioSesionController implements Initializable {
         }
     }
     
-    private void irPantallaPrincipal(){    
-        Stage stage = (Stage)this.ButtonIngresar.getScene().getWindow();
-        Main main = new Main();
-         try {
-             main.openMenu(stage);
-         } catch (IOException ex) {
-             Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ex);
-         }
+    private void irPantallaPrincipal(){
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLMainMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) this.ButtonIngresar.getScene().getWindow();
+            stage.setTitle("Menú principal");
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException ioException){
+            Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
+        }
     }  
-    
 }
