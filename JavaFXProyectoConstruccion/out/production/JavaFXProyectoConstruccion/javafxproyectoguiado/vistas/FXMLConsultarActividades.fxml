@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="javafxproyectoguiado.controladores.FXMLConsultarActividadesController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLConsultarActividadesController">
+   <children>
+      <TableView fx:id="tableViewActivites" layoutX="85.0" layoutY="154.0" prefHeight="475.0" prefWidth="1096.0">
+        <columns>
+          <TableColumn fx:id="columnTitulo" prefWidth="300.0" text="Titulo" />
+          <TableColumn fx:id="columnDescripcion" minWidth="0.0" prefWidth="290.0" text="Descripcion" />
+            <TableColumn fx:id="columnFechaInicio" minWidth="0.0" prefWidth="190.0" text="Fecha Inicio" />
+            <TableColumn fx:id="columnFechaTermino" minWidth="0.0" prefWidth="190.0" text="Fecha Termino" />
+            <TableColumn prefWidth="125.0" />
+        </columns>
+      </TableView>
+      <Label fx:id="labelNombre" layoutX="85.0" layoutY="99.0" text="Label">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelFecha" layoutX="85.0" layoutY="49.0" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnRegresar" layoutX="33.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnRegresarOnAction" text="&lt;" />
+   </children>
 </AnchorPane>
