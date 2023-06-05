@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="738.0" prefWidth="1128.0" style="-fx-background-color: #19222b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLAdminCursosController">
+   <children>
+      <Pane prefHeight="91.0" prefWidth="1133.0" style="-fx-background-color: #DDD6CC;">
+         <children>
+            <Label layoutX="344.0" layoutY="14.0" text="Gestión de Cursos" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="59.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@../recursos/flecha-derecha.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="700.0" prefHeight="38.0" prefWidth="1133.0" style="-fx-background-color: #DDD6CC;" />
+      <TableView layoutX="97.0" layoutY="181.0" prefHeight="497.0" prefWidth="939.0">
+        <columns>
+          <TableColumn fx:id="tcBloque" prefWidth="119.0" text="Bloque" />
+          <TableColumn fx:id="tcNRC" prefWidth="91.0" text="NRC" />
+            <TableColumn fx:id="tcSeccion" prefWidth="138.0" text="Seccion" />
+            <TableColumn fx:id="tcNombreMateria" prefWidth="296.0" text="Nombre de Materia" />
+            <TableColumn fx:id="tcNombrePeriodo" prefWidth="296.0" text="Nombre de Periodo" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfBusqueda" layoutX="97.0" layoutY="118.0" prefHeight="35.0" prefWidth="415.0" promptText="Buscar por materia o periodo" />
+      <Button layoutX="684.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="904.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
