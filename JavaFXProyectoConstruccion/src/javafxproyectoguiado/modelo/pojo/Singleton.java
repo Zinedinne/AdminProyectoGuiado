@@ -34,6 +34,6 @@ public class Singleton {
         return login.user.getIdUsuario();
     }
 
-    public static  String rol(){ return  login.user.getTipoUsuario();}
+    public static  String getRol(){ return  login.user.getTipoUsuario();}
     
 }

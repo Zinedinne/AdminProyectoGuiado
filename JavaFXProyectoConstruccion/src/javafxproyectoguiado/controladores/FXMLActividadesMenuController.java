@@ -17,9 +17,10 @@ public class FXMLActividadesMenuController {
 
     @FXML
     void btnVerActividadesOnAction(ActionEvent event) {
+
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLConsultarActividades.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLConsultarProyecto.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             Stage stage = (Stage) this.btnVerActividades.getScene().getWindow();
             stage.setTitle("Consultar Actividades");
