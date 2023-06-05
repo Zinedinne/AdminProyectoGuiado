@@ -58,6 +58,13 @@ public class FXMLConsultarActividadesController implements Initializable {
     @FXML
     private Label labelNombre;
 
+    private int idAlumno;
+
+    public void setIdAlumno(int idActividad) {
+        this.idAlumno = idActividad;
+
+    }
+
     @FXML
     void btnRegresarOnAction(ActionEvent event) {
         mostrarActividadesMenu();
@@ -86,23 +93,41 @@ public class FXMLConsultarActividadesController implements Initializable {
                 button.setOnAction(event -> {
                     TableActivities activity = getTableView().getItems().get(getIndex());
                     System.out.println("Button clicked for activity ID: " + activity.getIdActividad());
+                    if (Singleton.getRol().equals("Estudiante")) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLGestionarActividad.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            FXMLGestionarActividad controller = loader.getController();
+                            controller.setIdActividad(activity.getIdActividad());
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(root));
+                            stage.setOnShown(event2 -> {
+                                // Llamar a initialize después de que se muestre la ventana
+                                controller.initialize(null, null);
+                            });
+                            stage.show();
+                            ((Stage) this.button.getScene().getWindow()).close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    }else if (Singleton.getRol().equals("Profesor")){
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLGestionarActividadProfesor.fxml"));
+                        try {
+                            Parent root = loader.load();
+                            FXMLGestionarActividadProfesor controller = loader.getController();
+                            controller.setIdActividad(activity.getIdActividad());
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(root));
+                            stage.setOnShown(event2 -> {
+                                // Llamar a initialize después de que se muestre la ventana
+                                controller.initialize(null, null);
+                            });
+                            stage.show();
+                            ((Stage) this.button.getScene().getWindow()).close();
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }                    }
 
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLGestionarActividad.fxml"));
-                    try {
-                        Parent root = loader.load();
-                        FXMLGestionarActividad controller = loader.getController();
-                        controller.setIdActividad(activity.getIdActividad());
-                        Stage stage = new Stage();
-                        stage.setScene(new Scene(root));
-                        stage.setOnShown(event2 -> {
-                            // Llamar a initialize después de que se muestre la ventana
-                            controller.initialize(null, null);
-                        });
-                        stage.show();
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
-                    }
                 });
             }
             @Override
@@ -135,7 +160,7 @@ public class FXMLConsultarActividadesController implements Initializable {
         ObservableList<TableActivities> activitiesObservableList= FXCollections.observableArrayList();
 
         try{
-            activitiesList = tableActivitiesDAO.getActivities(Singleton.getId());
+            activitiesList = TableActivitiesDAO.getActivities(Singleton.getId());
             if (activitiesList!=null){
                 activitiesObservableList.addAll(activitiesList);
             }
@@ -148,7 +173,7 @@ public class FXMLConsultarActividadesController implements Initializable {
 
         } catch (SQLException throwables) {
             if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
-                Utilidades.mostrarDiallogoSimple("Error", "Error al consultar las actividades",  Alert.AlertType.ERROR);
+                Utilidades.mostrarDiallogoSimple("Error", "Error al consultar las actividades" ,  Alert.AlertType.ERROR);
             }
             else if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))){
                 Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos",  Alert.AlertType.ERROR);

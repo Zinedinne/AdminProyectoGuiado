@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafxproyectoguiado.modelo.pojo.Singleton;
 
 /**
  * FXML Controller class
@@ -46,6 +47,7 @@ public class FXMLMainMenuController implements Initializable {
     }
     @FXML
     void btnActividadesMenuOnAction(ActionEvent event) {
+
         try{
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLActividadesMenu.fxml"));
