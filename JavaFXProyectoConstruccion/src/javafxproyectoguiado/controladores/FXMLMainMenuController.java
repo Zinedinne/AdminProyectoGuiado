@@ -17,7 +17,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import util.Utilidades;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 
 /**
@@ -38,6 +40,7 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     void btnUsuariosMenuOnAction(ActionEvent event) {
+        
 
     }
 
@@ -66,6 +69,16 @@ public class FXMLMainMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }
+
+    @FXML
+    private void clicBtnCursos(ActionEvent event) {
+        Stage escenarioEmpleados = new Stage();
+        Scene esceneAdminEmpleados = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCursos.fxml");
+        escenarioEmpleados.setScene(esceneAdminEmpleados);
+        escenarioEmpleados.setTitle("Gestión de Cursos");
+        escenarioEmpleados.initModality(Modality.APPLICATION_MODAL);
+        escenarioEmpleados.showAndWait();
     }
 
 

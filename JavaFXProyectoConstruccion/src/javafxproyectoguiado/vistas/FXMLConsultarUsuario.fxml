@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Pane layoutY="530.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #19222b;" />
+      <Pane prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: #19222b;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+            <Label layoutX="137.0" layoutY="22.0" text="Consultar Información" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="366.0" layoutY="416.0" text="Numero Telefonico" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="416.0" text="Correo Institucional" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="48.0" layoutY="445.0" prefHeight="35.0" prefWidth="223.0" promptText="pj. zS20015709@estudiante.uv" text="zS20015709@estudiante.uv" />
+      <TextField layoutX="366.0" layoutY="446.0" prefHeight="35.0" promptText="pj. 9231268459" text="9231268459" />
+      <Label layoutX="366.0" layoutY="320.0" text="Password" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="48.0" layoutY="320.0" text="Username" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="48.0" layoutY="349.0" prefHeight="35.0" promptText="pj. juanflores" text="juanflores" />
+      <TextField layoutX="366.0" layoutY="349.0" prefHeight="35.0" promptText="pj. juan12345" text=" juan12345" />
+      <TextField layoutX="366.0" layoutY="251.0" prefHeight="35.0" promptText="pj. Gomez" text="Gomez" />
+      <TextField layoutX="47.0" layoutY="251.0" prefHeight="35.0" promptText="pj. Florez" text="Florez" />
+      <Label layoutX="47.0" layoutY="222.0" text="Apellido Paterno" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="222.0" text="Apellido Materno" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="126.0" text="Nombre" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="126.0" text="Matricula" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="47.0" layoutY="155.0" prefHeight="35.0" promptText="pj. zS2015709" text="zS2015709" />
+      <TextField layoutX="366.0" layoutY="155.0" prefHeight="35.0" promptText="pj. Juan" text="Juan" />
+   </children>
+</AnchorPane>
