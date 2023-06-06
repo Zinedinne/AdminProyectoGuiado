@@ -29,14 +29,13 @@ public class TableActivitiesDAO {
                 PreparedStatement prepararSentencia = conexion.prepareStatement(consulta);
                 prepararSentencia.setString(1, String.valueOf(idUsuario));
                 ResultSet resultado = prepararSentencia.executeQuery();
-
                 if(resultado.next()){
 
                     do{
 
                         TableActivities actividad = new TableActivities();
                         actividad.setTitulo(resultado.getString("titulo"));
-                        actividad.setDescripcion(resultado.getString("descripción"));
+                        actividad.setDescripcion(resultado.getString("descripcion"));
                         actividad.setFechaInicio(resultado.getString("fechaInicio"));
                         actividad.setFechaTermino(resultado.getString("fechaFin"));
                         actividad.setIdActividad(resultado.getInt("idActividad"));
@@ -45,6 +44,7 @@ public class TableActivitiesDAO {
                 }
                 conexion.close();
             } catch (SQLException ex) {
+                Utilidades.mostrarDiallogoSimple("",ex.getMessage(), Alert.AlertType.ERROR);
                 throw new SQLException(String.valueOf(Constantes.ERROR_CONSULTA));
             }
         } else {

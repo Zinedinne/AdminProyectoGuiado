@@ -15,15 +15,19 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.TableActivitiesDAO;
 import javafxproyectoguiado.modelo.dao.TableAnteproyectoDAO;
+import javafxproyectoguiado.modelo.dao.UsuarioDAO;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 import javafxproyectoguiado.modelo.pojo.TableActivities;
 import javafxproyectoguiado.modelo.pojo.TableAnteproyecto;
+import javafxproyectoguiado.modelo.pojo.Usuario;
 import util.Constantes;
 import util.Utilidades;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -54,7 +58,7 @@ public class FXMLConsultarProyecto implements Initializable {
     private TableColumn<?, ?> columnModalidad;
 
     @FXML
-    private ComboBox<?> comboBoxEstudiante;
+    private ComboBox<Usuario> comboBoxEstudiante;
 
     @FXML
     private TableColumn<TableAnteproyecto, String> columnFechaInicio;
@@ -75,15 +79,18 @@ public class FXMLConsultarProyecto implements Initializable {
 
     @FXML
     void comboBoxEstudianteOnAction(ActionEvent event) {
-
+        if(comboBoxEstudiante.getValue()!=null){
+            getAnteproyectos(2);
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setActivitiesToTable();
+        getAnteproyectos(1);
+        configurarVentana();
+        setEstudianteToCombobox();
         columnBoton.setCellFactory(column -> new TableCell<TableAnteproyecto, Void>() {
             private final Button button = new Button("Consultar");
-
             {
                 StackPane.setAlignment(button, Pos.CENTER);
                 button.setOnAction(event -> {
@@ -93,7 +100,7 @@ public class FXMLConsultarProyecto implements Initializable {
                     try {
                         Parent root = loader.load();
                         FXMLConsultarActividadesController controller = loader.getController();
-                        controller.setIdAlumno(activity.getIdUsuario());
+                        controller.setIdAlumno(activity.getIdUsuario(), activity.getNombreUsuario());
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.setOnShown(event2 -> {
@@ -119,15 +126,39 @@ public class FXMLConsultarProyecto implements Initializable {
             }
         });
     }
-    public void setActivitiesToTable()  {
-        TableAnteproyectoDAO tableAnteproyectoDAO = new TableAnteproyectoDAO();
-        List<TableAnteproyecto> anteproyectoList=null;
-        ObservableList<TableAnteproyecto> anteproyectoObservableList= FXCollections.observableArrayList();
-        try{
-            anteproyectoList = tableAnteproyectoDAO.getAnteproyecto(Singleton.getId());
-            if (anteproyectoList!=null){
-                anteproyectoObservableList.addAll(anteproyectoList);
+
+    public void getAnteproyectos(int option) {
+        List<TableAnteproyecto> anteproyectoList = new ArrayList<>();
+        if (option == 1) {
+            try {
+                anteproyectoList = TableAnteproyectoDAO.getAnteproyecto(Singleton.getId());
+            } catch (SQLException throwables) {
+                if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error al consultar las actividades", Alert.AlertType.ERROR);
+                } else if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))) {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos", Alert.AlertType.ERROR);
+                } else {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error desconocido", Alert.AlertType.ERROR);
+                }
             }
+        }else{
+            try {
+                anteproyectoList = TableAnteproyectoDAO.getAnteproyectoPorEstudiante(comboBoxEstudiante.getValue().getIdUsuario());
+            } catch (SQLException throwables) {
+                if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error al consultar las actividades", Alert.AlertType.ERROR);
+                } else if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))) {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos", Alert.AlertType.ERROR);
+                } else {
+                    Utilidades.mostrarDiallogoSimple("Error", "Error desconocido", Alert.AlertType.ERROR);
+                }
+            }
+        }
+        setProyectsToTable(anteproyectoList);
+    }
+    public void setProyectsToTable(List<TableAnteproyecto> anteproyecto){
+        ObservableList<TableAnteproyecto> anteproyectoObservableList= FXCollections.observableArrayList();
+            anteproyectoObservableList.addAll(anteproyecto);
 
             columnDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
             columnFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
@@ -135,12 +166,19 @@ public class FXMLConsultarProyecto implements Initializable {
             columnDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
             columnEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
             columnModalidad.setCellValueFactory(new PropertyValueFactory<>("modalidad"));
+            columnAlumno.setCellValueFactory(new PropertyValueFactory<>("nombreUsuario"));
             tableAnteproyecto.setItems(anteproyectoObservableList);
-
-
+    }
+    public void setEstudianteToCombobox(){
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        try {
+            List<Usuario> usuarioList = usuarioDAO.getEstudiantes();
+            ObservableList<Usuario> usuarioObservableList = FXCollections.observableArrayList();
+            usuarioObservableList.addAll(usuarioList);
+            comboBoxEstudiante.setItems(usuarioObservableList);
         } catch (SQLException throwables) {
             if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
-                Utilidades.mostrarDiallogoSimple("Error", "Error al consultar las actividades",  Alert.AlertType.ERROR);
+                Utilidades.mostrarDiallogoSimple("Error", "Error al consultar los Estudiantes",  Alert.AlertType.ERROR);
             }
             else if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))){
                 Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos",  Alert.AlertType.ERROR);
@@ -148,5 +186,11 @@ public class FXMLConsultarProyecto implements Initializable {
                 Utilidades.mostrarDiallogoSimple("Error", "Error desconocido",  Alert.AlertType.ERROR);
             }
         }
+
+    }
+
+    public void configurarVentana(){
+        this.labelProfesor.setText(Singleton.getName());
+        this.labelFecha.setText(LocalDate.now().toString() );
     }
 }

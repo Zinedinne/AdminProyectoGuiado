@@ -19,7 +19,7 @@
             <TableColumn fx:id="columnButton" prefWidth="125.0" />
         </columns>
       </TableView>
-      <Label fx:id="labelNombre" layoutX="85.0" layoutY="99.0" text="Label">
+      <Label fx:id="labelNombre" layoutX="164.0" layoutY="100.0" text="Label">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -30,5 +30,10 @@
          </font>
       </Label>
       <Button fx:id="btnRegresar" layoutX="33.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnRegresarOnAction" text="&lt;" />
+      <Label layoutX="85.0" layoutY="100.0" text="Almuno:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

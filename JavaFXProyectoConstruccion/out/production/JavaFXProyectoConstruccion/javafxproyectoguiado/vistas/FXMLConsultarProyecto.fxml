@@ -7,7 +7,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLConsultarProyecto">
    <children>
       <Label layoutX="62.0" layoutY="82.0" text="Docente: ">
@@ -19,13 +18,14 @@
       <ComboBox fx:id="comboBoxEstudiante" layoutX="148.0" layoutY="179.0" onAction="#comboBoxEstudianteOnAction" prefHeight="25.0" prefWidth="187.0" promptText="Seleccionar alumno" />
       <TableView fx:id="tableAnteproyecto" layoutX="62.0" layoutY="223.0" prefHeight="438.0" prefWidth="1152.0">
         <columns>
-          <TableColumn fx:id="columnTitulo" prefWidth="200.0" text="Titulo" />
-          <TableColumn fx:id="columnDescripcion" prefWidth="300.0" text="Descripcion" />
-            <TableColumn fx:id="columnEstado" prefWidth="140.0" text="Estado" />
-            <TableColumn fx:id="columnDuracion" prefWidth="140.0" text="Duracion" />
-            <TableColumn fx:id="columnFechaInicio" prefWidth="140.0" text="FechaI Inicio" />
-            <TableColumn fx:id="columnModalidad" prefWidth="140.0" text="Modalidad" />
-            <TableColumn fx:id="columnBoton" prefWidth="90.0" />
+          <TableColumn fx:id="columnTitulo" prefWidth="150.0" text="Titulo" />
+          <TableColumn fx:id="columnDescripcion" prefWidth="250.0" text="Descripcion" />
+            <TableColumn fx:id="columnEstado" prefWidth="130.0" text="Estado" />
+            <TableColumn fx:id="columnDuracion" prefWidth="130.0" text="Duracion" />
+            <TableColumn fx:id="columnFechaInicio" prefWidth="130.0" text="FechaI Inicio" />
+            <TableColumn fx:id="columnModalidad" prefWidth="130.0" text="Modalidad" />
+            <TableColumn fx:id="columnAlumno" prefWidth="160.0" text="Alumno" />
+            <TableColumn fx:id="columnBoton" prefWidth="75.0" text="Column X" />
         </columns>
       </TableView>
       <Label layoutX="62.0" layoutY="178.0" text="Alumno:">

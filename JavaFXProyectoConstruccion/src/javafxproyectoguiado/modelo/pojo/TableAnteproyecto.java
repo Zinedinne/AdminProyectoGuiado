@@ -11,8 +11,9 @@ public class TableAnteproyecto {
     private String usuario;
     private String LGAC;
     private int idUsuario;
+    private String nombreUsuario;
 
-    public TableAnteproyecto(int idAnteproyecto, String nombreAnteproyecto, String descripcion, String fechaInicio, String modalidad, String duracion, boolean estado, String usuario, String LGAC, int idUsuario) {
+    public TableAnteproyecto(int idAnteproyecto, String nombreAnteproyecto, String nombreUsuario,String descripcion, String fechaInicio, String modalidad, String duracion, boolean estado, String usuario, String LGAC, int idUsuario) {
         this.idAnteproyecto = idAnteproyecto;
         this.nombreAnteproyecto = nombreAnteproyecto;
         this.descripcion = descripcion;
@@ -23,10 +24,19 @@ public class TableAnteproyecto {
         this.usuario = usuario;
         this.LGAC = LGAC;
         this.idUsuario = idUsuario;
+        this.nombreUsuario = nombreUsuario;
     }
 
     public TableAnteproyecto() {
 
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public boolean isEstado() {

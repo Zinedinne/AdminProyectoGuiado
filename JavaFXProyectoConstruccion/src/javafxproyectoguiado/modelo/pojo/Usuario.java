@@ -16,14 +16,14 @@ public class Usuario {
     private String username;
     private String password;
     private String correo;
-    private int numeroTelefono;
+    private String numeroTelefono;
     private String tipoUsuario;
     private int codigoRespuesta;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correo, int numeroTelefono, String tipoUsuario, int codigoRespuesta) {
+    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correo, String numeroTelefono, String tipoUsuario, int codigoRespuesta) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -36,11 +36,16 @@ public class Usuario {
         this.codigoRespuesta = codigoRespuesta;
     }
 
+    @Override
+    public String toString() {
+        return nombre + " " + apellidoPaterno + " " + apellidoMaterno;
+    }
+
     public String getCorreo() {
         return correo;
     }
 
-    public int getNumeroTelefono() {
+    public String getNumeroTelefono() {
         return numeroTelefono;
     }
 
@@ -52,7 +57,7 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public void setNumeroTelefono(int numeroTelefono) {
+    public void setNumeroTelefono(String numeroTelefono) {
         this.numeroTelefono = numeroTelefono;
     }
 

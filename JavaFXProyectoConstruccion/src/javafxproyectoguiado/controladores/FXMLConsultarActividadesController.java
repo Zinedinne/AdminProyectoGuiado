@@ -59,10 +59,11 @@ public class FXMLConsultarActividadesController implements Initializable {
     private Label labelNombre;
 
     private int idAlumno;
+    private  String nombreAlumno;
 
-    public void setIdAlumno(int idActividad) {
+    public void setIdAlumno(int idActividad, String nombre) {
         this.idAlumno = idActividad;
-
+        this.nombreAlumno = nombre;
     }
 
     @FXML
@@ -84,7 +85,12 @@ public class FXMLConsultarActividadesController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        configurarVentana();
+        if (Singleton.getRol().equals("Estudiante")){
+            configurarVentanaAlumno();
+        }else {
+            configurarVentanaProfesor();
+        }
+
         columnButton.setCellFactory(column -> new TableCell<TableActivities, Void>() {
             private final Button button = new Button("Consultar");
 
@@ -115,7 +121,7 @@ public class FXMLConsultarActividadesController implements Initializable {
                         try {
                             Parent root = loader.load();
                             FXMLGestionarActividadProfesor controller = loader.getController();
-                            controller.setIdActividad(activity.getIdActividad());
+                            controller.setIdActividad(activity.getIdActividad(), nombreAlumno);
                             Stage stage = new Stage();
                             stage.setScene(new Scene(root));
                             stage.setOnShown(event2 -> {
@@ -142,7 +148,7 @@ public class FXMLConsultarActividadesController implements Initializable {
         });
     }
 
-    public void configurarVentana(){
+    public void configurarVentanaAlumno(){
         this.labelNombre.setText(Singleton.getName());
         this.labelFecha.setText(LocalDate.now().toString() );
         this.columnTitulo.setText("Titulo");
@@ -151,16 +157,27 @@ public class FXMLConsultarActividadesController implements Initializable {
         this.columnFechaTermino.setText("Fecha Termino");
         setActivitiesToTable();
     }
+    public void configurarVentanaProfesor(){
+        this.labelNombre.setText(nombreAlumno);
+        this.labelFecha.setText(LocalDate.now().toString() );
 
-
+        setActivitiesToTable();
+    }
 
     public void setActivitiesToTable()  {
+        int idUsuario = 0;
+        if(Singleton.getRol().equals("Estudiante")){
+            idUsuario = Singleton.getId();
+        } else if (Singleton.getRol().equals("Profesor")) {
+            idUsuario = idAlumno;
+        }
+        columnButton.setText("Consultar");
         TableActivitiesDAO tableActivitiesDAO = new TableActivitiesDAO();
         List<TableActivities> activitiesList=null;
         ObservableList<TableActivities> activitiesObservableList= FXCollections.observableArrayList();
 
         try{
-            activitiesList = TableActivitiesDAO.getActivities(Singleton.getId());
+            activitiesList = TableActivitiesDAO.getActivities(idUsuario);
             if (activitiesList!=null){
                 activitiesObservableList.addAll(activitiesList);
             }
