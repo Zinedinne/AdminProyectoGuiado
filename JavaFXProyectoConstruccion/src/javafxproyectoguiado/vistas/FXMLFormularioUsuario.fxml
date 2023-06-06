@@ -20,7 +20,7 @@
                               <Font name="Tahoma Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Button layoutX="420.0" layoutY="448.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Añadir" textFill="WHITE">
+                        <Button layoutX="420.0" layoutY="448.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
                            <font>
                               <Font name="Tahoma Bold" size="18.0" />
                            </font>

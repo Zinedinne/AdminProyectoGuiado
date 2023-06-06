@@ -9,8 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="738.0" prefWidth="1128.0" style="-fx-background-color: #19222b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLAdminCursosController">
+<AnchorPane id="AnchorPane" prefHeight="738.0" prefWidth="1128.0" style="-fx-background-color: #19222b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAdminCursosController">
    <children>
       <Pane prefHeight="91.0" prefWidth="1133.0" style="-fx-background-color: #DDD6CC;">
          <children>
@@ -27,7 +26,7 @@
          </children>
       </Pane>
       <Pane layoutY="700.0" prefHeight="38.0" prefWidth="1133.0" style="-fx-background-color: #DDD6CC;" />
-      <TableView layoutX="97.0" layoutY="181.0" prefHeight="497.0" prefWidth="939.0">
+      <TableView fx:id="tvCursos" layoutX="97.0" layoutY="181.0" prefHeight="497.0" prefWidth="939.0">
         <columns>
           <TableColumn fx:id="tcBloque" prefWidth="119.0" text="Bloque" />
           <TableColumn fx:id="tcNRC" prefWidth="91.0" text="NRC" />

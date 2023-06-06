@@ -2,7 +2,7 @@ package javafxproyectoguiado.modelo.pojo;
 
 public class Curso {
     private int idCurso;
-    private String bloque;
+    private int bloque;
     private String nrc;
     private String seccion;
     private int idMateria;
@@ -13,7 +13,7 @@ public class Curso {
     public Curso() {
     }
 
-    public Curso(int idCurso, String bloque, String nrc, String seccion, int idMateria, String nombreMateria, int idPeriodo, String nombrePeriodo) {
+    public Curso(int idCurso, int bloque, String nrc, String seccion, int idMateria, String nombreMateria, int idPeriodo, String nombrePeriodo) {
         this.idCurso = idCurso;
         this.bloque = bloque;
         this.nrc = nrc;
@@ -32,11 +32,11 @@ public class Curso {
         this.idCurso = idCurso;
     }
 
-    public String getBloque() {
+    public int getBloque() {
         return bloque;
     }
 
-    public void setBloque(String bloque) {
+    public void setBloque(int bloque) {
         this.bloque = bloque;
     }
 
@@ -87,6 +87,7 @@ public class Curso {
     public void setNombrePeriodo(String nombrePeriodo) {
         this.nombrePeriodo = nombrePeriodo;
     }
+
     
     
 }

@@ -73,12 +73,32 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     private void clicBtnCursos(ActionEvent event) {
-        Stage escenarioEmpleados = new Stage();
-        Scene esceneAdminEmpleados = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCursos.fxml");
-        escenarioEmpleados.setScene(esceneAdminEmpleados);
-        escenarioEmpleados.setTitle("Gestión de Cursos");
-        escenarioEmpleados.initModality(Modality.APPLICATION_MODAL);
-        escenarioEmpleados.showAndWait();
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLAdminCursos.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) this.btnActividadesMenu.getScene().getWindow();
+            stage.setTitle("Gestión de Cursos");
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException ioException){
+            Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
+        }
+    }
+
+    @FXML
+    private void clicBtnLGAC(ActionEvent event) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLAdminLGAC.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) this.btnActividadesMenu.getScene().getWindow();
+            stage.setTitle("Gestión de Cursos");
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException ioException){
+            Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
+        }
     }
 
 

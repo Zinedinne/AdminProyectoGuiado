@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="764.0" style="-fx-background-color: #19222b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLAdminLGACController">
+   <children>
+      <Pane prefHeight="91.0" prefWidth="785.0" style="-fx-background-color: #DDD6CC;">
+         <children>
+            <Label layoutX="189.0" layoutY="14.0" text="Gestión de LGAC" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="59.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@../recursos/flecha-derecha.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutY="486.0" prefHeight="38.0" prefWidth="785.0" style="-fx-background-color: #DDD6CC;" />
+      <Button layoutX="609.0" layoutY="124.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="425.0" layoutY="124.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfBusqueda" layoutX="40.0" layoutY="124.0" prefHeight="35.0" prefWidth="320.0" promptText="Buscar por materia o periodo" />
+      <TableView fx:id="tvLGAC" layoutX="79.0" layoutY="197.0" prefHeight="265.0" prefWidth="628.0">
+        <columns>
+          <TableColumn fx:id="tcLGAC" prefWidth="627.0" text="Linea de Generación y Apliacion del Conocimiento" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
