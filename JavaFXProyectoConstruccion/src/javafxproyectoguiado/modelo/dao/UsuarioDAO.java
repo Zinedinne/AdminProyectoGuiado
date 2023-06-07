@@ -1,48 +1,52 @@
 package javafxproyectoguiado.modelo.dao;
 
+import javafx.scene.control.Alert;
+import javafxproyectoguiado.modelo.pojo.TableActivities;
+import javafxproyectoguiado.modelo.pojo.Usuario;
+import modelo.ConexionBD;
+import util.Constantes;
+import util.Utilidades;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javafxproyectoguiado.modelo.pojo.Usuario;
-import modelo.ConexionBD;
-import util.Constantes;
+import java.util.List;
 
 public class UsuarioDAO {
-    public static Usuario obtenerInformacionUsuario(){
-       Usuario respuesta = new Usuario();
-       respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
-       Connection conexionBD = ConexionBD.abrirConexionBD();
-       if(conexionBD != null){
-           try{
-               String consulta = "select idUsuario, usuario.nombre, apellidoPaterno, apellidoMaterno, username, "
-                       + "password, correoInstitucional, numeroTelefono,tipoUsuario "
-                       + "From Usuario;";
-               PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
-               ResultSet resultado = prepararSentencia.executeQuery();
-               ArrayList<Usuario> usuarioConsulta = new ArrayList();
-               while(resultado.next()){
-                   Usuario usuario = new Usuario();
-                   usuario.setIdUsuario(resultado.getInt("idUsuario"));
-                   usuario.setNombre(resultado.getString("nombre"));
-                   usuario.setApellidoPaterno(resultado.getString("apellidoPaterno"));
-                   usuario.setApellidoMaterno(resultado.getString("apellidoMaterno"));
-                   usuario.setUsername(resultado.getString("username"));
-                   usuario.setPassword(resultado.getString("password"));
-                   usuario.setCorreoInstitucional(resultado.getString("correoInstitucional"));
-                   usuario.setNumeroTelefono(resultado.getInt("numeroTelefono"));
-                   usuario.setTipoUsuario(resultado.getString("tipoUsuario"));
-                   usuarioConsulta.add(usuario);
-               }
-               respuesta.setUsuarios(usuarioConsulta);
-               conexionBD.close();
-           }catch(SQLException e){
-               respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
-           }
-       }else{
-           respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
-       }
-       return respuesta;
+    public List<Usuario> getEstudiantes() throws SQLException {
+        List<Usuario> estudiantes = new ArrayList<>();
+        Connection conexion = ConexionBD.abrirConexionBD();
+        if(conexion != null){
+            String consulta = "SELECT * from usuario where tipoUsuario = 'Estudiante'";
+            try {
+                PreparedStatement prepararSentencia = conexion.prepareStatement(consulta);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if(resultado.next()){
+
+                    do{
+
+                        Usuario usuario = new Usuario();
+                        usuario.setIdUsuario(resultado.getInt("idUsuario"));
+                        usuario.setUsername(resultado.getString("username"));
+                        usuario.setApellidoMaterno(resultado.getString("apellidoMaterno"));
+                        usuario.setApellidoPaterno(resultado.getString("apellidoPaterno"));
+                        usuario.setNombre(resultado.getString("nombre"));
+                        usuario.setCorreo(resultado.getString("correoInstitucional"));
+                        usuario.setTipoUsuario(resultado.getString("tipoUsuario"));
+                        usuario.setNumeroTelefono(resultado.getString("numeroTelefono"));
+                        estudiantes.add(usuario);
+                    }while(resultado.next());
+                }
+                conexion.close();
+            } catch (SQLException ex) {
+                Utilidades.mostrarDiallogoSimple("",ex.getMessage(), Alert.AlertType.ERROR);
+                throw new SQLException(String.valueOf(Constantes.ERROR_CONSULTA));
+            }
+        } else {
+            throw new SQLException(String.valueOf(Constantes.ERROR_CONEXION));
+        }
+        return estudiantes;
     }
 }

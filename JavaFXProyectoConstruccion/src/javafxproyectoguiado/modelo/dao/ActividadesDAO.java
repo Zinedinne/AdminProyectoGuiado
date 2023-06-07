@@ -1,9 +1,11 @@
 package javafxproyectoguiado.modelo.dao;
 
+import javafx.scene.control.Alert;
 import javafxproyectoguiado.modelo.pojo.Actividades;
 import javafxproyectoguiado.modelo.pojo.TableActivities;
 import modelo.ConexionBD;
 import util.Constantes;
+import util.Utilidades;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,13 +28,14 @@ public class ActividadesDAO {
 
                 if(resultado.next()){
                     actividad.setTitulo(resultado.getString("titulo"));
-                    actividad.setDescripcion(resultado.getString("descripción"));
+                    actividad.setDescripcion(resultado.getString("descripcion"));
                     actividad.setFechaInicio(resultado.getString("fechaInicio"));
                     actividad.setFechaFin(resultado.getString("fechaFin"));
                     actividad.setIdActividad(resultado.getInt("idActividad"));
                 }
                 conexion.close();
             } catch (SQLException ex) {
+                Utilidades.mostrarDiallogoSimple("",ex.getMessage(), Alert.AlertType.valueOf("ERROR"));
                 throw new SQLException(String.valueOf(Constantes.ERROR_CONSULTA));
             }
         } else {

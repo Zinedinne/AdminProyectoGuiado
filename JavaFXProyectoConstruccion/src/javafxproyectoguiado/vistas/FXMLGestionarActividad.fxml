@@ -84,7 +84,7 @@
          </font>
       </Label>
       <Button fx:id="btnAdjuntarArchivo" layoutX="43.0" layoutY="440.0" mnemonicParsing="false" onAction="#btnAdjuntarArchivoOnAction" text="Adjuntar archivo" />
-      <Button fx:id="btnDescargarDocumento" layoutX="177.0" layoutY="440.0" mnemonicParsing="false" onAction="#btnDescargarDocumentoOnAction" prefHeight="25.0" prefWidth="135.0" text="Descargar Documento" />
+      <Button fx:id="btnDescargarDocumento" disable="true" layoutX="177.0" layoutY="440.0" mnemonicParsing="false" onAction="#btnDescargarDocumentoOnAction" prefHeight="25.0" prefWidth="135.0" text="Descargar Documento" />
       <WebView fx:id="webViewComentarios" layoutX="663.0" layoutY="243.0" prefHeight="176.0" prefWidth="572.0" />
       <Label layoutX="663.0" layoutY="207.0" text="Comentarios: ">
          <font>

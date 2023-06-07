@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioUsuarioController">
+   <children>
+      <TabPane layoutY="80.0" prefHeight="556.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab style="-fx-background-color: #B84357;" text="Estudiante">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="581.0" prefWidth="631.0">
+                     <children>
+                        <Button layoutX="41.0" layoutY="448.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="420.0" layoutY="448.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Añadir" textFill="WHITE">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="365.0" layoutY="78.0" prefHeight="35.0" promptText="pj. Juan" />
+                        <TextField layoutX="46.0" layoutY="78.0" prefHeight="35.0" promptText="pj. zS2015709" />
+                        <Label layoutX="46.0" layoutY="49.0" text="Matricula" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="365.0" layoutY="49.0" text="Nombre" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="365.0" layoutY="145.0" text="Apellido Materno" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="46.0" layoutY="145.0" text="Apellido Paterno" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="46.0" layoutY="174.0" prefHeight="35.0" promptText="pj. Florez" />
+                        <TextField layoutX="365.0" layoutY="174.0" prefHeight="35.0" promptText="pj. Gomez" />
+                        <TextField layoutX="366.0" layoutY="272.0" prefHeight="35.0" promptText="pj. juan12345" />
+                        <TextField layoutX="47.0" layoutY="272.0" prefHeight="35.0" promptText="pj. juanflores" />
+                        <Label layoutX="47.0" layoutY="243.0" text="Username" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="366.0" layoutY="243.0" text="Password" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField layoutX="366.0" layoutY="368.0" prefHeight="35.0" promptText="pj. 9231268459" />
+                        <TextField layoutX="47.0" layoutY="368.0" prefHeight="35.0" prefWidth="223.0" promptText="pj. zS20015709@estudiante.uv" />
+                        <Label layoutX="47.0" layoutY="339.0" text="Correo Institucional" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="366.0" layoutY="339.0" text="Numero Telefonico" textFill="#bd9240">
+                           <font>
+                              <Font name="Tahoma Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab style="-fx-background-color: #B84357;" text="Profesor">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab style="-fx-background-color: #B84357;" text="Director de Tesis">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="456.0" prefWidth="600.0" />
+              </content>
+            </Tab>
+            <Tab style="-fx-background-color: B84357;" text="Responsable de Academia">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Pane prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: #19222b;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="636.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #19222b;" />
+   </children>
+</AnchorPane>

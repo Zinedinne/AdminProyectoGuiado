@@ -14,6 +14,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.ActividadesDAO;
 import javafxproyectoguiado.modelo.dao.EntregaDAO;
+import javafxproyectoguiado.modelo.dao.EvaluacionDAO;
 import javafxproyectoguiado.modelo.pojo.Actividades;
 import javafxproyectoguiado.modelo.pojo.Entrega;
 import javafxproyectoguiado.modelo.pojo.Evaluacion;
@@ -64,12 +65,14 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
 
     @FXML
     private Label labelFechaInicio;
+    @FXML
+    private WebView webViewComentarios;
     private int idActividad;
 
     private Actividades actividad;
-    private final Evaluacion evaluacion = new Evaluacion();
     private File selectedFile = null;
     private static Entrega entrega = new Entrega();
+    private static Evaluacion evaluacion = new Evaluacion();
 
     @FXML
     void btnRegresarOnAction(ActionEvent event) {
@@ -109,6 +112,7 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
             try {
                 if (entregaDAO.entregarActividad(entrega)) {
                     Utilidades.mostrarDiallogoSimple("Exito", "La actividad ha sido subida con exito", Alert.AlertType.CONFIRMATION);
+                    verificarEntrega();
                 }
             } catch (SQLException throwables) {
                 if (throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
@@ -150,19 +154,18 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
 
     public void setIdActividad(int idActividad) {
         this.idActividad = idActividad;
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (idActividad != 0) {
-            configurarVentana();
+            configurarVentanaAlumno();
             verificarEntrega();
+            verificarRevision();
         }
     }
 
-    public void configurarVentana() {
-
+    public void configurarVentanaAlumno() {
         obtenerActividad();
         labelAlumno.setText(Singleton.getName());
         labelFechaInicio.setText(actividad.getFechaInicio());
@@ -211,12 +214,32 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
             entrega =entregaDAO.verificarEntrega(idActividad);
             if (entrega.getIdEntrega()!=0) {
                 labelArchivo.setText(entrega.getNombreArchivo());
-                btnDescargarDocumento.setVisible(true);
+                btnDescargarDocumento.setDisable(false);
+                btnEnviar.setText("Modificar");
                 btnEnviar.setText("Guardar Cambios");
             }
         } catch (SQLException throwables) {
             if(throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
                 Utilidades.mostrarDiallogoSimple("Error", "Error al verificar la entrega", Alert.AlertType.ERROR);
+            }else if(throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))) {
+                Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos", Alert.AlertType.ERROR);
+            }
+        }
+    }
+
+    public void verificarRevision(){
+        EvaluacionDAO evaluacionDAO = new EvaluacionDAO();
+        try {
+            evaluacion =evaluacionDAO.verificarEvaluacion(idActividad);
+            if (evaluacion.getIdEvaluacion()!=0) {
+                labelCalificacion.setText(evaluacion.getCalificacion());
+                webViewComentarios.getEngine().loadContent(evaluacion.getComentario());
+                btnEnviar.setDisable(true);
+                btnAdjuntarArchivo.setDisable(true);
+            }
+        } catch (SQLException throwables) {
+            if(throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONSULTA))) {
+                Utilidades.mostrarDiallogoSimple("Error", "Error al verificar la revision", Alert.AlertType.ERROR);
             }else if(throwables.getMessage().equals(String.valueOf(Constantes.ERROR_CONEXION))) {
                 Utilidades.mostrarDiallogoSimple("Error", "Error de conexion con la base de datos", Alert.AlertType.ERROR);
             }
