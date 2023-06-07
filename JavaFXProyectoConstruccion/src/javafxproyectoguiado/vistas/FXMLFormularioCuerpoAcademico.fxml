@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="348.0" prefWidth="610.0" style="-fx-background-color: DDD6CC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioCuerpoAcademicoController">
+   <children>
+      <Label layoutX="38.0" layoutY="32.0" text="Registrar Curso" textFill="#bd9240">
+         <font>
+            <Font name="Footlight MT Light" size="35.0" />
+         </font>
+      </Label>
+      <Pane prefHeight="81.0" prefWidth="610.0" style="-fx-background-color: #19222b;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="28.0" layoutY="22.0" text="Registrar Cuerpo Academico" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="321.0" prefHeight="30.0" prefWidth="610.0" style="-fx-background-color: #19222b;" />
+      <Button layoutX="44.0" layoutY="259.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="423.0" layoutY="259.0" mnemonicParsing="false" onAction="#clicBtnGuardar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfNombre" layoutX="101.0" layoutY="166.0" prefHeight="35.0" prefWidth="409.0" promptText="pj. Academia de Tecnologia" />
+      <Label layoutX="209.0" layoutY="131.0" text="Nombre de Academia" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

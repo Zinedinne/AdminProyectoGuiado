@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="610.0" style="-fx-background-color: DDD6CC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioCursoController">
+<AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="610.0" style="-fx-background-color: DDD6CC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioCursoController">
    <children>
       <Pane layoutY="509.0" prefHeight="30.0" prefWidth="610.0" style="-fx-background-color: #19222b;" />
       <Pane prefHeight="81.0" prefWidth="610.0" style="-fx-background-color: #19222b;">
@@ -18,7 +17,7 @@
                   <Font name="Footlight MT Light" size="35.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="22.0" text="Registrar Curso" textFill="#bd9240">
+            <Label fx:id="lbTitulo" layoutX="28.0" layoutY="22.0" text="Registrar Curso" textFill="#bd9240">
                <font>
                   <Font name="Footlight MT Light" size="35.0" />
                </font>
@@ -45,21 +44,21 @@
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="52.0" layoutY="155.0" prefHeight="35.0" promptText="pj. 1" />
-      <TextField layoutX="371.0" layoutY="155.0" prefHeight="35.0" promptText="pj. 75426" />
-      <Button layoutX="430.0" layoutY="451.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Añadir" textFill="WHITE">
+      <TextField fx:id="tfBloque" layoutX="52.0" layoutY="155.0" prefHeight="35.0" promptText="pj. 1" />
+      <TextField fx:id="tfNRC" layoutX="371.0" layoutY="155.0" prefHeight="35.0" promptText="pj. 75426" />
+      <Button layoutX="430.0" layoutY="451.0" mnemonicParsing="false" onAction="#clicBtnGuardar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="51.0" layoutY="451.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
+      <Button layoutX="51.0" layoutY="451.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <ComboBox layoutX="371.0" layoutY="253.0" prefHeight="35.0" prefWidth="187.0" />
-      <ComboBox layoutX="51.0" layoutY="253.0" prefHeight="35.0" prefWidth="187.0" />
-      <ComboBox layoutX="223.0" layoutY="369.0" prefHeight="35.0" prefWidth="187.0" />
+      <ComboBox fx:id="cbMateria" layoutX="371.0" layoutY="253.0" prefHeight="35.0" prefWidth="187.0" />
+      <ComboBox fx:id="cbSeccion" layoutX="51.0" layoutY="253.0" prefHeight="35.0" prefWidth="187.0" />
+      <ComboBox fx:id="cbPeriodo" layoutX="223.0" layoutY="369.0" prefHeight="35.0" prefWidth="187.0" />
       <Label layoutX="227.0" layoutY="338.0" text="Periodo" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
