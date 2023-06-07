@@ -78,4 +78,30 @@ public class ActividadesDAO {
         }
         return resultado;
     }
+
+    public boolean modificarActividad(Actividades actividad) throws SQLException {
+        boolean resultado = false;
+        Connection conexion = ConexionBD.abrirConexionBD();
+        if(conexion != null){
+            String consulta = "UPDATE `proyecto`.`actividad` SET `descripcion` = ?, `fechaInicio` = ?, `fechaFin` = ?, `titulo` = ? WHERE (`idActividad` = ?);\n";
+            try {
+                PreparedStatement prepararSentencia = conexion.prepareStatement(consulta);
+                prepararSentencia.setString(1, actividad.getDescripcion());
+                prepararSentencia.setString(2, actividad.getFechaInicio());
+                prepararSentencia.setString(3, actividad.getFechaFin());
+                prepararSentencia.setString(4, actividad.getTitulo());
+                prepararSentencia.setInt(5, actividad.getIdActividad());
+                int executeUpdate = prepararSentencia.executeUpdate();
+                if(executeUpdate == 1){
+                    resultado = true;
+                }
+                conexion.close();
+            } catch (SQLException ex) {
+                throw new SQLException(String.valueOf(Constantes.ERROR_CONSULTA));
+            }
+        } else {
+            throw new SQLException(String.valueOf(Constantes.ERROR_CONEXION));
+        }
+        return resultado;
+    }
 }

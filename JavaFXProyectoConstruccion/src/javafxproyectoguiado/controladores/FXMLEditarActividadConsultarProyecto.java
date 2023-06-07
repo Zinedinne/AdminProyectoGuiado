@@ -13,11 +13,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafxproyectoguiado.modelo.dao.TableActivitiesDAO;
 import javafxproyectoguiado.modelo.dao.TableAnteproyectoDAO;
 import javafxproyectoguiado.modelo.dao.UsuarioDAO;
 import javafxproyectoguiado.modelo.pojo.Singleton;
-import javafxproyectoguiado.modelo.pojo.TableActivities;
 import javafxproyectoguiado.modelo.pojo.TableAnteproyecto;
 import javafxproyectoguiado.modelo.pojo.Usuario;
 import util.Constantes;
@@ -33,7 +31,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class FXMLConsultarProyecto implements Initializable {
+public class FXMLEditarActividadConsultarProyecto implements Initializable {
 
     @FXML
     private TableView<TableAnteproyecto> tableAnteproyecto;
@@ -169,16 +167,16 @@ public class FXMLConsultarProyecto implements Initializable {
     }
     public void setProyectsToTable(List<TableAnteproyecto> anteproyecto){
         ObservableList<TableAnteproyecto> anteproyectoObservableList= FXCollections.observableArrayList();
-            anteproyectoObservableList.addAll(anteproyecto);
+        anteproyectoObservableList.addAll(anteproyecto);
 
-            columnDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
-            columnFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
-            columnTitulo.setCellValueFactory(new PropertyValueFactory<>("nombreAnteproyecto"));
-            columnDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
-            columnEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
-            columnModalidad.setCellValueFactory(new PropertyValueFactory<>("modalidad"));
-            columnAlumno.setCellValueFactory(new PropertyValueFactory<>("nombreUsuario"));
-            tableAnteproyecto.setItems(anteproyectoObservableList);
+        columnDescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        columnFechaInicio.setCellValueFactory(new PropertyValueFactory<>("fechaInicio"));
+        columnTitulo.setCellValueFactory(new PropertyValueFactory<>("nombreAnteproyecto"));
+        columnDuracion.setCellValueFactory(new PropertyValueFactory<>("duracion"));
+        columnEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        columnModalidad.setCellValueFactory(new PropertyValueFactory<>("modalidad"));
+        columnAlumno.setCellValueFactory(new PropertyValueFactory<>("nombreUsuario"));
+        tableAnteproyecto.setItems(anteproyectoObservableList);
     }
     public void setEstudianteToCombobox(){
         UsuarioDAO usuarioDAO = new UsuarioDAO();

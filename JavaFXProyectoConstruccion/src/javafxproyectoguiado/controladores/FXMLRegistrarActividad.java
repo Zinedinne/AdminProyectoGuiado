@@ -5,9 +5,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.web.HTMLEditor;
+import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.ActividadesDAO;
 import javafxproyectoguiado.modelo.dao.AnteproyectoDAO;
 import javafxproyectoguiado.modelo.dao.UsuarioDAO;
@@ -18,12 +21,15 @@ import javafxproyectoguiado.modelo.pojo.Usuario;
 import util.Constantes;
 import util.Utilidades;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FXMLRegistrarActividad implements Initializable {
 
@@ -58,7 +64,17 @@ public class FXMLRegistrarActividad implements Initializable {
 
     @FXML
     void btnRegresarOnAction(ActionEvent event) {
-
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLActividadesMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) this.btnRegresar.getScene().getWindow();
+            stage.setTitle("Menú de Actividades");
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException ioException){
+            Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
+        }
     }
 
     @FXML
