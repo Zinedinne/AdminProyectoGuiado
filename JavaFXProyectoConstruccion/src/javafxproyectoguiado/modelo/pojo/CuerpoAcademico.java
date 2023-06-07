@@ -27,4 +27,9 @@ public class CuerpoAcademico {
     public void setNombreAcademia(String nombreAcademia) {
         this.nombreAcademia = nombreAcademia;
     }
+    
+    @Override
+    public String toString(){
+        return nombreAcademia;
+    }
 }

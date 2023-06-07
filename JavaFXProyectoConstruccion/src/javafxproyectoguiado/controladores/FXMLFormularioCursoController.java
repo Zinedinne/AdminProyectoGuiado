@@ -143,7 +143,7 @@ public class FXMLFormularioCursoController implements Initializable {
                 
                 break;
             case Constantes.OPERACION_EXITOSA:
-                Utilidades.mostrarDiallogoSimple("Curso Actualizado", 
+                Utilidades.mostrarDiallogoSimple("Curso Registrado", 
                         "La información del curso fue registrado correctamente", 
                         Alert.AlertType.INFORMATION);
                 cerrarVentana();
