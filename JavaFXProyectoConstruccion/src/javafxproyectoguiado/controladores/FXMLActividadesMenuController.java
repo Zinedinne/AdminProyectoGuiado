@@ -64,4 +64,18 @@ public class FXMLActividadesMenuController implements Initializable {
             btnRegistrarActividad.setVisible(false);
         }
     }
+
+    public void btnRegresarOnAction(ActionEvent actionEvent) {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/javafxproyectoguiado/vistas/FXMLMainMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage stage = (Stage) this.btnVerActividades.getScene().getWindow();
+            stage.setTitle("Menu principal");
+            stage.setScene(scene);
+            stage.show();
+        }catch(IOException ioException){
+            Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
+        }
+    }
 }

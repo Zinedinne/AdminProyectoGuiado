@@ -175,7 +175,7 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
         labelTitulo.setText(actividad.getTitulo());
         WebEngine webEngine = webViewDescripcion.getEngine();
         webEngine.loadContent(actividad.getDescripcion());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyy y-MM-dd");
         LocalDate fechaFin = LocalDate.parse(actividad.getFechaFin(), formatter);
         if(LocalDate.now().isAfter(fechaFin)){
             btnEnviar.setDisable(true);
