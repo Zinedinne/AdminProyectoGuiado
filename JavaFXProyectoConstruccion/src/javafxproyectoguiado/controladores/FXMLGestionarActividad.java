@@ -179,7 +179,7 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
         LocalDate fechaFin = LocalDate.parse(actividad.getFechaFin(), formatter);
         if(LocalDate.now().isAfter(fechaFin)){
             btnEnviar.setDisable(true);
-            
+
         }
     }
 
