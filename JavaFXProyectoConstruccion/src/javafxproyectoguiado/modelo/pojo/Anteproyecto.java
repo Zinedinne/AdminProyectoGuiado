@@ -7,11 +7,13 @@ public class Anteproyecto {
     private String fechaInicio;
     private String modalidad;
     private String duracion;
-    private String estado;
+    private boolean estado;
     private int idUsuario;
     private int idLGAC;
+    private int idAnteproyecto_idAnteproyecto;
+    private int idEncargadoDeTesis;
 
-    public Anteproyecto(int idAnteproyecto, String nombreAnteproyecto, String descripcion, String fechaInicio, String modalidad, String duracion, String estado, int idUsuario, int idLGAC) {
+    public Anteproyecto(int idAnteproyecto, String nombreAnteproyecto, String descripcion, String fechaInicio, String modalidad, String duracion, boolean estado, int idUsuario, int idLGAC, int idAnteproyecto_idAnteproyecto, int idEncargadoDeTesis) {
         this.idAnteproyecto = idAnteproyecto;
         this.nombreAnteproyecto = nombreAnteproyecto;
         this.descripcion = descripcion;
@@ -21,8 +23,31 @@ public class Anteproyecto {
         this.estado = estado;
         this.idUsuario = idUsuario;
         this.idLGAC = idLGAC;
+        this.idAnteproyecto_idAnteproyecto = idAnteproyecto_idAnteproyecto;
+        this.idEncargadoDeTesis = idEncargadoDeTesis;
     }
+
     public Anteproyecto(){
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public int getIdAnteproyecto_idAnteproyecto() {
+        return idAnteproyecto_idAnteproyecto;
+    }
+
+    public void setIdAnteproyecto_idAnteproyecto(int idAnteproyecto_idAnteproyecto) {
+        this.idAnteproyecto_idAnteproyecto = idAnteproyecto_idAnteproyecto;
+    }
+
+    public int getIdEncargadoDeTesis() {
+        return idEncargadoDeTesis;
+    }
+
+    public void setIdEncargadoDeTesis(int idEncargadoDeTesis) {
+        this.idEncargadoDeTesis = idEncargadoDeTesis;
     }
 
     public int getIdAnteproyecto() {
@@ -73,11 +98,11 @@ public class Anteproyecto {
         this.duracion = duracion;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
@@ -95,5 +120,10 @@ public class Anteproyecto {
 
     public void setIdLGAC(int idLGAC) {
         this.idLGAC = idLGAC;
+    }
+
+    @Override
+    public String toString() {
+        return nombreAnteproyecto;
     }
 }

@@ -11,23 +11,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.TableActivitiesDAO;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 import javafxproyectoguiado.modelo.pojo.TableActivities;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import util.Constantes;
 import util.Utilidades;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Observable;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,6 +83,7 @@ public class FXMLConsultarActividadesController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         if (Singleton.getRol().equals("Estudiante")){
             configurarVentanaAlumno();
         }else {
@@ -173,13 +172,16 @@ public class FXMLConsultarActividadesController implements Initializable {
             idUsuario = idAlumno;
         }
         columnButton.setText("Consultar");
-        TableActivitiesDAO tableActivitiesDAO = new TableActivitiesDAO();
         List<TableActivities> activitiesList=null;
         ObservableList<TableActivities> activitiesObservableList= FXCollections.observableArrayList();
 
         try{
             activitiesList = TableActivitiesDAO.getActivities(idUsuario);
-            if (activitiesList!=null){
+            if (!activitiesList.isEmpty()){
+                for (TableActivities activity   : activitiesList) {
+                    Document doc = Jsoup.parse(activity.getDescripcion());
+                    activity.setDescripcion(doc.body().text());
+                }
                 activitiesObservableList.addAll(activitiesList);
             }
 

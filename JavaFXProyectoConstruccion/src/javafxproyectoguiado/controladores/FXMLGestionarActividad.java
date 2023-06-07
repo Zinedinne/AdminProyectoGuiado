@@ -194,10 +194,9 @@ public class FXMLGestionarActividad extends Stage implements Initializable {
 
     @FXML
     void btnAdjuntarArchivoOnAction(ActionEvent event) {
-        Utilidades.mostrarDiallogoSimple("Adjuntar Archivo", "Adjuntar Archivo", Alert.AlertType.INFORMATION);
         Stage stage = new Stage();
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PDF Files", "*.pdf"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Archivos PDF  (*.pdf)", "*.pdf"));
         selectedFile = fileChooser.showOpenDialog(stage);
 
         if (selectedFile != null) {

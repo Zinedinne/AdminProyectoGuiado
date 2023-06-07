@@ -26,7 +26,40 @@ public class UsuarioDAO {
                 if(resultado.next()){
 
                     do{
+                        Usuario usuario = new Usuario();
+                        usuario.setIdUsuario(resultado.getInt("idUsuario"));
+                        usuario.setUsername(resultado.getString("username"));
+                        usuario.setApellidoMaterno(resultado.getString("apellidoMaterno"));
+                        usuario.setApellidoPaterno(resultado.getString("apellidoPaterno"));
+                        usuario.setNombre(resultado.getString("nombre"));
+                        usuario.setCorreo(resultado.getString("correoInstitucional"));
+                        usuario.setTipoUsuario(resultado.getString("tipoUsuario"));
+                        usuario.setNumeroTelefono(resultado.getString("numeroTelefono"));
+                        estudiantes.add(usuario);
+                    }while(resultado.next());
+                }
+                conexion.close();
+            } catch (SQLException ex) {
+                Utilidades.mostrarDiallogoSimple("",ex.getMessage(), Alert.AlertType.ERROR);
+                throw new SQLException(String.valueOf(Constantes.ERROR_CONSULTA));
+            }
+        } else {
+            throw new SQLException(String.valueOf(Constantes.ERROR_CONEXION));
+        }
+        return estudiantes;
+    }
+    public List<Usuario> getEstudiantesPorAnteproyecto(int idAnteproyecto) throws SQLException {
+        List<Usuario> estudiantes = new ArrayList<>();
+        Connection conexion = ConexionBD.abrirConexionBD();
+        if(conexion != null){
+            String consulta = "SELECT * from  usuario join anteproyectousuario au on au.Anteproyecto_idAnteproyecto = ? where tipoUsuario = 'Estudiante' and au.Usuario_idUsuario = idUsuario";
+            try {
+                PreparedStatement prepararSentencia = conexion.prepareStatement(consulta);
+                prepararSentencia.setString(1, String.valueOf(idAnteproyecto));
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if(resultado.next()){
 
+                    do{
                         Usuario usuario = new Usuario();
                         usuario.setIdUsuario(resultado.getInt("idUsuario"));
                         usuario.setUsername(resultado.getString("username"));

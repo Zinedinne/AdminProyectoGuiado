@@ -8,18 +8,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLRegistrarActividad">
    <children>
-      <DatePicker fx:id="datePickerFechaInicio" layoutX="347.0" layoutY="220.0" prefHeight="25.0" prefWidth="204.0" />
-      <DatePicker fx:id="datePickerFechaEntrega" layoutX="617.0" layoutY="220.0" prefHeight="25.0" prefWidth="204.0" />
+      <DatePicker fx:id="datePickerFechaInicio" editable="false" layoutX="347.0" layoutY="220.0" prefHeight="25.0" prefWidth="204.0" />
+      <DatePicker fx:id="datePickerFechaEntrega" editable="false" layoutX="617.0" layoutY="220.0" prefHeight="25.0" prefWidth="204.0" />
       <Label layoutX="73.0" layoutY="100.0" text="Docente:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <Button fx:id="btnRegresar" layoutX="25.0" layoutY="32.0" mnemonicParsing="false" onAction="#btnRegresarOnAction" text="&lt;" />
-      <Button fx:id="btnRegistrarActividad" layoutX="74.0" layoutY="658.0" mnemonicParsing="false" onAction="#btnRegistrarActividadOnAction" text="Registrar Actividad" />
+      <Button fx:id="btnRegistrarActividad" disable="true" layoutX="74.0" layoutY="658.0" mnemonicParsing="false" onAction="#btnRegistrarActividadOnAction" text="Registrar Actividad" />
       <Label fx:id="labelDocente" layoutX="153.0" layoutY="100.0" text="Label">
          <font>
             <Font size="18.0" />
@@ -46,7 +45,7 @@
          </font>
       </Label>
       <TextField fx:id="textFieldTitulo" layoutX="73.0" layoutY="220.0" prefHeight="25.0" prefWidth="204.0" promptText="Actividad 1" />
-      <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="74.0" layoutY="306.0" prefHeight="321.0" prefWidth="1133.0" />
+      <HTMLEditor fx:id="htmlEditorDescripcion" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="74.0" layoutY="306.0" prefHeight="321.0" prefWidth="1133.0" />
       <Label layoutX="73.0" layoutY="266.0" text="Descripcion:">
          <font>
             <Font size="18.0" />
@@ -62,7 +61,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="comboBoxEstudiante" layoutX="895.0" layoutY="220.0" onAction="#comboBoxEstudianteOnAction" prefHeight="25.0" prefWidth="204.0" />
+      <ComboBox fx:id="comboBoxEstudiante" disable="true" layoutX="895.0" layoutY="220.0" onAction="#comboBoxEstudianteOnAction" prefHeight="25.0" prefWidth="204.0" />
       <ComboBox fx:id="comboBoxProyecto" layoutX="470.0" layoutY="101.0" onAction="#comboBoxProyectoOnAction" prefHeight="25.0" prefWidth="167.0" />
    </children>
 </AnchorPane>
