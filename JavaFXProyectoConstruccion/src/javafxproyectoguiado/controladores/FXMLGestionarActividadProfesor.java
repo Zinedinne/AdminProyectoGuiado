@@ -187,9 +187,10 @@ public class FXMLGestionarActividadProfesor implements Initializable {
     }
 
 
-    public void setIdActividad(int idActividad, String nombre) {
+    public void setIdActividad(int idActividad, String nombre, int idAlumno) {
         this.idActividad = idActividad;
         this.nombreAlumno = nombre;
+        this.idAlumno = idAlumno;
     }
     public void obtenerActividad() {
         ActividadesDAO actividadesDAO = new ActividadesDAO();

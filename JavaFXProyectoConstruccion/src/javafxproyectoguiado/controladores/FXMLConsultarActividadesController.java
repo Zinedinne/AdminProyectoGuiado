@@ -121,7 +121,7 @@ public class FXMLConsultarActividadesController implements Initializable {
                         try {
                             Parent root = loader.load();
                             FXMLGestionarActividadProfesor controller = loader.getController();
-                            controller.setIdActividad(activity.getIdActividad(), nombreAlumno);
+                            controller.setIdActividad(activity.getIdActividad(), nombreAlumno, idAlumno);
                             Stage stage = new Stage();
                             stage.setScene(new Scene(root));
                             stage.setOnShown(event2 -> {
