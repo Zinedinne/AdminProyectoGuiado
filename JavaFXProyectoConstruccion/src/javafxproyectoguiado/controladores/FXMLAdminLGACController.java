@@ -16,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -26,12 +25,11 @@ import javafxproyectoguiado.modelo.dao.LGACDAO;
 import javafxproyectoguiado.modelo.pojo.LGAC;
 import javafxproyectoguiado.modelo.pojo.LGACRespuesta;
 import util.Constantes;
+import util.INotificacionOperacionLGAC;
 import util.Utilidades;
 
-public class FXMLAdminLGACController implements Initializable {
+public class FXMLAdminLGACController implements Initializable, INotificacionOperacionLGAC {
 
-    @FXML
-    private TextField tfBusqueda;
     @FXML
     private TableView<LGAC> tvLGAC;
     @FXML
@@ -69,7 +67,7 @@ public class FXMLAdminLGACController implements Initializable {
 
     @FXML
     private void clicBtnRegresar(MouseEvent event) {
-        Stage escearioPrincipal = (Stage) tfBusqueda.getScene().getWindow();
+        Stage escearioPrincipal = (Stage) tvLGAC.getScene().getWindow();
         escearioPrincipal.close();
     }
 
@@ -96,7 +94,8 @@ public class FXMLAdminLGACController implements Initializable {
             Parent vista = accesoControlador.load();
             FXMLFormularioLGACController formulario = accesoControlador.getController();
             
-            formulario.inicializarInformacionFormulario(esEdicion, lgacEdicion);
+            formulario.inicializarInformacionFormulario(esEdicion, lgacEdicion,
+                    this);
             
             Stage escenarioFormulario = new Stage();
             escenarioFormulario.setScene(new Scene (vista));
@@ -106,6 +105,16 @@ public class FXMLAdminLGACController implements Initializable {
         } catch (IOException ex){
             Logger.getLogger(FXMLFormularioCursoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void notificarOperacionGuardarLGAC() {
+        cargarInformacionTabla();
+    }
+
+    @Override
+    public void notificarOperacionActualizarLGAC() {
+        cargarInformacionTabla();
     }
     
 }

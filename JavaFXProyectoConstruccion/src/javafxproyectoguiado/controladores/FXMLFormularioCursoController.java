@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -14,7 +13,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
 import javafxproyectoguiado.modelo.dao.CursoDAO;
 import javafxproyectoguiado.modelo.dao.MateriaDAO;
 import javafxproyectoguiado.modelo.dao.PeriodoDAO;
@@ -24,6 +22,7 @@ import javafxproyectoguiado.modelo.pojo.MateriaRespuesta;
 import javafxproyectoguiado.modelo.pojo.Periodo;
 import javafxproyectoguiado.modelo.pojo.PeriodoRespuesta;
 import util.Constantes;
+import util.INotificacionOperacionCurso;
 import util.Utilidades;
 
 public class FXMLFormularioCursoController implements Initializable {
@@ -47,6 +46,7 @@ public class FXMLFormularioCursoController implements Initializable {
     private Curso cursoEdicion;
     String estiloError = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;";
     String estiloNormal = "-fx-border-width: 0;";
+    private INotificacionOperacionCurso interfazNotificacion;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -55,9 +55,10 @@ public class FXMLFormularioCursoController implements Initializable {
         cargarInformacionPeriodo();
     }
     
-    public void inicializarInformacionFormulario(boolean esEdicion, Curso cursoEdicion){
+    public void inicializarInformacionFormulario(boolean esEdicion, Curso cursoEdicion, INotificacionOperacionCurso interfazNotificacion){
         this.esEdicion = esEdicion;
         this.cursoEdicion = cursoEdicion;
+        this.interfazNotificacion = interfazNotificacion;
         
         if(esEdicion){
             lbTitulo.setText("Editar información del Curso");
@@ -146,6 +147,7 @@ public class FXMLFormularioCursoController implements Initializable {
                         "La información del curso fue registrado correctamente", 
                         Alert.AlertType.INFORMATION);
                 cerrarVentana();
+                interfazNotificacion.notificarOperacionGuardarCurso();
                 break;
         }
     }
@@ -169,6 +171,7 @@ public class FXMLFormularioCursoController implements Initializable {
                         "La información del curso fue actualizada correctamente", 
                         Alert.AlertType.INFORMATION);
                 cerrarVentana();
+                interfazNotificacion.notificarOperacionActualizarCurso();
                 break;
         }
     }

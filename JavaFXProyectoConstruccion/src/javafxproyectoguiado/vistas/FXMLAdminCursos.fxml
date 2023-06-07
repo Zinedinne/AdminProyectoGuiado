@@ -35,7 +35,6 @@
             <TableColumn fx:id="tcNombrePeriodo" prefWidth="296.0" text="Nombre de Periodo" />
         </columns>
       </TableView>
-      <TextField fx:id="tfBusqueda" layoutX="97.0" layoutY="118.0" prefHeight="35.0" prefWidth="415.0" promptText="Buscar por materia o periodo" />
       <Button layoutX="684.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />

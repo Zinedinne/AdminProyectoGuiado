@@ -4,6 +4,8 @@
  */
 package javafxproyectoguiado.modelo.pojo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Zinedinne
@@ -15,52 +17,29 @@ public class Usuario {
     private String apellidoMaterno;
     private String username;
     private String password;
-    private String correo;
+    private String correoInstitucional;
     private int numeroTelefono;
     private String tipoUsuario;
     private int codigoRespuesta;
+    private ArrayList<Usuario> usuarios;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correo, int numeroTelefono, String tipoUsuario, int codigoRespuesta) {
+    public Usuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correoInstitucional, int numeroTelefono, String tipoUsuario, int codigoRespuesta, ArrayList<Usuario> usuarios) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.username = username;
         this.password = password;
-        this.correo = correo;
+        this.correoInstitucional = correoInstitucional;
         this.numeroTelefono = numeroTelefono;
         this.tipoUsuario = tipoUsuario;
         this.codigoRespuesta = codigoRespuesta;
+        this.usuarios = usuarios;
     }
 
-    public String getCorreo() {
-        return correo;
-    }
-
-    public int getNumeroTelefono() {
-        return numeroTelefono;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public void setNumeroTelefono(int numeroTelefono) {
-        this.numeroTelefono = numeroTelefono;
-    }
-
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
-    }
-
-    
     public int getIdUsuario() {
         return idUsuario;
     }
@@ -109,11 +88,44 @@ public class Usuario {
         this.password = password;
     }
 
+    public String getCorreoInstitucional() {
+        return correoInstitucional;
+    }
+
+    public void setCorreoInstitucional(String correoInstitucional) {
+        this.correoInstitucional = correoInstitucional;
+    }
+
+    public int getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(int numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
     public int getCodigoRespuesta() {
         return codigoRespuesta;
     }
 
     public void setCodigoRespuesta(int codigoRespuesta) {
         this.codigoRespuesta = codigoRespuesta;
-    }   
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+    
 }

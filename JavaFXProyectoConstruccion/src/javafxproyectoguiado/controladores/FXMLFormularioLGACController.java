@@ -10,9 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.LGACDAO;
-import javafxproyectoguiado.modelo.pojo.Curso;
 import javafxproyectoguiado.modelo.pojo.LGAC;
 import util.Constantes;
+import util.INotificacionOperacionLGAC;
 import util.Utilidades;
 
 public class FXMLFormularioLGACController implements Initializable {
@@ -23,6 +23,7 @@ public class FXMLFormularioLGACController implements Initializable {
     private Label lbTitulo;
     private boolean esEdicion;
     private LGAC lgacEdicion;
+    private INotificacionOperacionLGAC interfazNotificacion;
     String estiloError = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;";
     String estiloNormal = "-fx-border-width: 0;";
 
@@ -31,9 +32,10 @@ public class FXMLFormularioLGACController implements Initializable {
         // TODO
     }   
     
-    public void inicializarInformacionFormulario(boolean esEdicion, LGAC lgacEdicion){
+    public void inicializarInformacionFormulario(boolean esEdicion, LGAC lgacEdicion, INotificacionOperacionLGAC interfazNotificacion){
         this.esEdicion = esEdicion;
         this.lgacEdicion = lgacEdicion;
+        this.interfazNotificacion = interfazNotificacion;
         
         if(esEdicion){
             lbTitulo.setText("Editar información del LGAC");
@@ -90,6 +92,7 @@ public class FXMLFormularioLGACController implements Initializable {
                         "La información de la LGAC fue registrada correctamente", 
                         Alert.AlertType.INFORMATION);
                 cerrarVentana();
+                interfazNotificacion.notificarOperacionGuardarLGAC();
                 break;
         }
     }
@@ -113,6 +116,7 @@ public class FXMLFormularioLGACController implements Initializable {
                         "La información de la LGAC fue actualizada correctamente", 
                         Alert.AlertType.INFORMATION);
                 cerrarVentana();
+                interfazNotificacion.notificarOperacionActualizarLGAC();
                 break;
         }
     }
