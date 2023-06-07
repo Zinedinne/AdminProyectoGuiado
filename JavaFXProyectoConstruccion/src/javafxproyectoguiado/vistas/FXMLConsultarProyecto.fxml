@@ -20,12 +20,12 @@
         <columns>
           <TableColumn fx:id="columnTitulo" prefWidth="150.0" text="Titulo" />
           <TableColumn fx:id="columnDescripcion" prefWidth="250.0" text="Descripcion" />
-            <TableColumn fx:id="columnEstado" prefWidth="130.0" text="Estado" />
-            <TableColumn fx:id="columnDuracion" prefWidth="130.0" text="Duracion" />
-            <TableColumn fx:id="columnFechaInicio" prefWidth="130.0" text="FechaI Inicio" />
-            <TableColumn fx:id="columnModalidad" prefWidth="130.0" text="Modalidad" />
+            <TableColumn fx:id="columnEstado" prefWidth="125.0" text="Estado" />
+            <TableColumn fx:id="columnDuracion" prefWidth="125.0" text="Duracion" />
+            <TableColumn fx:id="columnFechaInicio" prefWidth="125.0" text="FechaI Inicio" />
+            <TableColumn fx:id="columnModalidad" prefWidth="125.0" text="Modalidad" />
             <TableColumn fx:id="columnAlumno" prefWidth="160.0" text="Alumno" />
-            <TableColumn fx:id="columnBoton" prefWidth="75.0" text="Column X" />
+            <TableColumn fx:id="columnBoton" prefWidth="95.0" />
         </columns>
       </TableView>
       <Label layoutX="62.0" layoutY="178.0" text="Alumno:">

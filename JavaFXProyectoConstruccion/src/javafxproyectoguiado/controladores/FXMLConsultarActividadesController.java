@@ -61,9 +61,9 @@ public class FXMLConsultarActividadesController implements Initializable {
     private int idAlumno;
     private  String nombreAlumno;
 
-    public void setIdAlumno(int idActividad, String nombre) {
-        this.idAlumno = idActividad;
+    public void setIdAlumno(int idAlumno, String nombre){
         this.nombreAlumno = nombre;
+        this.idAlumno = idAlumno;
     }
 
     @FXML
@@ -116,7 +116,7 @@ public class FXMLConsultarActividadesController implements Initializable {
                         } catch (IOException ex) {
                             ex.printStackTrace();
                         }
-                    }else if (Singleton.getRol().equals("Profesor")){
+                    }else if (Singleton.getRol().equals("Profesor") || Singleton.getRol().equals("Encargado de tesis")){
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLGestionarActividadProfesor.fxml"));
                         try {
                             Parent root = loader.load();
@@ -168,7 +168,8 @@ public class FXMLConsultarActividadesController implements Initializable {
         int idUsuario = 0;
         if(Singleton.getRol().equals("Estudiante")){
             idUsuario = Singleton.getId();
-        } else if (Singleton.getRol().equals("Profesor")) {
+        } else if (Singleton.getRol().equals("Profesor") || Singleton.getRol().equals("Encargado de tesis")) {
+
             idUsuario = idAlumno;
         }
         columnButton.setText("Consultar");

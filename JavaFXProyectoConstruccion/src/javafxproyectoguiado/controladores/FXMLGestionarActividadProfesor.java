@@ -71,6 +71,9 @@ public class FXMLGestionarActividadProfesor implements Initializable {
     private static Evaluacion evaluacion = new Evaluacion();
     private File selectedFile = null;
     private static Entrega entrega = new Entrega();
+    @FXML
+    private Label labelNota;
+    private int idAlumno;
 
     @FXML
     void btnRegresarOnAction(ActionEvent event) {
@@ -79,7 +82,8 @@ public class FXMLGestionarActividadProfesor implements Initializable {
         try {
             Parent root = loader.load();
             FXMLConsultarActividadesController controller = loader.getController();
-            controller.setIdAlumno(idActividad, nombreAlumno);
+            Utilidades.mostrarDiallogoSimple("Exito", idActividad + nombreAlumno, Alert.AlertType.INFORMATION);
+            controller.setIdAlumno(idAlumno, nombreAlumno);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setOnShown(event2 -> {
@@ -249,15 +253,22 @@ public class FXMLGestionarActividadProfesor implements Initializable {
         }
     }
     public void configurarVentana() {
+        if (Singleton.getRol().equals("Profesor")){
+            btnCalificar.setDisable(true);
+            comboBoxCalificacion.setDisable(true);
+            htmlEditorRetroalimentacion.setDisable(true);
+        }else {
+            for (int i = 1; i <= 10; i++) {
+                comboBoxCalificacion.getItems().add(String.valueOf(i));
+            }
+            labelNota.setVisible(false);
+        }
         obtenerActividad();
         verificarRevision();
         labelAlumno.setText(nombreAlumno);
         labelFechaInicio.setText(actividad.getFechaInicio());
         labelFechaFin.setText(actividad.getFechaFin());
         labelTitulo.setText(actividad.getTitulo());
-        for (int i = 1; i <= 10; i++) {
-            comboBoxCalificacion.getItems().add(String.valueOf(i));
-        }
     }
 
     @FXML
