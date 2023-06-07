@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="748.0" prefWidth="1249.0" style="-fx-background-color: #19222b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAdminUsuarioController">
+   <children>
+      <Pane prefHeight="91.0" prefWidth="1249.0" style="-fx-background-color: #DDD6CC;">
+         <children>
+            <Label layoutX="385.0" layoutY="14.0" text="Gestión de Usuarios" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="59.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+               <image>
+                  <Image url="@../recursos/flecha-derecha.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button layoutX="1045.0" layoutY="117.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="801.0" layoutY="117.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <Pane layoutY="710.0" prefHeight="38.0" prefWidth="1249.0" style="-fx-background-color: #DDD6CC;" />
+      <TableView fx:id="tvUsuarios" layoutX="35.0" layoutY="174.0" prefHeight="514.0" prefWidth="1179.0">
+        <columns>
+            <TableColumn fx:id="tcNombre" prefWidth="119.0" text="Nombre" />
+            <TableColumn fx:id="tcApellidoPaterno" prefWidth="148.0" text="Apellido Paterno" />
+            <TableColumn fx:id="tcApellidoMaterno" prefWidth="152.0" text="Apellido Materno" />
+          <TableColumn fx:id="tcUsername" prefWidth="96.0" text="Username" />
+          <TableColumn fx:id="tcPassword" prefWidth="108.0" text="Password" />
+            <TableColumn fx:id="tcCorreo" prefWidth="236.0" text="Correo Institucional" />
+            <TableColumn fx:id="tcTelefono" prefWidth="169.0" text="Numero de Telefono" />
+            <TableColumn fx:id="tcTipoUsuario" prefWidth="148.0" text="Tipo de Usuario" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

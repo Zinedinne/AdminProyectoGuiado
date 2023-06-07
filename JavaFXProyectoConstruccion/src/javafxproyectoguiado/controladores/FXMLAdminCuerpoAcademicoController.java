@@ -21,28 +21,20 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
-import javafxproyectoguiado.modelo.dao.CursoDAO;
-import javafxproyectoguiado.modelo.pojo.Curso;
-import javafxproyectoguiado.modelo.pojo.CursoRespuesta;
+import javafxproyectoguiado.modelo.dao.CuerpoAcademicoDAO;
+import javafxproyectoguiado.modelo.pojo.CuerpoAcademico;
+import javafxproyectoguiado.modelo.pojo.CuerpoAcademicoRespuesta;
 import util.Constantes;
-import util.INotificacionOperacionCurso;
 import util.Utilidades;
+import util.INotificacionOperacionCuerpoAcademico;
 
-public class FXMLAdminCursosController implements Initializable, INotificacionOperacionCurso {
+public class FXMLAdminCuerpoAcademicoController implements Initializable, INotificacionOperacionCuerpoAcademico{
 
     @FXML
-    private TableColumn tcBloque;
+    private TableView<CuerpoAcademico> tvCuerpoAcademico;
     @FXML
-    private TableColumn tcNRC;
-    @FXML
-    private TableColumn tcSeccion;
-    @FXML
-    private TableColumn tcNombreMateria;
-    @FXML
-    private TableColumn tcNombrePeriodo;
-    @FXML
-    private TableView<Curso> tvCursos;
-    private ObservableList<Curso> cursos;
+    private TableColumn tcNombre;
+    private ObservableList<CuerpoAcademico> academias;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,16 +43,12 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
     }
 
     private void configurarTabla(){
-        tcBloque.setCellValueFactory(new PropertyValueFactory("Bloque"));
-        tcNRC.setCellValueFactory(new PropertyValueFactory("Nrc"));
-        tcSeccion.setCellValueFactory(new PropertyValueFactory("Seccion"));
-        tcNombreMateria.setCellValueFactory(new PropertyValueFactory("NombreMateria"));
-        tcNombrePeriodo.setCellValueFactory(new PropertyValueFactory("NombrePeriodo"));
+        tcNombre.setCellValueFactory(new PropertyValueFactory("nombreAcademia"));
     }
     
     private void cargarInformacionTabla(){
-        cursos = FXCollections.observableArrayList();
-        CursoRespuesta respuestaBD = CursoDAO.obtenerInformacionCurso();
+        academias = FXCollections.observableArrayList();
+        CuerpoAcademicoRespuesta respuestaBD = CuerpoAcademicoDAO.obtenerInformaciónCuerpoAcademico();
         switch(respuestaBD.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
                     Utilidades.mostrarDiallogoSimple("Error Conxeion", 
@@ -71,42 +59,42 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
                             "Hubo un error al cargar la información por favor inténtelo más tarde", Alert.AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                    cursos.addAll(respuestaBD.getCursos());
-                    tvCursos.setItems(cursos);
+                    academias.addAll(respuestaBD.getAcademias());
+                    tvCuerpoAcademico.setItems(academias);
                 break;
         }
     }
 
     @FXML
     private void clicBtnRegresar(MouseEvent event) {
-        Stage escearioPrincipal = (Stage) tvCursos.getScene().getWindow();
+        Stage escearioPrincipal = (Stage) tvCuerpoAcademico.getScene().getWindow();
         escearioPrincipal.close();
+    }
+
+    @FXML
+    private void clicBtnModificar(ActionEvent event) {
+        CuerpoAcademico cuerpoAcademicoSeleccionado = tvCuerpoAcademico.getSelectionModel().getSelectedItem();
+        if(cuerpoAcademicoSeleccionado != null){
+            irFormulario(true, cuerpoAcademicoSeleccionado);
+        }else{
+            Utilidades.mostrarDiallogoSimple("Selecciona un Cuerpo Academico", 
+                    "Selecciona el registro en la tabla del Cuerpo Academico para su edicion", Alert.AlertType.WARNING);
+        }
     }
 
     @FXML
     private void clicBtnRegistrar(ActionEvent event) {
         irFormulario(false,null);
     }
-
-    @FXML
-    private void clicBtnModificar(ActionEvent event) {
-        Curso cursoSeleccionado = tvCursos.getSelectionModel().getSelectedItem();
-        if(cursoSeleccionado != null){
-            irFormulario(true, cursoSeleccionado);
-        }else{
-            Utilidades.mostrarDiallogoSimple("Selecciona un Curso", 
-                    "Selecciona el registro en la tabla del Curso para su edicion", Alert.AlertType.WARNING);
-        }
-    }
     
-    private void irFormulario(boolean esEdicion, Curso cursoEdicion){
+    private void irFormulario(boolean esEdicion, CuerpoAcademico cuerpoAcademicoEdicion){
         try{
             FXMLLoader accesoControlador = new FXMLLoader
-                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioCurso.fxml"));
+                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioCuerpoAcademico.fxml"));
             Parent vista = accesoControlador.load();
-            FXMLFormularioCursoController formulario = accesoControlador.getController();
+            FXMLFormularioCuerpoAcademicoController formulario = accesoControlador.getController();
             
-            formulario.inicializarInformacionFormulario(esEdicion, cursoEdicion,
+            formulario.inicializarInformacionFormulario(esEdicion, cuerpoAcademicoEdicion,
                     this);
             
             Stage escenarioFormulario = new Stage();
@@ -120,12 +108,12 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
     }
 
     @Override
-    public void notificarOperacionGuardarCurso() {
+    public void notificarOperacionGuardarCuerpoAcademico() {
         cargarInformacionTabla();
     }
 
     @Override
-    public void notificarOperacionActualizarCurso() {
+    public void notificarOperacionActualizarCuerpoAcademico() {
         cargarInformacionTabla();
     }
     

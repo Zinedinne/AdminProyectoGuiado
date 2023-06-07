@@ -1,23 +1,23 @@
 package javafxproyectoguiado.modelo.pojo;
 
-public class Materia {
-    private int idMateria;
+public class LGAC {
+    private int idLGAC;
     private String nombre;
 
-    public Materia() {
+    public LGAC() {
     }
 
-    public Materia(int idMateria, String nombre) {
-        this.idMateria = idMateria;
+    public LGAC(int idLGAC, String nombre) {
+        this.idLGAC = idLGAC;
         this.nombre = nombre;
     }
-
-    public int getIdMateria() {
-        return idMateria;
+    
+    public int getIdLGAC() {
+        return idLGAC;
     }
 
-    public void setIdMateria(int idMateria) {
-        this.idMateria = idMateria;
+    public void setIdLGAC(int idLGAC) {
+        this.idLGAC = idLGAC;
     }
 
     public String getNombre() {

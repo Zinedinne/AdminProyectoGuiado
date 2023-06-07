@@ -21,46 +21,34 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
-import javafxproyectoguiado.modelo.dao.CursoDAO;
-import javafxproyectoguiado.modelo.pojo.Curso;
-import javafxproyectoguiado.modelo.pojo.CursoRespuesta;
+import javafxproyectoguiado.modelo.dao.LGACDAO;
+import javafxproyectoguiado.modelo.pojo.LGAC;
+import javafxproyectoguiado.modelo.pojo.LGACRespuesta;
 import util.Constantes;
-import util.INotificacionOperacionCurso;
+import util.INotificacionOperacionLGAC;
 import util.Utilidades;
 
-public class FXMLAdminCursosController implements Initializable, INotificacionOperacionCurso {
+public class FXMLAdminLGACController implements Initializable, INotificacionOperacionLGAC {
 
     @FXML
-    private TableColumn tcBloque;
+    private TableView<LGAC> tvLGAC;
     @FXML
-    private TableColumn tcNRC;
-    @FXML
-    private TableColumn tcSeccion;
-    @FXML
-    private TableColumn tcNombreMateria;
-    @FXML
-    private TableColumn tcNombrePeriodo;
-    @FXML
-    private TableView<Curso> tvCursos;
-    private ObservableList<Curso> cursos;
+    private TableColumn tcLGAC;
+    private ObservableList<LGAC> lgacs;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarInformacionTabla();
     }
-
+    
     private void configurarTabla(){
-        tcBloque.setCellValueFactory(new PropertyValueFactory("Bloque"));
-        tcNRC.setCellValueFactory(new PropertyValueFactory("Nrc"));
-        tcSeccion.setCellValueFactory(new PropertyValueFactory("Seccion"));
-        tcNombreMateria.setCellValueFactory(new PropertyValueFactory("NombreMateria"));
-        tcNombrePeriodo.setCellValueFactory(new PropertyValueFactory("NombrePeriodo"));
+        tcLGAC.setCellValueFactory(new PropertyValueFactory("nombre"));
     }
     
     private void cargarInformacionTabla(){
-        cursos = FXCollections.observableArrayList();
-        CursoRespuesta respuestaBD = CursoDAO.obtenerInformacionCurso();
+        lgacs = FXCollections.observableArrayList();
+        LGACRespuesta respuestaBD = LGACDAO.obtenerInformacionLGAC();
         switch(respuestaBD.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
                     Utilidades.mostrarDiallogoSimple("Error Conxeion", 
@@ -71,47 +59,47 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
                             "Hubo un error al cargar la información por favor inténtelo más tarde", Alert.AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                    cursos.addAll(respuestaBD.getCursos());
-                    tvCursos.setItems(cursos);
+                    lgacs.addAll(respuestaBD.getLgacs());
+                    tvLGAC.setItems(lgacs);
                 break;
         }
     }
 
     @FXML
     private void clicBtnRegresar(MouseEvent event) {
-        Stage escearioPrincipal = (Stage) tvCursos.getScene().getWindow();
+        Stage escearioPrincipal = (Stage) tvLGAC.getScene().getWindow();
         escearioPrincipal.close();
+    }
+
+    @FXML
+    private void clicBtnModificar(ActionEvent event) {
+        LGAC lgacSeleccionado = tvLGAC.getSelectionModel().getSelectedItem();
+        if(lgacSeleccionado != null){
+            irFormulario(true, lgacSeleccionado);
+        }else{
+            Utilidades.mostrarDiallogoSimple("Selecciona una LGAC", 
+                    "Selecciona el registro en la tabla de la LGAC para su edicion", Alert.AlertType.WARNING);
+        }
     }
 
     @FXML
     private void clicBtnRegistrar(ActionEvent event) {
         irFormulario(false,null);
     }
-
-    @FXML
-    private void clicBtnModificar(ActionEvent event) {
-        Curso cursoSeleccionado = tvCursos.getSelectionModel().getSelectedItem();
-        if(cursoSeleccionado != null){
-            irFormulario(true, cursoSeleccionado);
-        }else{
-            Utilidades.mostrarDiallogoSimple("Selecciona un Curso", 
-                    "Selecciona el registro en la tabla del Curso para su edicion", Alert.AlertType.WARNING);
-        }
-    }
     
-    private void irFormulario(boolean esEdicion, Curso cursoEdicion){
+    private void irFormulario(boolean esEdicion, LGAC lgacEdicion){
         try{
             FXMLLoader accesoControlador = new FXMLLoader
-                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioCurso.fxml"));
+                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioLGAC.fxml"));
             Parent vista = accesoControlador.load();
-            FXMLFormularioCursoController formulario = accesoControlador.getController();
+            FXMLFormularioLGACController formulario = accesoControlador.getController();
             
-            formulario.inicializarInformacionFormulario(esEdicion, cursoEdicion,
+            formulario.inicializarInformacionFormulario(esEdicion, lgacEdicion,
                     this);
             
             Stage escenarioFormulario = new Stage();
             escenarioFormulario.setScene(new Scene (vista));
-            escenarioFormulario.setTitle("FormularioCurso");
+            escenarioFormulario.setTitle("FormularioLGAC");
             escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
             escenarioFormulario.showAndWait();
         } catch (IOException ex){
@@ -120,12 +108,12 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
     }
 
     @Override
-    public void notificarOperacionGuardarCurso() {
+    public void notificarOperacionGuardarLGAC() {
         cargarInformacionTabla();
     }
 
     @Override
-    public void notificarOperacionActualizarCurso() {
+    public void notificarOperacionActualizarLGAC() {
         cargarInformacionTabla();
     }
     
