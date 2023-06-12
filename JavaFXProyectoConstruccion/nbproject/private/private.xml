@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/pojo/Estudiante.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAdminUsuarioController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioCursoController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/util/Utilidades.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/dao/EstudianteDAO.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioUsuarioController.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/dao/AnteproyectoModuloDAO.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAnteproyectosFormularioController.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAnteproyectosValidacionMenuController.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAnteproyectosMenuController.java</file>
         </group>
     </open-files>
 </project-private>
