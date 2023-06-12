@@ -21,56 +21,55 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
-import javafxproyectoguiado.modelo.dao.RegistroUsuarioDAO;
+import javafxproyectoguiado.modelo.dao.EstudianteDAO;
 import javafxproyectoguiado.modelo.pojo.Estudiante;
-import javafxproyectoguiado.modelo.pojo.RegistroUsuario;
-import javafxproyectoguiado.modelo.pojo.RegistroUsuarioRespuesta;
+import javafxproyectoguiado.modelo.pojo.EstudianteRespuesta;
 import util.Constantes;
 import util.INotificacionOperacionUsuario;
 import util.Utilidades;
 
-public class FXMLAdminUsuarioController implements Initializable, INotificacionOperacionUsuario {
+public class FXMLAdminEstudiantesController implements Initializable, INotificacionOperacionUsuario{
 
     @FXML
-    private TableView<RegistroUsuario> tvUsuarios;
+    private TableView<Estudiante> tvEstudiantes;
+    @FXML
+    private TableColumn tcMatricula;
+    @FXML
+    private TableColumn tcNombre;
+    @FXML
+    private TableColumn tcApellidoPaterno;
+    @FXML
+    private TableColumn tcApellidoMaterno;
     @FXML
     private TableColumn tcUsername;
     @FXML
     private TableColumn tcPassword;
     @FXML
-    private TableColumn tcApellidoMaterno;
-    @FXML
-    private TableColumn tcApellidoPaterno;
-    @FXML
-    private TableColumn tcNombre;
-    @FXML
     private TableColumn tcCorreo;
     @FXML
     private TableColumn tcTelefono;
-    @FXML
-    private TableColumn tcTipoUsuario;
-    private ObservableList<RegistroUsuario> usuarios;
+    private ObservableList<Estudiante> estudiantes;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarInformacionTabla();
-    }
-    
+    }    
+
     private void configurarTabla(){
-        tcNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
-        tcApellidoMaterno.setCellValueFactory(new PropertyValueFactory("apellidoMaterno"));
-        tcApellidoPaterno.setCellValueFactory(new PropertyValueFactory("apellidoPaterno"));
-        tcUsername.setCellValueFactory(new PropertyValueFactory("username"));
-        tcPassword.setCellValueFactory(new PropertyValueFactory("password"));
-        tcCorreo.setCellValueFactory(new PropertyValueFactory("correoInstitucional"));
+        tcMatricula.setCellValueFactory(new PropertyValueFactory("Matricula"));
+        tcNombre.setCellValueFactory(new PropertyValueFactory("Nombre"));
+        tcApellidoPaterno.setCellValueFactory(new PropertyValueFactory("ApellidoPaterno"));
+        tcApellidoMaterno.setCellValueFactory(new PropertyValueFactory("ApellidoMaterno"));
+        tcUsername.setCellValueFactory(new PropertyValueFactory("Username"));
+        tcPassword.setCellValueFactory(new PropertyValueFactory("Password"));
+        tcCorreo.setCellValueFactory(new PropertyValueFactory("CorreoInstitucional"));
         tcTelefono.setCellValueFactory(new PropertyValueFactory("numeroTelefono"));
-        tcTipoUsuario.setCellValueFactory(new PropertyValueFactory("tipoUsuario"));
     }
     
     private void cargarInformacionTabla(){
-        usuarios = FXCollections.observableArrayList();
-        RegistroUsuarioRespuesta respuestaBD = RegistroUsuarioDAO.obtenerInformacionUsuario();
+        estudiantes = FXCollections.observableArrayList();
+        EstudianteRespuesta respuestaBD = EstudianteDAO.obtenerInformacionEstudiante();
         switch(respuestaBD.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
                     Utilidades.mostrarDiallogoSimple("Error Conxeion", 
@@ -81,51 +80,51 @@ public class FXMLAdminUsuarioController implements Initializable, INotificacionO
                             "Hubo un error al cargar la información por favor inténtelo más tarde", Alert.AlertType.WARNING);
                 break;
             case Constantes.OPERACION_EXITOSA:
-                    usuarios.addAll(respuestaBD.getUsuarios());
-                    tvUsuarios.setItems(usuarios);
+                    estudiantes.addAll(respuestaBD.getEstudiantes());
+                    tvEstudiantes.setItems(estudiantes);
                 break;
         }
     }
 
     @FXML
     private void clicBtnRegresar(MouseEvent event) {
-        Stage escearioPrincipal = (Stage) tvUsuarios.getScene().getWindow();
+        Stage escearioPrincipal = (Stage) tvEstudiantes.getScene().getWindow();
         escearioPrincipal.close();
     }
 
-    /*@FXML
-    private void clicBtnModificar(ActionEvent event) {
-        RegistroUsuario Seleccionado = tvUsuarios.getSelectionModel().getSelectedItem();
-        if(Seleccionado != null){
-            irFormulario(true, Seleccionado);
-        }else{
-            Utilidades.mostrarDiallogoSimple("Selecciona un Usuario", 
-                    "Selecciona el registro en la tabla del Usuario para su edicion", Alert.AlertType.WARNING);
-        }
-    }*/
-
     @FXML
-    private void clicBtnRegistrar(ActionEvent event) {
+    private void clicBtnRegistrarEstudiante(ActionEvent event) {
         irFormulario(false,null);
     }
+
+    @FXML
+    private void clicBtnModificarEstudiante(ActionEvent event) {
+        Estudiante estudianteSeleccionado = tvEstudiantes.getSelectionModel().getSelectedItem();
+        if(estudianteSeleccionado != null){
+            irFormulario(true, estudianteSeleccionado);
+        }else{
+            Utilidades.mostrarDiallogoSimple("Selecciona un Estudiante", 
+                    "Selecciona el registro en la tabla del Estudiante para su edicion", Alert.AlertType.WARNING);
+        }
+    }
     
-    private void irFormulario(boolean esEdicion, Estudiante usuarioEdicion){
+    private void irFormulario(boolean esEdicion, Estudiante estudianteEdicion){
         try{
             FXMLLoader accesoControlador = new FXMLLoader
-                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioUsuario.fxml"));
+                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLFormularioEstudiante.fxml"));
             Parent vista = accesoControlador.load();
-            FXMLFormularioUsuarioController formulario = accesoControlador.getController();
+            FXMLFormularioEstudianteController formulario = accesoControlador.getController();
             
-            formulario.inicializarInformacionFormulario(esEdicion, usuarioEdicion,
+            formulario.inicializarInformacionFormulario(esEdicion, estudianteEdicion,
                     this);
             
             Stage escenarioFormulario = new Stage();
             escenarioFormulario.setScene(new Scene (vista));
-            escenarioFormulario.setTitle("FormularioUsuario");
+            escenarioFormulario.setTitle("Formulario Estudiante");
             escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
             escenarioFormulario.showAndWait();
         } catch (IOException ex){
-            Logger.getLogger(FXMLFormularioCursoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FXMLFormularioEstudianteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

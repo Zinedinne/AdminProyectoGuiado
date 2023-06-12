@@ -70,42 +70,42 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     private void clicBtnCursos(ActionEvent event) {
-        Stage escenarioAlumnos = new Stage();
-        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCursos.fxml");
-        escenarioAlumnos.setScene(esceneAdminAlumnos);
-        escenarioAlumnos.setTitle("Gestión de Cursos");
-        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
-        escenarioAlumnos.showAndWait();
+        Stage escenarioCursos = new Stage();
+        Scene esceneAdminCursos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCursos.fxml");
+        escenarioCursos.setScene(esceneAdminCursos);
+        escenarioCursos.setTitle("Gestión de Cursos");
+        escenarioCursos.initModality(Modality.APPLICATION_MODAL);
+        escenarioCursos.showAndWait();
     }
 
     @FXML
     private void clicBtnLGAC(ActionEvent event) {
-        Stage escenarioAlumnos = new Stage();
-        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminLGAC.fxml");
-        escenarioAlumnos.setScene(esceneAdminAlumnos);
-        escenarioAlumnos.setTitle("Gestión de LGAC");
-        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
-        escenarioAlumnos.showAndWait();
+        Stage escenarioLGAC = new Stage();
+        Scene esceneAdminLGAC = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminLGAC.fxml");
+        escenarioLGAC.setScene(esceneAdminLGAC);
+        escenarioLGAC.setTitle("Gestión de LGAC");
+        escenarioLGAC.initModality(Modality.APPLICATION_MODAL);
+        escenarioLGAC.showAndWait();
     }
 
     @FXML
     private void clicBtnCuerpoAcademico(ActionEvent event) {
-        Stage escenarioAlumnos = new Stage();
-        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCuerpoAcademico.fxml");
-        escenarioAlumnos.setScene(esceneAdminAlumnos);
-        escenarioAlumnos.setTitle("Gestión de Cuerpo Academico");
-        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
-        escenarioAlumnos.showAndWait();
+        Stage escenarioCuerpoAcademico = new Stage();
+        Scene esceneAdminCuerposAcademicos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminCuerpoAcademico.fxml");
+        escenarioCuerpoAcademico.setScene(esceneAdminCuerposAcademicos);
+        escenarioCuerpoAcademico.setTitle("Gestión de Cuerpo Academico");
+        escenarioCuerpoAcademico.initModality(Modality.APPLICATION_MODAL);
+        escenarioCuerpoAcademico.showAndWait();
     }
 
     @FXML
     private void clicBtnGestionUsuarios(ActionEvent event) {
-        Stage escenarioAlumnos = new Stage();
-        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAdminUsuario.fxml");
-        escenarioAlumnos.setScene(esceneAdminAlumnos);
-        escenarioAlumnos.setTitle("Gestión Usuarios");
-        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
-        escenarioAlumnos.showAndWait();
+        Stage escenarioUsuarios = new Stage();
+        Scene esceneAdminUsuarios = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLGestionUsuario.fxml");
+        escenarioUsuarios.setScene(esceneAdminUsuarios);
+        escenarioUsuarios.setTitle("Gestión de Usuarios");
+        escenarioUsuarios.initModality(Modality.APPLICATION_MODAL);
+        escenarioUsuarios.showAndWait();
     }
 
 

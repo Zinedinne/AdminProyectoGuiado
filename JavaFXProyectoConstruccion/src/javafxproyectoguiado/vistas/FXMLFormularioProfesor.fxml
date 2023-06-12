@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="703.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioProfesorController">
+   <children>
+      <Pane layoutY="674.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #19222b;" />
+      <Pane prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: #19222b;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" text="Registrar Profesor" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="36.0" layoutY="615.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="422.0" layoutY="615.0" mnemonicParsing="false" onAction="#clicBtnGuardarProfesor" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfNombreProfesor" layoutX="366.0" layoutY="154.0" prefHeight="35.0" promptText="pj. Juan" />
+      <TextField fx:id="tfNumeroTrabajadorProfesor" layoutX="47.0" layoutY="154.0" prefHeight="35.0" promptText="pj. 2015709" />
+      <Label layoutX="48.0" layoutY="125.0" text="Numero de Trabajador" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="125.0" text="Nombre" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="253.0" text="Apellido Materno" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="47.0" layoutY="253.0" text="Apellido Paterno" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfApellidoPaternoProfesor" layoutX="47.0" layoutY="282.0" prefHeight="35.0" promptText="pj. Florez" />
+      <TextField fx:id="tfApellidoMaternoProfesor" layoutX="366.0" layoutY="282.0" prefHeight="35.0" promptText="pj. Gomez" />
+      <TextField fx:id="tfPasswordProfesor" layoutX="366.0" layoutY="400.0" prefHeight="35.0" promptText="pj. juan12345" />
+      <TextField fx:id="tfUsernameProfesor" layoutX="48.0" layoutY="400.0" prefHeight="35.0" promptText="pj. juanflores" />
+      <Label layoutX="48.0" layoutY="371.0" text="Username" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="371.0" text="Password" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNumeroProfesor" layoutX="366.0" layoutY="517.0" prefHeight="35.0" promptText="pj. 9231268459" />
+      <TextField fx:id="tfCorreoProfesor" layoutX="47.0" layoutY="517.0" prefHeight="35.0" prefWidth="223.0" promptText="pj. GJua@uv.mx" />
+      <Label layoutX="47.0" layoutY="488.0" text="Correo Institucional" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="366.0" layoutY="488.0" text="Numero Telefonico" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

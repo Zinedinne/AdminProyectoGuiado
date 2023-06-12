@@ -1,6 +1,6 @@
 package javafxproyectoguiado.modelo.pojo;
 
-public class RegistroUsuario {
+public class Profesor {
     private int idUsuario;
     private String nombre;
     private String apellidoPaterno;
@@ -10,15 +10,13 @@ public class RegistroUsuario {
     private String correoInstitucional;
     private String numeroTelefono;
     private String tipoUsuario;
-    private String matricula;
     private String numeroTrabajador;
-    private int idEstudiante;
-    private int idAcademia;
+    private int idAcademico;
 
-    public RegistroUsuario() {
+    public Profesor() {
     }
 
-    public RegistroUsuario(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correoInstitucional, String numeroTelefono, String tipoUsuario,String matricula, String numeroTrabajador,int idEstudiante,int idAcademia) {
+    public Profesor(int idUsuario, String nombre, String apellidoPaterno, String apellidoMaterno, String username, String password, String correoInstitucional, String numeroTelefono, String tipoUsuario, String numeroTrabajador, int idAcademico) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
@@ -28,10 +26,8 @@ public class RegistroUsuario {
         this.correoInstitucional = correoInstitucional;
         this.numeroTelefono = numeroTelefono;
         this.tipoUsuario = tipoUsuario;
-        this.matricula = matricula;
         this.numeroTrabajador = numeroTrabajador;
-        this.idEstudiante = idEstudiante;
-        this.idAcademia = idAcademia;
+        this.idAcademico = idAcademico;
     }
 
     public int getIdUsuario() {
@@ -86,7 +82,7 @@ public class RegistroUsuario {
         return correoInstitucional;
     }
 
-    public void setCorreo(String correoInstitucional) {
+    public void setCorreoInstitucional(String correoInstitucional) {
         this.correoInstitucional = correoInstitucional;
     }
 
@@ -106,14 +102,6 @@ public class RegistroUsuario {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
     public String getNumeroTrabajador() {
         return numeroTrabajador;
     }
@@ -122,20 +110,13 @@ public class RegistroUsuario {
         this.numeroTrabajador = numeroTrabajador;
     }
 
-    public int getIdEstudiante() {
-        return idEstudiante;
+    public int getIdAcademico() {
+        return idAcademico;
     }
 
-    public void setIdEstudiante(int idEstudiante) {
-        this.idEstudiante = idEstudiante;
+    public void setIdAcademico(int idAcadémico) {
+        this.idAcademico = idAcadémico;
     }
-
-    public int getIdAcademia() {
-        return idAcademia;
-    }
-
-    public void setIdAcademia(int idAcademia) {
-        this.idAcademia = idAcademia;
-    }
+    
     
 }

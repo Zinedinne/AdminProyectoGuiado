@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="748.0" prefWidth="1249.0" style="-fx-background-color: #19222b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAdminEstudiantesController">
+   <children>
+      <Pane layoutY="724.0" prefHeight="38.0" prefWidth="1249.0" style="-fx-background-color: #DDD6CC;" />
+      <Button layoutX="811.0" layoutY="127.0" mnemonicParsing="false" onAction="#clicBtnRegistrarEstudiante" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="1055.0" layoutY="127.0" mnemonicParsing="false" onAction="#clicBtnModificarEstudiante" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="24.0" layoutY="24.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+         <image>
+            <Image url="@../recursos/flecha-derecha.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="91.0" prefWidth="1249.0" style="-fx-background-color: #DDD6CC;">
+         <children>
+            <Label layoutX="355.0" layoutY="14.0" text="Gestión de Estudiantes" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="59.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/angulo-doble-izquierda.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tvEstudiantes" layoutX="43.0" layoutY="172.0" prefHeight="526.0" prefWidth="1162.0">
+        <columns>
+          <TableColumn fx:id="tcMatricula" prefWidth="101.0" text="Matricula" />
+          <TableColumn fx:id="tcNombre" prefWidth="93.0" text="Nombre" />
+            <TableColumn fx:id="tcApellidoPaterno" prefWidth="145.0" text="Apellido Paterno" />
+            <TableColumn fx:id="tcApellidoMaterno" prefWidth="145.0" text="Apellido Materno" />
+            <TableColumn fx:id="tcUsername" prefWidth="140.0" text="Username" />
+            <TableColumn fx:id="tcPassword" prefWidth="133.0" text="Password" />
+            <TableColumn fx:id="tcCorreo" prefWidth="252.0" text="Correo Institucional" />
+            <TableColumn fx:id="tcTelefono" prefWidth="151.0" text="Telefono" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

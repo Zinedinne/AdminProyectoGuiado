@@ -76,7 +76,7 @@ public class FXMLFormularioCursoController implements Initializable {
         int posicionMateria = obtenerPosicionComboMateria(cursoEdicion.getIdMateria());
         cbMateria.getSelectionModel().select(posicionMateria);
         int posicionPeriodo = obtenerPosicionComboPeriodo(cursoEdicion.getIdPeriodo());
-        cbPeriodo.getSelectionModel().select(posicionPeriodo);
+        cbPeriodo.getSelectionModel().select(posicionPeriodo); 
         
     }
     
