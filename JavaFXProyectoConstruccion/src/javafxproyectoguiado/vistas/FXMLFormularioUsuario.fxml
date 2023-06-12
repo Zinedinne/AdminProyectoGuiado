@@ -9,9 +9,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="703.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioUsuarioController">
    <children>
-      <TabPane layoutY="80.0" prefHeight="596.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPaneRegistro" layoutY="80.0" prefHeight="596.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab style="-fx-background-color: #B84357;" text="Estudiante">
+          <Tab fx:id="tabEstudiante" style="-fx-background-color: #B84357;" text="Estudiante">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="581.0" prefWidth="631.0">
                      <children>
@@ -77,7 +77,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab style="-fx-background-color: #B84357;" text="Profesor">
+          <Tab fx:id="tabProfesor" style="-fx-background-color: #B84357;" text="Profesor">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="600.0">
                      <children>
@@ -142,7 +142,7 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab style="-fx-background-color: #B84357;" text="Director de Tesis">
+            <Tab fx:id="tabDirector" style="-fx-background-color: #B84357;" text="Director de Tesis">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="456.0" prefWidth="600.0">
                      <children>
@@ -207,7 +207,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab style="-fx-background-color: B84357;" text="Responsable de Academia">
+            <Tab fx:id="tabResponsable" style="-fx-background-color: B84357;" text="Responsable de Academia">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
