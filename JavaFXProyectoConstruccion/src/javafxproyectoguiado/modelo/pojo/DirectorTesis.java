@@ -118,5 +118,9 @@ public class DirectorTesis {
         this.idAcademico = idAcademico;
     }
     
+    @Override
+    public String toString(){
+        return nombre+ " "+ apellidoPaterno+" "+apellidoMaterno;
+    }
     
 }

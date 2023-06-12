@@ -118,5 +118,9 @@ public class Profesor {
         this.idAcademico = idAcadémico;
     }
     
+    @Override
+    public String toString(){
+        return nombre+ " "+ apellidoPaterno+" "+apellidoMaterno;
+    }
     
 }
