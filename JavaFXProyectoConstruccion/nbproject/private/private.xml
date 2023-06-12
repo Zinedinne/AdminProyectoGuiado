@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAdminEstudiantesController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAdminUsuarioController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioCursoController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioEstudianteController.java</file>
-            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioUsuarioController.java</file>
+            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/dao/ResponsableDAO.java</file>
+            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAdminDirectorTesisController.java</file>
+            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioResponsableController.java</file>
+            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAdminResponsablesController.java</file>
+            <file>file:/C:/Users/reneu/Videos/Nueva%20carpeta/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioDirectorTesisController.java</file>
         </group>
     </open-files>
 </project-private>
