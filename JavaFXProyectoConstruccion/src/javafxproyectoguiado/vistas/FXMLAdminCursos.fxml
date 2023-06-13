@@ -26,7 +26,7 @@
          </children>
       </Pane>
       <Pane layoutY="700.0" prefHeight="38.0" prefWidth="1133.0" style="-fx-background-color: #DDD6CC;" />
-      <TableView fx:id="tvCursos" layoutX="97.0" layoutY="181.0" prefHeight="497.0" prefWidth="939.0">
+      <TableView fx:id="tvCursos" layoutX="97.0" layoutY="181.0" onMouseClicked="#dobleClicConsultarCurso" prefHeight="497.0" prefWidth="939.0">
         <columns>
           <TableColumn fx:id="tcBloque" prefWidth="119.0" text="Bloque" />
           <TableColumn fx:id="tcNRC" prefWidth="91.0" text="NRC" />
@@ -35,12 +35,12 @@
             <TableColumn fx:id="tcNombrePeriodo" prefWidth="296.0" text="Nombre de Periodo" />
         </columns>
       </TableView>
-      <Button layoutX="684.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
+      <Button fx:id="btnRegistrar" layoutX="684.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnRegistrar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Registrar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="904.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
+      <Button fx:id="btnModificar" layoutX="904.0" layoutY="118.0" mnemonicParsing="false" onAction="#clicBtnModificar" prefHeight="35.0" prefWidth="132.0" style="-fx-background-color: #b84357; -fx-background-radius: 18 18 18 18;" text="Modificar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font>

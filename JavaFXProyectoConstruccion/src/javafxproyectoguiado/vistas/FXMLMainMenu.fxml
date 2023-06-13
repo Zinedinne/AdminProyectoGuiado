@@ -6,12 +6,13 @@
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLMainMenuController">
    <children>
-      <Button layoutX="177.0" layoutY="315.0" mnemonicParsing="false" onAction="#clicBtnGestionUsuarios" prefHeight="91.0" prefWidth="163.0" text="Gestion de Usuarios" />
+      <Button fx:id="btnUsuarios" layoutX="177.0" layoutY="315.0" mnemonicParsing="false" onAction="#clicBtnGestionUsuarios" prefHeight="91.0" prefWidth="163.0" text="Gestion de Usuarios" />
       <Button fx:id="btnProyectosMenu" layoutX="547.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnProyectosMenusOnAction" prefHeight="91.0" prefWidth="163.0" text="Gestion de Proyectos" />
       <Button fx:id="btnActividadesMenu" layoutX="922.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnActividadesMenuOnAction" prefHeight="91.0" prefWidth="163.0" text="Gestion de Actividades" />
-      <Button layoutX="80.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCursos" prefHeight="91.0" prefWidth="163.0" text="Gestion de Cursos" />
-      <Button layoutX="547.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="91.0" prefWidth="163.0" text="Gestion de LGAC" />
-      <Button layoutX="886.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCuerpoAcademico" prefHeight="91.0" prefWidth="236.0" text="Gestion de Cuerpo Academico" />
+
+      <Button fx:id="btnCurso" layoutX="80.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCursos" prefHeight="91.0" prefWidth="163.0" text="Gestion de Cursos" />
+      <Button fx:id="btnLGAC" layoutX="547.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="91.0" prefWidth="163.0" text="Gestion de LGAC" />
+      <Button fx:id="btnCuerpoAcademico" layoutX="886.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCuerpoAcademico" prefHeight="91.0" prefWidth="236.0" text="Gestion de Cuerpo Academico" />
       <Button fx:id="btnValidacionProyectosMenu" layoutX="547.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnValidacionProyectosMenuOnAction" prefHeight="91.0" prefWidth="163.0" style="-fx-wrap-text: true;" text="Consultar proyectos para validación" />
    </children>
 </AnchorPane>

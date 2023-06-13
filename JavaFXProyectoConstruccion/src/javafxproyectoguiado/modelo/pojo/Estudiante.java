@@ -118,4 +118,9 @@ public class Estudiante {
         this.idEstudiante = idEstudiante;
     }
     
+    @Override
+    public String toString(){
+        return nombre+ " "+ apellidoPaterno+" "+apellidoMaterno;
+    }
+    
 }

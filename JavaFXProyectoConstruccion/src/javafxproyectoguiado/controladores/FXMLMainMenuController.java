@@ -35,7 +35,16 @@ public class FXMLMainMenuController implements Initializable {
     @FXML
     private Button btnProyectosMenu;
     @FXML
+    private Button btnUsuarios;
+    @FXML
+    private Button btnCurso;
+    @FXML
+    private Button btnLGAC;
+    @FXML
+    private Button btnCuerpoAcademico;
+    @FXML
     private Button btnValidacionProyectosMenu;
+
 
 
     void btnUsuariosMenuOnAction(ActionEvent event) {
@@ -72,24 +81,33 @@ public class FXMLMainMenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        switch (Singleton.getRol()) {
+
+        switch(Singleton.getRol()){
             case "Responsable de academia":
-                //TODO
-                break;
-            case "Encargado de tesis":
-                btnValidacionProyectosMenu.setVisible(false);
-                break;
-            case "Profesor":
-                btnValidacionProyectosMenu.setVisible(false);
+                btnCurso.setVisible(false);
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
                 break;
             case "Estudiante":
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
                 btnProyectosMenu.setVisible(false);
                 btnValidacionProyectosMenu.setVisible(false);
                 break;
-            case "TODO ROLES": 
+            case "Encargado de Tesis":
+                btnCurso.setVisible(false);
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
-            default:
-                // Código por defecto si ninguno de los casos anteriores coincide
+            case "Profesor":
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
         }
     }

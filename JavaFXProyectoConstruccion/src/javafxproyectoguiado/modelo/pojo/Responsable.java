@@ -138,6 +138,9 @@ public class Responsable {
         this.nombreAcademia = nombreAcademia;
     }
     
-    
+    @Override
+    public String toString(){
+        return nombre+ " "+ apellidoPaterno+" "+apellidoMaterno;
+    }
     
 }

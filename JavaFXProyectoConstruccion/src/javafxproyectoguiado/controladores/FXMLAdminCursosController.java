@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -24,6 +25,7 @@ import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
 import javafxproyectoguiado.modelo.dao.CursoDAO;
 import javafxproyectoguiado.modelo.pojo.Curso;
 import javafxproyectoguiado.modelo.pojo.CursoRespuesta;
+import javafxproyectoguiado.modelo.pojo.Singleton;
 import util.Constantes;
 import util.INotificacionOperacionCurso;
 import util.Utilidades;
@@ -43,11 +45,24 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
     @FXML
     private TableView<Curso> tvCursos;
     private ObservableList<Curso> cursos;
+    @FXML
+    private Button btnRegistrar;
+    @FXML
+    private Button btnModificar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         configurarTabla();
         cargarInformacionTabla();
+        switch(Singleton.getRol()){
+            case "Estudiante":
+                btnModificar.setVisible(false);
+                btnRegistrar.setVisible(false);
+                break;
+            case "Profesor":
+                btnRegistrar.setVisible(false);
+                break;
+        }
     }
 
     private void configurarTabla(){
@@ -127,6 +142,33 @@ public class FXMLAdminCursosController implements Initializable, INotificacionOp
     @Override
     public void notificarOperacionActualizarCurso() {
         cargarInformacionTabla();
+    }
+
+    @FXML
+    private void dobleClicConsultarCurso(MouseEvent event) {
+        Curso cursoSeleccionado = tvCursos.getSelectionModel().getSelectedItem();
+        if(event.getClickCount() == 2){
+            irConsulta(cursoSeleccionado);
+        }
+    }
+    
+    private void irConsulta(Curso cursoConsulta){
+        try{
+            FXMLLoader accesoControlador = new FXMLLoader
+                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLConsultaCurso.fxml"));
+            Parent vista = accesoControlador.load();
+            FXMLConsultaCursoController consulta = accesoControlador.getController();
+            
+            consulta.inicializarInformacionConsulta(cursoConsulta);
+            
+            Stage escenarioFormulario = new Stage();
+            escenarioFormulario.setScene(new Scene (vista));
+            escenarioFormulario.setTitle("Consultar Empleado");
+            escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
+            escenarioFormulario.showAndWait();
+        } catch (IOException ex){
+            Logger.getLogger(FXMLConsultaCursoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
