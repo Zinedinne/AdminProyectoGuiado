@@ -81,6 +81,8 @@ public class FXMLFormularioResponsableController implements Initializable {
         int posicionCuerpoAcademico = obtenerPosicionComboCuerpoAcademico(responsableEdicion.getIdAcademia());
         cbCuerpoResponsable.getSelectionModel().select(posicionCuerpoAcademico);
         cbCuerpoResponsable.setEditable(false);
+        cbCuerpoResponsable.setDisable(false);
+        cbCuerpoResponsable.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
     }
 
     @FXML
@@ -107,31 +109,31 @@ public class FXMLFormularioResponsableController implements Initializable {
         String numeroTrabajador = tfNumeroTrabajadorResponsable.getText();
         int posicionCuerpoAcademico = cbCuerpoResponsable.getSelectionModel().getSelectedIndex();
         
-        if(nombre.isEmpty()){
+        if(!Utilidades.soloLetras(nombre)){
             tfNombreResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoPaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoPaterno)){
             tfApellidoPaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoMaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoMaterno)){
             tfApellidoMaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(!Utilidades.soloLetras(username)){
             tfUsernameResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(!Utilidades.soloLetras(password)){
             tfPasswordResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numero.isEmpty()){
+        if(!Utilidades.soloNumeros(numero)){
             tfNumeroResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numeroTrabajador.isEmpty()){
+        if(!Utilidades.soloNumeros(numeroTrabajador)){
             tfNumeroTrabajadorResponsable.setStyle(estiloError);
             datosValidados = false;
         }

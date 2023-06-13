@@ -89,31 +89,31 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
         String numero = tfNumeroTesis.getText();
         String numeroTrabajador = tfNumeroTrabajadorTesis.getText();
         
-        if(nombre.isEmpty()){
+        if(!Utilidades.soloLetras(nombre)){
             tfNombreTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoPaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoPaterno)){
             tfApellidoPaternoTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoMaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoMaterno)){
             tfApellidoMaternoTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(!Utilidades.soloLetras(username)){
             tfUsernameTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(!Utilidades.soloLetras(password)){
             tfPasswordTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numero.isEmpty()){
+        if(!Utilidades.soloNumeros(numero)){
             tfNumeroTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numeroTrabajador.isEmpty()){
+        if(!Utilidades.soloNumeros(numeroTrabajador)){
             tfNumeroTrabajadorTesis.setStyle(estiloError);
             datosValidados = false;
         }

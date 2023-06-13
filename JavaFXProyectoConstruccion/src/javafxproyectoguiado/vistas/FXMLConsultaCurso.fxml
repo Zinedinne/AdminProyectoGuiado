@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="456.0" prefWidth="610.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLConsultaCursoController">
+   <children>
+      <Label layoutX="227.0" layoutY="337.0" text="Periodo" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbPeriodo" layoutX="223.0" layoutY="368.0" prefHeight="35.0" prefWidth="187.0" />
+      <ComboBox fx:id="cbSeccion" layoutX="51.0" layoutY="252.0" prefHeight="35.0" prefWidth="187.0" />
+      <ComboBox fx:id="cbMateria" layoutX="371.0" layoutY="252.0" prefHeight="35.0" prefWidth="187.0" />
+      <TextField fx:id="tfNRC" layoutX="371.0" layoutY="154.0" prefHeight="35.0" promptText="pj. 75426" />
+      <TextField fx:id="tfBloque" layoutX="52.0" layoutY="154.0" prefHeight="35.0" promptText="pj. 1" />
+      <Label layoutX="56.0" layoutY="125.0" text="Bloque" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="371.0" layoutY="125.0" text="NRC" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="375.0" layoutY="221.0" text="Materia" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="221.0" text="Sección" textFill="#bd9240">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane layoutY="-1.0" prefHeight="81.0" prefWidth="610.0" style="-fx-background-color: #19222b;">
+         <children>
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbTitulo" layoutX="28.0" layoutY="22.0" text="Registrar Curso" textFill="#bd9240">
+               <font>
+                  <Font name="Footlight MT Light" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="434.0" prefHeight="30.0" prefWidth="610.0" style="-fx-background-color: #19222b;" />
+   </children>
+</AnchorPane>

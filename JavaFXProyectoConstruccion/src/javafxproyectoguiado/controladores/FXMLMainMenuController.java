@@ -34,6 +34,14 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     private Button btnProyectosMenu;
+    @FXML
+    private Button btnUsuarios;
+    @FXML
+    private Button btnCurso;
+    @FXML
+    private Button btnLGAC;
+    @FXML
+    private Button btnCuerpoAcademico;
 
 
     void btnUsuariosMenuOnAction(ActionEvent event) {
@@ -65,7 +73,30 @@ public class FXMLMainMenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        switch(Singleton.getRol()){
+            case "Responsable de academia":
+                btnCurso.setVisible(false);
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                break;
+            case "Estudiante":
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                break;
+            case "Encargado de Tesis":
+                btnCurso.setVisible(false);
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                break;
+            case "Profesor":
+                btnCuerpoAcademico.setVisible(false);
+                btnLGAC.setVisible(false);
+                btnUsuarios.setVisible(false);
+                break;
+        }
     }
 
     @FXML

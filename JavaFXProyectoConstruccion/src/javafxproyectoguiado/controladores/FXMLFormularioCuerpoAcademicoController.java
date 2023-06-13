@@ -55,7 +55,7 @@ public class FXMLFormularioCuerpoAcademicoController implements Initializable {
         
         String nombre = tfNombre.getText();
         
-        if(nombre.isEmpty()){
+        if(!Utilidades.soloLetras(nombre)){
             tfNombre.setStyle(estiloError);
             datosValidados = false;
         }
