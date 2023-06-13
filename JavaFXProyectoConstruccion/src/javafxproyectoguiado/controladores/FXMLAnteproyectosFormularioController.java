@@ -84,6 +84,8 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
                     DirectorTesis oldValue, DirectorTesis newValue) {
             }
         });
+        dpFechaInicio.setEditable(false);
+        dpFechaFin.setEditable(false);
     }    
     
     public void inicializarInformacionFormulario(boolean esEdicion, AnteproyectoModulo anteproyectoEdicion, 
@@ -150,7 +152,17 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
+        if(!Utilidades.soloLetras(nombreAnteproyecto)){
+            tfNombreAnteproyecto.setStyle(estiloError);
+            datosValidos = false;
+        }
+        
         if(modalidad.isEmpty()){
+            tfModalidadTrabajo.setStyle(estiloError);
+            datosValidos = false;
+        }
+        
+        if(!Utilidades.soloLetras(modalidad)){
             tfModalidadTrabajo.setStyle(estiloError);
             datosValidos = false;
         }
