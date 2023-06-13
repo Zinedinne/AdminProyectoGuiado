@@ -12,5 +12,6 @@
       <Button layoutX="80.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCursos" prefHeight="91.0" prefWidth="163.0" text="Gestion de Cursos" />
       <Button layoutX="547.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="91.0" prefWidth="163.0" text="Gestion de LGAC" />
       <Button layoutX="886.0" layoutY="91.0" mnemonicParsing="false" onAction="#clicBtnCuerpoAcademico" prefHeight="91.0" prefWidth="236.0" text="Gestion de Cuerpo Academico" />
+      <Button fx:id="btnValidacionProyectosMenu" layoutX="547.0" layoutY="429.0" mnemonicParsing="false" onAction="#btnValidacionProyectosMenuOnAction" prefHeight="91.0" prefWidth="163.0" style="-fx-wrap-text: true;" text="Consultar proyectos para validación" />
    </children>
 </AnchorPane>

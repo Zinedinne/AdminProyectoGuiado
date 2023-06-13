@@ -34,6 +34,8 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     private Button btnProyectosMenu;
+    @FXML
+    private Button btnValidacionProyectosMenu;
 
 
     void btnUsuariosMenuOnAction(ActionEvent event) {
@@ -43,7 +45,12 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     void btnProyectosMenusOnAction(ActionEvent event) {
-
+        Stage escenarioProyectos = new Stage();
+        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAnteproyectosMenu.fxml");
+        escenarioProyectos.setScene(esceneAdminAlumnos);
+        escenarioProyectos.setTitle("Administración de anteproyectos");
+        escenarioProyectos.initModality(Modality.APPLICATION_MODAL);
+        escenarioProyectos.showAndWait(); 
     }
     @FXML
     void btnActividadesMenuOnAction(ActionEvent event) {
@@ -65,7 +72,26 @@ public class FXMLMainMenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        switch (Singleton.getRol()) {
+            case "Responsable de academia":
+                //TODO
+                break;
+            case "Encargado de tesis":
+                btnValidacionProyectosMenu.setVisible(false);
+                break;
+            case "Profesor":
+                btnValidacionProyectosMenu.setVisible(false);
+                break;
+            case "Estudiante":
+                btnProyectosMenu.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
+                break;
+            case "TODO ROLES": 
+                break;
+            default:
+                // Código por defecto si ninguno de los casos anteriores coincide
+                break;
+        }
     }
 
     @FXML
@@ -106,6 +132,16 @@ public class FXMLMainMenuController implements Initializable {
         escenarioUsuarios.setTitle("Gestión de Usuarios");
         escenarioUsuarios.initModality(Modality.APPLICATION_MODAL);
         escenarioUsuarios.showAndWait();
+    }
+
+    @FXML
+    private void btnValidacionProyectosMenuOnAction(ActionEvent event) {
+        Stage escenarioAlumnos = new Stage();
+        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAnteproyectosValidacionMenu.fxml");
+        escenarioAlumnos.setScene(esceneAdminAlumnos);
+        escenarioAlumnos.setTitle("Administración de validación de anteproyectos");
+        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
+        escenarioAlumnos.showAndWait();  
     }
 
 

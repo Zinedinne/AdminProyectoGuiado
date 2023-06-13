@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="494.0" prefWidth="893.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosFormularioController">
+   <children>
+      <Pane prefHeight="86.0" prefWidth="909.0" style="-fx-background-color: #516aab;">
+         <children>
+            <Label layoutX="289.0" layoutY="21.0" text="Formulario Anteproyecto" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Button layoutX="793.0" layoutY="434.0" mnemonicParsing="false" onAction="#clicBtnCancelar" text="Cancelar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGuardarFormulario" layoutX="665.0" layoutY="434.0" mnemonicParsing="false" onAction="#clicBtnGuardar" text="Guardar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbTitulo" layoutX="23.0" layoutY="106.0" text="Crear nuevo anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="160.0" text="Nombre de Anteproyecto" />
+      <TextField fx:id="tfNombreAnteproyecto" layoutX="23.0" layoutY="179.0" prefHeight="29.0" prefWidth="261.0" />
+      <DatePicker fx:id="dpFechaInicio" layoutX="23.0" layoutY="262.0" />
+      <Label layoutX="23.0" layoutY="243.0" text="Fecha de inicio" />
+      <DatePicker fx:id="dpFechaFin" layoutX="336.0" layoutY="257.0" />
+      <Label layoutX="336.0" layoutY="238.0" text="Fecha de finalización" />
+      <Label layoutX="336.0" layoutY="160.0" text="Modalidad de trabajo" />
+      <TextField fx:id="tfModalidadTrabajo" layoutX="336.0" layoutY="179.0" />
+      <Label layoutX="575.0" layoutY="160.0" text="Línea de Generación y Aplicación del Conocimiento" />
+      <ComboBox fx:id="cbLGAC" layoutX="575.0" layoutY="179.0" prefHeight="29.0" prefWidth="324.0" />
+      <TextArea fx:id="taDescripcion" layoutX="23.0" layoutY="337.0" prefHeight="128.0" prefWidth="553.0" style="-fx-wrap-text: True;" />
+      <Label layoutX="23.0" layoutY="318.0" text="Descripción" />
+      <Label layoutX="576.0" layoutY="238.0" text="Encargado de Tesis" />
+      <ComboBox fx:id="cbEncargadoDeTesis" layoutX="576.0" layoutY="257.0" prefHeight="29.0" prefWidth="324.0" />
+   </children>
+</AnchorPane>

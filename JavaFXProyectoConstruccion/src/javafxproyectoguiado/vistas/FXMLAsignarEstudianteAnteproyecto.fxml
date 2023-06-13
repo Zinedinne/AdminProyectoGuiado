@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="352.0" prefWidth="866.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAsignarEstudianteAnteproyectoController">
+   <children>
+      <Pane prefHeight="63.0" prefWidth="866.0" style="-fx-background-color: #516aab;">
+         <children>
+            <Label layoutX="206.0" layoutY="9.0" text="Asignar estudiante a anteproyecto" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="52.0" layoutY="148.0" text="Anteproyecto a asignar:" />
+      <Label fx:id="lbNombreAnteproyecto" layoutX="50.0" layoutY="167.0" prefHeight="37.0" prefWidth="322.0" style="-fx-background-color: #d0d0d0;" />
+      <Label layoutX="495.0" layoutY="148.0" text="Estudiantes inscritos:" />
+      <ComboBox fx:id="cbEstudiantes" layoutX="495.0" layoutY="167.0" prefHeight="37.0" prefWidth="322.0" />
+      <Button layoutX="584.0" layoutY="297.0" mnemonicParsing="false" onAction="#clicBtnAsignar" text="Asignar estudiante">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="774.0" layoutY="297.0" mnemonicParsing="false" onAction="#clicBtnCancelar" text="Cancelar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cbAnteproyecto" layoutX="50.0" layoutY="224.0" prefHeight="37.0" prefWidth="322.0" />
+   </children>
+</AnchorPane>
