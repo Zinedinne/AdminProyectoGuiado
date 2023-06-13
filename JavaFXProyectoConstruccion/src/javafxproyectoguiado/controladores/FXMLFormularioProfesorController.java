@@ -94,31 +94,31 @@ public class FXMLFormularioProfesorController implements Initializable {
         String numero = tfNumeroProfesor.getText();
         String numeroTrabajador = tfNumeroTrabajadorProfesor.getText();
         
-        if(nombre.isEmpty()){
+        if(!Utilidades.soloLetras(nombre)){
             tfNombreProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoPaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoPaterno)){
             tfApellidoPaternoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoMaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoMaterno)){
             tfApellidoMaternoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(!Utilidades.soloLetras(username)){
             tfUsernameProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(!Utilidades.soloLetras(password)){
             tfPasswordProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numero.isEmpty()){
+        if(!Utilidades.soloNumeros(numero)){
             tfNumeroProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numeroTrabajador.isEmpty()){
+        if(!Utilidades.soloNumeros(numeroTrabajador)){
             tfNumeroTrabajadorProfesor.setStyle(estiloError);
             datosValidados = false;
         }

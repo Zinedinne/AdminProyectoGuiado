@@ -47,4 +47,25 @@ public class Utilidades {
             return false;
         }
     }
+    
+    public static boolean soloLetras(String campo){
+        if(campo != null && !campo.isEmpty()){
+            Pattern patronCorreo = Pattern.compile("(^[a-zA-Z]+$)");
+            Matcher matchPatron = patronCorreo.matcher(campo);
+            return matchPatron.find();
+        }else{
+            return false;
+        }
+    }
+    
+    public static boolean soloNumeros(String campo){
+        if(campo != null && !campo.isEmpty()){
+            Pattern patronCorreo = Pattern.compile("(^[0-9]+$)");
+            Matcher matchPatron = patronCorreo.matcher(campo);
+            return matchPatron.find();
+        }else{
+            return false;
+        }
+    }
+    
 }

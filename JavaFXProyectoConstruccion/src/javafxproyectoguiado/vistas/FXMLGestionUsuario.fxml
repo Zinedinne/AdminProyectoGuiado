@@ -36,7 +36,7 @@
       </ImageView>
       <ImageView fitHeight="647.0" fitWidth="300.0" layoutX="600.0" layoutY="87.0" onMouseClicked="#clicBtnDirectores" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../recursos/5yj6q2gk.png" />
+            <Image url="@../recursos/rector-up-santiago-garcia-jose-antonio-lozano.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="647.0" fitWidth="300.0" layoutX="900.0" layoutY="87.0" onMouseClicked="#clicBtnResponsables" pickOnBounds="true" preserveRatio="true">
@@ -44,5 +44,25 @@
             <Image url="@../recursos/AdobeStock_319679917-1024x683.jpeg" />
          </image>
       </ImageView>
+      <Label layoutX="14.0" layoutY="630.0" text="Estudiantes" textFill="#bd9240">
+         <font>
+            <Font name="Footlight MT Light" size="59.0" />
+         </font>
+      </Label>
+      <Label layoutX="350.0" layoutY="104.0" text="Profesor" textFill="#bd9240">
+         <font>
+            <Font name="Footlight MT Light" size="59.0" />
+         </font>
+      </Label>
+      <Label layoutX="649.0" layoutY="648.0" text="Director" textFill="#bd9240">
+         <font>
+            <Font name="Footlight MT Light" size="59.0" />
+         </font>
+      </Label>
+      <Label layoutX="900.0" layoutY="95.0" text="Responsable" textFill="#bd9240">
+         <font>
+            <Font name="Footlight MT Light" size="59.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

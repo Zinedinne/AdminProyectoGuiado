@@ -84,27 +84,27 @@ public class FXMLFormularioEstudianteController implements Initializable {
         String numero = tfNumeroEstudiante.getText();
         String matricula = tfMatricula.getText();
         
-        if(nombre.isEmpty()){
+        if(!Utilidades.soloLetras(nombre)){
             tfNombreEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoPaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoPaterno)){
             tfApellidoPaternoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(apellidoMaterno.isEmpty()){
+        if(!Utilidades.soloLetras(apellidoMaterno)){
             tfApellidoMaternoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(!Utilidades.soloLetras(username)){
             tfUsernameEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(!Utilidades.soloLetras(password)){
             tfPasswordEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(numero.isEmpty()){
+        if(!Utilidades.soloNumeros(numero)){
             tfNumeroEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
