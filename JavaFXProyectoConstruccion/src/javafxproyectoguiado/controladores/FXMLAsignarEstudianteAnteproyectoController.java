@@ -110,10 +110,18 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
             anteproyectoValido.setIdAnteproyecto(anteproyectos.get(posicionAnteproyecto).getIdAnteproyecto());
             int idEstudianteAsignado = anteproyectoValido.getIdEstudianteAsignado();
             int idAnteproyecto = anteproyectoValido.getIdAnteproyecto();
+            
+            int cantidadAnteproyectoUsuario = AnteproyectoModuloDAO.obtenerCantidadAnteproyectoUsuario(idEstudianteAsignado);
 
             System.out.println("ID Estudiante Asignado: " + idEstudianteAsignado);
             System.out.println("ID Anteproyecto: " + idAnteproyecto);
+            if(cantidadAnteproyectoUsuario >= 1){
+                Utilidades.mostrarDiallogoSimple("Alumno ya asignado", 
+                        "El alumno seleccionado ya ha sido asignado a un anteproyecto", 
+                        Alert.AlertType.WARNING);
+            }else{
             registrarAsignacion(anteproyectoValido);
+            }
         }
     }
     //System.out.pritln();

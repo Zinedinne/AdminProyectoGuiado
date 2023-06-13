@@ -280,4 +280,24 @@ public class AnteproyectoModuloDAO {
         return respuesta;
     }
     
+    public static int obtenerCantidadAnteproyectoUsuario(int idUsuario) {
+        int cantidad = 0;
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if (conexionBD != null) {
+            try {
+                String consulta = "SELECT COUNT(*) FROM Proyecto.AnteproyectoUsuario WHERE Usuario_idUsuario = ?";
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                prepararSentencia.setInt(1, idUsuario);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                if (resultado.next()) {
+                    cantidad = resultado.getInt(1);
+                }
+                conexionBD.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return cantidad;
+    }
+    
 }
