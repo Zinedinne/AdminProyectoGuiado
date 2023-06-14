@@ -101,11 +101,11 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
             tfApellidoMaternoTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(username)){
+        if(username.isEmpty()){
             tfUsernameTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(password)){
+        if(password.isEmpty()){
             tfPasswordTesis.setStyle(estiloError);
             datosValidados = false;
         }

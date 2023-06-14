@@ -50,7 +50,7 @@ public class Utilidades {
     
     public static boolean soloLetras(String campo){
         if(campo != null && !campo.isEmpty()){
-            Pattern patronCorreo = Pattern.compile("(^[a-zA-Z]+$)");
+            Pattern patronCorreo = Pattern.compile("(^[a-zA-Z\\s]+$)");
             Matcher matchPatron = patronCorreo.matcher(campo);
             return matchPatron.find();
         }else{
