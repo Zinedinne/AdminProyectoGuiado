@@ -55,7 +55,7 @@
             <Font size="15.0" />
          </font></Button>
       <TextField fx:id="tfBusquedaAnteproyecto" layoutX="8.0" layoutY="97.0" prefHeight="29.0" prefWidth="471.0" />
-      <Button layoutX="666.0" layoutY="639.0" mnemonicParsing="false" onAction="#clicBtnAsignarEstudiante" text="Asignar estudiante a anteproyecto">
+      <Button fx:id="btnAsignarEstudiante" layoutX="666.0" layoutY="639.0" mnemonicParsing="false" onAction="#clicBtnAsignarEstudiante" text="Asignar estudiante a anteproyecto">
          <font>
             <Font size="15.0" />
          </font>

@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -27,6 +28,7 @@ import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModuloRespuesta;
 import javafxproyectoguiado.modelo.pojo.Estudiante;
+import javafxproyectoguiado.modelo.pojo.Singleton;
 import util.Constantes;
 import util.INotificacionOperacionAnteproyecto;
 import util.Utilidades;
@@ -57,6 +59,8 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
     private TableColumn colAlumnoAsignado;
     @FXML
     private TextField tfBusquedaAnteproyecto;
+    @FXML
+    private Button btnAsignarEstudiante;
 
     /**
      * Initializes the controller class.
@@ -66,6 +70,11 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
         // TODO
         configurarTabla();
         cargarInformacionTabla();
+        
+        String tipoUsuario = Singleton.getRol();
+        if (!tipoUsuario.equals("Profesor")) {
+            btnAsignarEstudiante.setVisible(false);
+        }
     }    
     
     private void configurarTabla(){
@@ -181,6 +190,52 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
     @FXML
     private void clicBtnEliminarAnteproyecto(ActionEvent event) {
         int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
+        if (posicion != -1) {
+            
+            AnteproyectoModulo anteproyectoSeleccionado = anteproyectos.get(posicion);
+            String alumnoAsignado = anteproyectoSeleccionado.getEstudianteAsignado();
+
+            if (alumnoAsignado != null && !alumnoAsignado.isEmpty()) {
+                Utilidades.mostrarDiallogoSimple("No se puede eliminar",
+                    "No se puede eliminar el registro del anteproyecto \"" + anteproyectoSeleccionado.getNombreAnteproyecto()
+                    + "\" porque tiene un alumno asignado.",
+                    Alert.AlertType.WARNING);
+            } else {
+                boolean borrarRegistro = Utilidades.mostrarDialogoConfirmacion("Eliminar registro de anteproyecto",
+                    "¿Estás seguro de que deseas eliminar el registro del anteproyecto: "
+                    + anteproyectoSeleccionado.getNombreAnteproyecto());
+
+                if (borrarRegistro) {
+                    int codigoRespuesta = AnteproyectoModuloDAO.eliminarAnteproyecto(anteproyectoSeleccionado.getIdAnteproyecto());
+                    switch (codigoRespuesta) {
+                        case Constantes.ERROR_CONEXION:
+                            Utilidades.mostrarDiallogoSimple("Sin conexión",
+                                "Los sentimos por el momento no hay conexión para poder cargar la información",
+                                Alert.AlertType.ERROR);
+                            break;
+                        case Constantes.ERROR_CONSULTA:
+                            Utilidades.mostrarDiallogoSimple("Error al cargar los datos",
+                                "Hubo un error al cargar la información, por favor inténtelo más tarde",
+                                Alert.AlertType.WARNING);
+                            break;
+                        case Constantes.OPERACION_EXITOSA:
+                            Utilidades.mostrarDiallogoSimple("Registro eliminado",
+                                "Se ha eliminado exitosamente el registro",
+                                Alert.AlertType.INFORMATION);
+                            cargarInformacionTabla();
+                            break;
+                    }
+                }
+            }
+        } else {
+            Utilidades.mostrarDiallogoSimple("Selecciona un anteproyecto",
+                "Para eliminar un anteproyecto debes seleccionarlo previamente de la tabla",
+                Alert.AlertType.WARNING);
+        }
+        
+        /*Eliminar este comentario en merge final
+        
+        int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
         if(posicion != -1){
             boolean borrarRegistro = Utilidades.mostrarDialogoConfirmacion("Eliminar registro de anteproyecto", 
                     "¿Estás seguro de que deseas eliminar el registro del anteproyecto: "
@@ -211,6 +266,9 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
                     "Para eliminar un anteproyecto debes seleccionarlo previamente de la tabla", 
                     Alert.AlertType.WARNING);
         }
+        
+        */
+        
     }
 
     @Override
@@ -237,6 +295,7 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
             if (anteproyecto.getEstado().equals("1")) {
                 if (anteproyecto.getEstudianteAsignado()== null) {
                     irValidacion(anteproyecto);
+                    cargarInformacionTabla();
                 } else {
                     Utilidades.mostrarDiallogoSimple("Anteproyecto ya tiene un alumno asignado",
                         "El anteproyecto seleccionado ya tiene un alumno asignado.",
@@ -279,6 +338,7 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
    
     
 }
+//Eliminar este comentario
 
  /*
         int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
