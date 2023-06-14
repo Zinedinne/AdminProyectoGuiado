@@ -2,7 +2,6 @@ package javafxproyectoguiado.controladores;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,7 +26,6 @@ import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
 import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModuloRespuesta;
-import javafxproyectoguiado.modelo.pojo.Estudiante;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 import util.Constantes;
 import util.INotificacionOperacionAnteproyecto;
@@ -57,17 +55,12 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
     private TableColumn colEstado;
     @FXML
     private TableColumn colAlumnoAsignado;
-    @FXML
     private TextField tfBusquedaAnteproyecto;
     @FXML
     private Button btnAsignarEstudiante;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         configurarTabla();
         cargarInformacionTabla();
         
@@ -126,7 +119,6 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
                     (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLAnteproyectosFormulario.fxml"));
             Parent vista = accesoControlador.load();                        
             FXMLAnteproyectosFormularioController formulario = accesoControlador.getController();
-            //acceder a cualquier método
             formulario.inicializarInformacionFormulario(esEdicion, anteproyectoEdicion, this);
             
             Stage escenarioFormulario = new Stage();
@@ -145,7 +137,6 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
         int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
         if(posicion != -1){
             irFormulario(true, anteproyectos.get(posicion));
-            //tvAlumnos.getSelectionModel().getSelectedItem();
         }else{
             Utilidades.mostrarDiallogoSimple("Selecione un anteproyecto", 
                     "Debe seleccionar un registro en la tabla de anteproyectos para su edición", 
@@ -158,7 +149,6 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
         int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
         if(posicion != -1){
             irConsulta(anteproyectos.get(posicion));
-            //tvAlumnos.getSelectionModel().getSelectedItem();
         }else{
             Utilidades.mostrarDiallogoSimple("Selecione un anteproyecto", 
                     "Debe seleccionar un registro en la tabla de anteproyectos para su consulta", 
@@ -232,43 +222,6 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
                 "Para eliminar un anteproyecto debes seleccionarlo previamente de la tabla",
                 Alert.AlertType.WARNING);
         }
-        
-        /*Eliminar este comentario en merge final
-        
-        int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
-        if(posicion != -1){
-            boolean borrarRegistro = Utilidades.mostrarDialogoConfirmacion("Eliminar registro de anteproyecto", 
-                    "¿Estás seguro de que deseas eliminar el registro del anteproyecto: "
-                            +anteproyectos.get(posicion).getNombreAnteproyecto());
-            if(borrarRegistro){
-                int codigoRespuesta = AnteproyectoModuloDAO.eliminarAnteproyecto(anteproyectos.get(posicion).getIdAnteproyecto());
-                switch(codigoRespuesta){
-                    case Constantes.ERROR_CONEXION:
-                    Utilidades.mostrarDiallogoSimple("Sin conexión",
-                            "Los sentimos por el momento no hay conexión para poder cargar la información", 
-                            Alert.AlertType.ERROR);
-                break;
-            case Constantes.ERROR_CONSULTA:
-                    Utilidades.mostrarDiallogoSimple("Error al cargar los datos", 
-                            "Hubo un error al cargar la información por favor inténtelo más tarde", 
-                            Alert.AlertType.WARNING);
-                break;
-            case Constantes.OPERACION_EXITOSA:
-                    Utilidades.mostrarDiallogoSimple("Registro eliminado",
-                            "Se ha eliminado exitosamente el registro",
-                            Alert.AlertType.INFORMATION);
-                    cargarInformacionTabla();
-                break;
-                }
-            }
-        }else{
-            Utilidades.mostrarDiallogoSimple("Selecciona un anteproyecto", 
-                    "Para eliminar un anteproyecto debes seleccionarlo previamente de la tabla", 
-                    Alert.AlertType.WARNING);
-        }
-        
-        */
-        
     }
 
     @Override
@@ -338,16 +291,3 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
    
     
 }
-//Eliminar este comentario
-
- /*
-        int posicion = tvAnteproyectos.getSelectionModel().getSelectedIndex();
-        if(posicion != -1){
-            irValidacion(anteproyectos.get(posicion));
-            //tvAlumnos.getSelectionModel().getSelectedItem();
-        }else{
-            Utilidades.mostrarDiallogoSimple("Selecione un anteproyecto", 
-                    "Debe seleccionar un registro en la tabla de anteproyectos para su consulta", 
-                    Alert.AlertType.WARNING);
-        }
-        */

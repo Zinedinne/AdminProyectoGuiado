@@ -26,7 +26,6 @@ import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModuloRespuesta;
 import util.Constantes;
-import util.INotificacionOperacionAnteproyecto;
 import util.Utilidades;
 
 /**
@@ -34,7 +33,7 @@ import util.Utilidades;
  *
  * @author Alvaro
  */
-public class FXMLAnteproyectosValidacionMenuController implements Initializable, INotificacionOperacionAnteproyecto {
+public class FXMLAnteproyectosValidacionMenuController implements Initializable{
 
     @FXML
     private TableView<AnteproyectoModulo> tvAnteproyectosValidados;
@@ -53,15 +52,10 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable,
     private TableColumn colEstado;
     @FXML
     private TableColumn colResponsable;
-    @FXML
     private TextField tfBusquedaAnteproyecto;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         configurarTabla();
         cargarInformacionTabla();
     }    
@@ -237,18 +231,5 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable,
             Logger.getLogger(FXMLAnteproyectosConsultaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    @Override
-    public void notificarOperacionGuardarAnteproyecto(String nombre) {
-        //borrar estos de ambos
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void notificarOperacionActualizarAnteproyecto(String nombreAnteproyecto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    
     
 }

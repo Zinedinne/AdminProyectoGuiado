@@ -19,7 +19,6 @@
          </children>
       </Pane>
       <Label layoutX="52.0" layoutY="148.0" text="Anteproyecto a asignar:" />
-      <Label fx:id="lbNombreAnteproyecto" layoutX="50.0" layoutY="167.0" prefHeight="37.0" prefWidth="322.0" style="-fx-background-color: #d0d0d0;" />
       <Label layoutX="495.0" layoutY="148.0" text="Estudiantes inscritos:" />
       <ComboBox fx:id="cbEstudiantes" layoutX="495.0" layoutY="167.0" prefHeight="37.0" prefWidth="322.0" />
       <Button layoutX="584.0" layoutY="297.0" mnemonicParsing="false" onAction="#clicBtnAsignar" text="Asignar estudiante">
@@ -32,6 +31,6 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cbAnteproyecto" layoutX="50.0" layoutY="224.0" prefHeight="37.0" prefWidth="322.0" />
+      <ComboBox fx:id="cbAnteproyecto" layoutX="52.0" layoutY="167.0" prefHeight="37.0" prefWidth="322.0" />
    </children>
 </AnchorPane>

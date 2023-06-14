@@ -67,8 +67,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
     String estiloNormal = "-fx-border-width: 0";
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    public void initialize(URL url, ResourceBundle rb) {    
         cargarInformacionLACS();
         cbLGAC.valueProperty().addListener(new ChangeListener<LGAC>() {
             @Override
@@ -93,12 +92,10 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
         this.esEdicion = esEdicion;
         this.anteproyectoEdicion = anteproyectoEdicion;
         this.interfazNotificacion = interfazNotificacion;
-        //TO DO
         if(esEdicion){
             lbTitulo.setText("Editar información del anteproyecto: "+anteproyectoEdicion.getNombreAnteproyecto());
             cargarInformacionEdicion();
         }else{
-            //TODO
             lbTitulo.setText("Registrar nuevo anteproyecto");
         }
     }

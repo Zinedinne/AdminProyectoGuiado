@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxproyectoguiado.controladores;
 
 import java.net.URL;
@@ -33,7 +29,6 @@ import util.Utilidades;
  */
 public class FXMLAsignarEstudianteAnteproyectoController implements Initializable {
 
-    @FXML
     private Label lbNombreAnteproyecto;
     @FXML
     private ComboBox<Estudiante> cbEstudiantes;
@@ -47,12 +42,8 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
     String estiloError = "-fx-border-color: RED; -fx-border-width: 2; -fx-border-radius: 2;";
     String estiloNormal = "-fx-border-width: 0";
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         cargarInformacionEstudiantes();
         cbEstudiantes.valueProperty().addListener(new ChangeListener<Estudiante>() {
             @Override
@@ -112,10 +103,7 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
             int idAnteproyecto = anteproyectoValido.getIdAnteproyecto();
             
             int cantidadAnteproyectoUsuario = AnteproyectoModuloDAO.obtenerCantidadAnteproyectoUsuario(idEstudianteAsignado);
-
-            //remover systems
-            System.out.println("ID Estudiante Asignado: " + idEstudianteAsignado);
-            System.out.println("ID Anteproyecto: " + idAnteproyecto);
+            
             if(cantidadAnteproyectoUsuario >= 1){
                 Utilidades.mostrarDiallogoSimple("Alumno ya asignado", 
                         "El alumno seleccionado ya ha sido asignado a un anteproyecto", 
@@ -125,7 +113,7 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
             }
         }
     }
-    //System.out.pritln();
+
     private void registrarAsignacion(AnteproyectoModulo anteproyectoValido){
         int codigoRespuesta = AnteproyectoModuloDAO.asignarEstudianteAnteproyecto(anteproyectoValido);
         switch(codigoRespuesta){
