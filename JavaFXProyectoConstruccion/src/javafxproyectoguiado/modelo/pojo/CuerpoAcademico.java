@@ -3,13 +3,15 @@ package javafxproyectoguiado.modelo.pojo;
 public class CuerpoAcademico {
     private int idAcademia;
     private String nombreAcademia;
+    private String academiaAsignada;
 
     public CuerpoAcademico() {
     }
 
-    public CuerpoAcademico(int idAcademia, String nombreAcademia) {
+    public CuerpoAcademico(int idAcademia, String nombreAcademia, String academiaAsignada) {
         this.idAcademia = idAcademia;
         this.nombreAcademia = nombreAcademia;
+        this.academiaAsignada = academiaAsignada;
     }
 
     public int getIdAcademia() {
@@ -26,6 +28,14 @@ public class CuerpoAcademico {
 
     public void setNombreAcademia(String nombreAcademia) {
         this.nombreAcademia = nombreAcademia;
+    }
+
+    public String getAcademiaAsignada() {
+        return academiaAsignada;
+    }
+
+    public void setAcademiaAsignada(String academiaAsignada) {
+        this.academiaAsignada = academiaAsignada;
     }
     
     @Override

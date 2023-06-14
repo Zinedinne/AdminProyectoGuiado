@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+
             <file>file:/C:/Users/reneu/OneDrive/Documentos/GitHub/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioProfesorController.java</file>
             <file>file:/C:/Users/reneu/OneDrive/Documentos/GitHub/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioEstudianteController.java</file>
             <file>file:/C:/Users/reneu/OneDrive/Documentos/GitHub/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioDirectorTesisController.java</file>
             <file>file:/C:/Users/reneu/OneDrive/Documentos/GitHub/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLFormularioResponsableController.java</file>
+
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/pojo/Estudiante.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAnteproyectosMenuController.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/util/Utilidades.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLMainMenuController.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/pojo/Singleton.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/modelo/pojo/AnteproyectoModulo.java</file>
+            <file>file:/C:/Users/Alvaro/Documents/NetBeansProjects/nuevo/AdminProyectoGuiado/JavaFXProyectoConstruccion/src/javafxproyectoguiado/controladores/FXMLAnteproyectosConsultaController.java</file>
+
         </group>
     </open-files>
 </project-private>

@@ -59,9 +59,12 @@ public class FXMLConsultarActividadesController implements Initializable {
     private int idAlumno;
     private  String nombreAlumno;
 
-    public void setIdAlumno(int idAlumno, String nombre){
+    private String nombreAnteproyecto;
+
+    public void setIdAlumno(int idAlumno, String nombre, String nombreAnteproyecto){
         this.nombreAlumno = nombre;
         this.idAlumno = idAlumno;
+        this.nombreAnteproyecto = nombreAnteproyecto;
     }
 
     @FXML
@@ -120,7 +123,7 @@ public class FXMLConsultarActividadesController implements Initializable {
                         try {
                             Parent root = loader.load();
                             FXMLGestionarActividadProfesor controller = loader.getController();
-                            controller.setIdActividad(activity.getIdActividad(), nombreAlumno, idAlumno);
+                            controller.setIdActividad(activity.getIdActividad(), nombreAlumno, idAlumno, nombreAnteproyecto);
                             Stage stage = new Stage();
                             stage.setScene(new Scene(root));
                             stage.setOnShown(event2 -> {
@@ -131,8 +134,8 @@ public class FXMLConsultarActividadesController implements Initializable {
                             ((Stage) this.button.getScene().getWindow()).close();
                         } catch (IOException ex) {
                             ex.printStackTrace();
-                        }                    }
-
+                        }
+                    }
                 });
             }
             @Override

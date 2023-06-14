@@ -93,5 +93,6 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="btnModificarActividad" layoutX="1107.0" layoutY="27.0" mnemonicParsing="false" onAction="#btnModificarActividadOnAction" text="Modificar Actividad" />
     </children>
 </AnchorPane>

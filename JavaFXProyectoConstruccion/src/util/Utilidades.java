@@ -5,13 +5,21 @@
 package util;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.util.Callback;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
+import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
 
 /**
  *
@@ -48,9 +56,12 @@ public class Utilidades {
         }
     }
     
+
     public static boolean soloLetras(String campo){
         if(campo != null && !campo.isEmpty()){
-            Pattern patronCorreo = Pattern.compile("(^[a-zA-Z\\s]+$)");
+
+            Pattern patronCorreo = Pattern.compile("(^[a-zA-ZÁÉÍÓÚáéíóúÑñ\\s]+$)");
+
             Matcher matchPatron = patronCorreo.matcher(campo);
             return matchPatron.find();
         }else{
@@ -67,5 +78,57 @@ public class Utilidades {
             return false;
         }
     }
+   
+    public static void asignarTextoEstado(TableColumn<AnteproyectoModulo, String> colEstado) {
+    colEstado.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AnteproyectoModulo, String>, ObservableValue<String>>() {
+        @Override
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<AnteproyectoModulo, String> data) {
+            String estado = data.getValue().getEstado();
+            String textoEstado; 
+            switch (estado) {
+                case "0":
+                    textoEstado = "Postulado";
+                    break;
+                case "1":
+                    textoEstado = "Validado";
+                    break;
+                case "2":
+                    textoEstado = "Denegado";
+                    break;
+                default:
+                    textoEstado = "Desconocido";
+                    break;
+            }
+            return new SimpleStringProperty(textoEstado); 
+        }});
+    }
     
+    public static void asignarTextoLabelEstado(Label label, String estado) {
+        String textoEstado;
+        switch (estado) {
+            case "0":
+                textoEstado = "Postulado";
+                break;
+            case "1":
+                textoEstado = "Validado";
+                break;
+            case "2":
+                    textoEstado = "Denegado";
+                    break;
+            default:
+                textoEstado = "Desconocido";
+                break;
+        }
+        label.setText(textoEstado);
+    }
+    
+    public static boolean mostrarDialogoConfirmacion(String titulo, String mensaje){
+        Alert alertaConfirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        alertaConfirmacion.setTitle(titulo);
+        alertaConfirmacion.setContentText(mensaje);
+        alertaConfirmacion.setHeaderText(null);
+        Optional<ButtonType> botonClic = alertaConfirmacion.showAndWait();
+        return (botonClic.get() == ButtonType.OK);
+    }
+
 }

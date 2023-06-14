@@ -112,7 +112,7 @@ public class FXMLConsultarProyecto implements Initializable {
                     try {
                         Parent root = loader.load();
                         FXMLConsultarActividadesController controller = loader.getController();
-                        controller.setIdAlumno(activity.getIdUsuario(), activity.getNombreUsuario());
+                        controller.setIdAlumno(activity.getIdUsuario(), activity.getNombreUsuario(), activity.getNombreAnteproyecto());
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.setOnShown(event2 -> {

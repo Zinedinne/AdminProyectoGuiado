@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1124.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosMenuController">
+   <children>
+      <Pane prefHeight="83.0" prefWidth="1130.0" style="-fx-background-color: #516aab;">
+         <children>
+            <Label layoutX="345.0" layoutY="19.0" text="Administración de Anteproyectos" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="66.0" fitWidth="92.0" layoutX="14.0" layoutY="11.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clicCerrarVentana" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/flecha-derecha.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Button layoutX="565.0" layoutY="96.0" mnemonicParsing="false" onAction="#clicBtnCrearAnteproyecto" text="Crear anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="738.0" layoutY="96.0" mnemonicParsing="false" onAction="#clicBtnModificarAnteproyecto" text="Modificar anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="933.0" layoutY="96.0" mnemonicParsing="false" onAction="#clicBtnConsultarAnteproyecto" text="Consultar anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tvAnteproyectos" layoutX="19.0" layoutY="145.0" prefHeight="480.0" prefWidth="1094.0">
+        <columns>
+          <TableColumn fx:id="colNombreAnteproyecto" prefWidth="181.0" text="Nombre" />
+            <TableColumn fx:id="colFechaInicio" prefWidth="131.0" text="Fecha de Inicio" />
+          <TableColumn fx:id="colFechaFin" prefWidth="147.0" text="Fecha de Fin" />
+            <TableColumn fx:id="colModalidad" prefWidth="141.0" text="Modalidad" />
+            <TableColumn fx:id="colLGAC" minWidth="0.0" prefWidth="144.0" text="LGAC" />
+            <TableColumn fx:id="colEstado" minWidth="7.0" prefWidth="128.0" text="Estado" />
+            <TableColumn fx:id="colAlumnoAsignado" prefWidth="221.0" text="Alumno asignado" />
+        </columns>
+      </TableView>
+      <Button layoutX="943.0" layoutY="639.0" mnemonicParsing="false" onAction="#clicBtnEliminarAnteproyecto" text="Eliminar anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <TextField fx:id="tfBusquedaAnteproyecto" layoutX="8.0" layoutY="97.0" prefHeight="29.0" prefWidth="471.0" />
+      <Button fx:id="btnAsignarEstudiante" layoutX="666.0" layoutY="639.0" mnemonicParsing="false" onAction="#clicBtnAsignarEstudiante" text="Asignar estudiante a anteproyecto">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

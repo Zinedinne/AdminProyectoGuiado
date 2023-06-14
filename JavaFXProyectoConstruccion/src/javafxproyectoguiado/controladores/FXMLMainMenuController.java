@@ -42,6 +42,9 @@ public class FXMLMainMenuController implements Initializable {
     private Button btnLGAC;
     @FXML
     private Button btnCuerpoAcademico;
+    @FXML
+    private Button btnValidacionProyectosMenu;
+
 
 
     void btnUsuariosMenuOnAction(ActionEvent event) {
@@ -51,7 +54,12 @@ public class FXMLMainMenuController implements Initializable {
 
     @FXML
     void btnProyectosMenusOnAction(ActionEvent event) {
-
+        Stage escenarioProyectos = new Stage();
+        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAnteproyectosMenu.fxml");
+        escenarioProyectos.setScene(esceneAdminAlumnos);
+        escenarioProyectos.setTitle("Administración de anteproyectos");
+        escenarioProyectos.initModality(Modality.APPLICATION_MODAL);
+        escenarioProyectos.showAndWait(); 
     }
     @FXML
     void btnActividadesMenuOnAction(ActionEvent event) {
@@ -73,6 +81,7 @@ public class FXMLMainMenuController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         switch(Singleton.getRol()){
             case "Responsable de academia":
                 btnCurso.setVisible(false);
@@ -84,17 +93,21 @@ public class FXMLMainMenuController implements Initializable {
                 btnCuerpoAcademico.setVisible(false);
                 btnLGAC.setVisible(false);
                 btnUsuarios.setVisible(false);
+                btnProyectosMenu.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
             case "Encargado de Tesis":
                 btnCurso.setVisible(false);
                 btnCuerpoAcademico.setVisible(false);
                 btnLGAC.setVisible(false);
                 btnUsuarios.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
             case "Profesor":
                 btnCuerpoAcademico.setVisible(false);
                 btnLGAC.setVisible(false);
                 btnUsuarios.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
             case "Administrador":
                 btnActividadesMenu.setVisible(false);
@@ -141,6 +154,16 @@ public class FXMLMainMenuController implements Initializable {
         escenarioUsuarios.setTitle("Gestión de Usuarios");
         escenarioUsuarios.initModality(Modality.APPLICATION_MODAL);
         escenarioUsuarios.showAndWait();
+    }
+
+    @FXML
+    private void btnValidacionProyectosMenuOnAction(ActionEvent event) {
+        Stage escenarioAlumnos = new Stage();
+        Scene esceneAdminAlumnos = Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLAnteproyectosValidacionMenu.fxml");
+        escenarioAlumnos.setScene(esceneAdminAlumnos);
+        escenarioAlumnos.setTitle("Administración de validación de anteproyectos");
+        escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
+        escenarioAlumnos.showAndWait();  
     }
 
 

@@ -42,6 +42,9 @@ public class FXMLGestionarActividadProfesor implements Initializable {
 
     @FXML
     private Button btnRegresar;
+
+    @FXML
+    private Button btnModificarActividad;
     @FXML
     private ComboBox<String> comboBoxCalificacion;
 
@@ -74,6 +77,7 @@ public class FXMLGestionarActividadProfesor implements Initializable {
     @FXML
     private Label labelNota;
     private int idAlumno;
+    private String nombreAnteProyecto;
 
     @FXML
     void btnRegresarOnAction(ActionEvent event) {
@@ -83,7 +87,7 @@ public class FXMLGestionarActividadProfesor implements Initializable {
             Parent root = loader.load();
             FXMLConsultarActividadesController controller = loader.getController();
             Utilidades.mostrarDiallogoSimple("Exito", idActividad + nombreAlumno, Alert.AlertType.INFORMATION);
-            controller.setIdAlumno(idAlumno, nombreAlumno);
+            controller.setIdAlumno(idAlumno, nombreAlumno, nombreAnteProyecto);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.setOnShown(event2 -> {
@@ -186,12 +190,13 @@ public class FXMLGestionarActividadProfesor implements Initializable {
         inputStream.close();
     }
 
-
-    public void setIdActividad(int idActividad, String nombre, int idAlumno) {
+    public void setIdActividad(int idActividad, String nombre, int idAlumno, String nombreAnteProyecto) {
         this.idActividad = idActividad;
         this.nombreAlumno = nombre;
         this.idAlumno = idAlumno;
+        this.nombreAnteProyecto = nombreAnteProyecto;
     }
+
     public void obtenerActividad() {
         ActividadesDAO actividadesDAO = new ActividadesDAO();
         try {
@@ -212,6 +217,7 @@ public class FXMLGestionarActividadProfesor implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         if (idActividad != 0) {
             configurarVentana();
             verificarEntrega();
@@ -259,6 +265,7 @@ public class FXMLGestionarActividadProfesor implements Initializable {
             comboBoxCalificacion.setDisable(true);
             htmlEditorRetroalimentacion.setDisable(true);
         }else {
+            btnModificarActividad.setDisable(true);
             for (int i = 1; i <= 10; i++) {
                 comboBoxCalificacion.getItems().add(String.valueOf(i));
             }
@@ -278,6 +285,25 @@ public class FXMLGestionarActividadProfesor implements Initializable {
             btnCalificar.setDisable(false);
         }else{
             btnCalificar.setDisable(true);
+        }
+    }
+
+    public void btnModificarActividadOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLModificarActividad.fxml"));
+            Parent root = loader.load();
+            FXMLModificarActividad controller = loader.getController();
+            controller.setIdActividad(idActividad, nombreAlumno, idAlumno, nombreAnteProyecto);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setOnShown(event2 -> {
+                // Llamar a initialize después de que se muestre la ventana
+                controller.initialize(null, null);
+            });
+            stage.show();
+            ((Stage) this.btnRegresar.getScene().getWindow()).close();
+        } catch (Exception ex) {
+            Utilidades.mostrarDiallogoSimple("Error", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
 }
