@@ -121,11 +121,11 @@ public class FXMLFormularioResponsableController implements Initializable {
             tfApellidoMaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(username)){
+        if(username.isEmpty()){
             tfUsernameResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(password)){
+        if(password.isEmpty()){
             tfPasswordResponsable.setStyle(estiloError);
             datosValidados = false;
         }

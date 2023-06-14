@@ -106,11 +106,11 @@ public class FXMLFormularioProfesorController implements Initializable {
             tfApellidoMaternoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(username)){
+        if(username.isEmpty()){
             tfUsernameProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(password)){
+        if(password.isEmpty()){
             tfPasswordProfesor.setStyle(estiloError);
             datosValidados = false;
         }
