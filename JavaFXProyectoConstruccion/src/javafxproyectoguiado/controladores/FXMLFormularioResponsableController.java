@@ -158,12 +158,31 @@ public class FXMLFormularioResponsableController implements Initializable {
             responsableValidado.setNumeroTrabajador(numeroTrabajador);
             responsableValidado.setIdAcademia(academias.get(posicionCuerpoAcademico).getIdAcademia());
             
+            int idAcademiaAsignada = responsableValidado.getIdAcademia();
+            
+            int cantidadAcademia = CuerpoAcademicoDAO.obtenerCantidadAcademia(idAcademiaAsignada);
+            
+            if (cantidadAcademia >= 1){
+                Utilidades.mostrarDiallogoSimple("Cuerpo academico ya asignado", 
+                        "El cuerpo academico seleccionado ya ha sido asignado a un Responsable de academia", 
+                        Alert.AlertType.WARNING);
+            }else{
+                if (esEdicion) {
+                    responsableValidado.setIdUsuario(responsableEdicion.getIdUsuario());
+                    actualizarDirectorTesis(responsableValidado);
+                } else {
+                    registrarResponsable(responsableValidado);
+                }
+            }
+            
+            /*
             if(esEdicion){
                 responsableValidado.setIdUsuario(responsableEdicion.getIdUsuario());
                 actualizarDirectorTesis(responsableValidado);
             }else{
                 registrarResponsable(responsableValidado);
             }
+            */
         }
     }
     

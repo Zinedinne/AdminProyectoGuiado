@@ -240,6 +240,7 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable,
     
     @Override
     public void notificarOperacionGuardarAnteproyecto(String nombre) {
+        //borrar estos de ambos
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

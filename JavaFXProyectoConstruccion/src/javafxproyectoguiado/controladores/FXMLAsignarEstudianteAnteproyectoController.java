@@ -113,6 +113,7 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
             
             int cantidadAnteproyectoUsuario = AnteproyectoModuloDAO.obtenerCantidadAnteproyectoUsuario(idEstudianteAsignado);
 
+            //remover systems
             System.out.println("ID Estudiante Asignado: " + idEstudianteAsignado);
             System.out.println("ID Anteproyecto: " + idAnteproyecto);
             if(cantidadAnteproyectoUsuario >= 1){
