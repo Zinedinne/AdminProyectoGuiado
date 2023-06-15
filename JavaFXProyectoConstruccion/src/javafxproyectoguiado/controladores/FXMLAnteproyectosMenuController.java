@@ -63,6 +63,7 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
         configurarTabla();
         cargarInformacionTabla();
         
+        
         String tipoUsuario = Singleton.getRol();
         if (!tipoUsuario.equals("Profesor")) {
             btnAsignarEstudiante.setVisible(false);

@@ -109,11 +109,11 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
             tfPasswordTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numero)){
+        if(!Utilidades.soloNumeros(numero) || numero.length() != 10){
             tfNumeroTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numeroTrabajador)){
+        if(!Utilidades.soloNumeros(numeroTrabajador) || numeroTrabajador.length() != 10){
             tfNumeroTrabajadorTesis.setStyle(estiloError);
             datosValidados = false;
         }

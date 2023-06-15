@@ -39,5 +39,10 @@
          </font></Button>
       <Pane prefHeight="102.0" prefWidth="1280.0" style="-fx-background-color: #516aab;" />
       <Pane layoutY="683.0" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: #516aab;" />
+      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="1235.0" layoutY="646.0" onMouseClicked="#clicCerrarSesion" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/Salir..png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

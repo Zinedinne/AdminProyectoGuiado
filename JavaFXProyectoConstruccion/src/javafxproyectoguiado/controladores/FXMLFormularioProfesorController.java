@@ -114,11 +114,11 @@ public class FXMLFormularioProfesorController implements Initializable {
             tfPasswordProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numero)){
+        if(!Utilidades.soloNumeros(numero)|| numero.length() != 10){
             tfNumeroProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numeroTrabajador)){
+        if(!Utilidades.soloNumeros(numeroTrabajador) || numeroTrabajador.length() != 10){
             tfNumeroTrabajadorProfesor.setStyle(estiloError);
             datosValidados = false;
         }

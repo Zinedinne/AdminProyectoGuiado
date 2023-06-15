@@ -104,7 +104,7 @@ public class FXMLFormularioEstudianteController implements Initializable {
             tfPasswordEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numero)){
+        if(!Utilidades.soloNumeros(numero) || numero.length() != 10){
             tfNumeroEstudiante.setStyle(estiloError);
             datosValidados = false;
         }

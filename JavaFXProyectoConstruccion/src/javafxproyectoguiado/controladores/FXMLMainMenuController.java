@@ -16,7 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import util.Utilidades;
@@ -46,11 +46,6 @@ public class FXMLMainMenuController implements Initializable {
     private Button btnValidacionProyectosMenu;
 
 
-
-    void btnUsuariosMenuOnAction(ActionEvent event) {
-        
-
-    }
 
     @FXML
     void btnProyectosMenusOnAction(ActionEvent event) {
@@ -96,7 +91,7 @@ public class FXMLMainMenuController implements Initializable {
                 btnProyectosMenu.setVisible(false);
                 btnValidacionProyectosMenu.setVisible(false);
                 break;
-            case "Encargado de tesis":
+            case "Director de tesis":
                 btnCurso.setVisible(false);
                 btnCuerpoAcademico.setVisible(false);
                 btnLGAC.setVisible(false);
@@ -165,6 +160,19 @@ public class FXMLMainMenuController implements Initializable {
         escenarioAlumnos.setTitle("Administración de validación de anteproyectos");
         escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
         escenarioAlumnos.showAndWait();  
+    }
+
+    @FXML
+    private void clicCerrarSesion(MouseEvent event) {
+        boolean cerrarSesion = Utilidades.mostrarDialogoConfirmacion("Cerrar Sesion", 
+                "¿Esta seguro que desea cerrar sesion?");
+        if(cerrarSesion){
+            Stage escenarioBase = (Stage) btnActividadesMenu.getScene().getWindow();
+            Singleton.setLogin(null);
+                escenarioBase.setScene(Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLInicioSesion.fxml"));
+                escenarioBase.setTitle("Inicio Sesión");
+                escenarioBase.show();
+        }
     }
 
 

@@ -80,7 +80,7 @@ public class FXMLFormularioResponsableController implements Initializable {
         tfNumeroResponsable.setText(responsableEdicion.getNumeroTelefono());
         int posicionCuerpoAcademico = obtenerPosicionComboCuerpoAcademico(responsableEdicion.getIdAcademia());
         cbCuerpoResponsable.getSelectionModel().select(posicionCuerpoAcademico);
-        cbCuerpoResponsable.setDisable(false);
+        cbCuerpoResponsable.setDisable(true);
         cbCuerpoResponsable.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
     }
 
@@ -128,11 +128,11 @@ public class FXMLFormularioResponsableController implements Initializable {
             tfPasswordResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numero)){
+        if(!Utilidades.soloNumeros(numero) || numero.length() != 10){
             tfNumeroResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numeroTrabajador)){
+        if(!Utilidades.soloNumeros(numeroTrabajador) || numeroTrabajador.length() != 10){
             tfNumeroTrabajadorResponsable.setStyle(estiloError);
             datosValidados = false;
         }
@@ -157,28 +157,21 @@ public class FXMLFormularioResponsableController implements Initializable {
             responsableValidado.setNumeroTrabajador(numeroTrabajador);
             responsableValidado.setIdAcademia(academias.get(posicionCuerpoAcademico).getIdAcademia());
             
-            /*int idAcademiaAsignada = responsableValidado.getIdAcademia();
+            int idAcademiaAsignada = responsableValidado.getIdAcademia();
             
             int cantidadAcademia = CuerpoAcademicoDAO.obtenerCantidadAcademia(idAcademiaAsignada);
-            
-            if (cantidadAcademia >= 1){
-                Utilidades.mostrarDiallogoSimple("Cuerpo academico ya asignado", 
-                        "El cuerpo academico seleccionado ya ha sido asignado a un Responsable de academia", 
-                        Alert.AlertType.WARNING);
-            }else{
-                if (esEdicion) {
-                    responsableValidado.setIdUsuario(responsableEdicion.getIdUsuario());
-                    actualizarDirectorTesis(responsableValidado);
-                } else {
-                    registrarResponsable(responsableValidado);
-                }
-            }*/
             
             if(esEdicion){
                 responsableValidado.setIdUsuario(responsableEdicion.getIdUsuario());
                 actualizarDirectorTesis(responsableValidado);
             }else{
-                registrarResponsable(responsableValidado);
+                if (cantidadAcademia >= 1){
+                Utilidades.mostrarDiallogoSimple("Cuerpo academico ya asignado", 
+                        "El cuerpo academico seleccionado ya ha sido asignado a un Responsable de academia", 
+                        Alert.AlertType.WARNING);
+                }else{
+                    registrarResponsable(responsableValidado);
+                }
             }
         }
     }

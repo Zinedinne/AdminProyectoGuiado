@@ -25,6 +25,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -151,7 +153,10 @@ public class FXMLConsultarActividadesController implements Initializable {
 
     public void configurarVentanaAlumno(){
         this.labelNombre.setText(Singleton.getName());
-        this.labelFecha.setText(LocalDate.now().toString() );
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        String formattedDateTime = now.format(formatter);
+        this.labelFecha.setText(formattedDateTime);
         this.columnTitulo.setText("Titulo");
         this.columnDescripcion.setText("Descripcion");
         this.columnFechaInicio.setText("Fecha Inicio");

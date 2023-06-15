@@ -94,7 +94,7 @@ public class FXMLFormularioCursoController implements Initializable {
             tfBloque.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(nrc)){
+        if(!Utilidades.soloNumeros(nrc) || nrc.length() != 5){
             tfNRC.setStyle(estiloError);
             datosValidados = false;
         }
@@ -116,7 +116,7 @@ public class FXMLFormularioCursoController implements Initializable {
             cursoValidado.setBloque(Integer.parseInt(bloque));
             cursoValidado.setNrc(nrc);
             cursoValidado.setSeccion(seccion);
-            cursoValidado.setIdMateria(materias.get(posicionPeriodo).getIdMateria());
+            cursoValidado.setIdMateria(materias.get(posicionMateria).getIdMateria());
             cursoValidado.setIdPeriodo(periodos.get(posicionPeriodo).getIdPeriod());
             
             if(esEdicion){

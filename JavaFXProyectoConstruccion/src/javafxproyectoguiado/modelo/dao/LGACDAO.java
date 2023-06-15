@@ -5,10 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
 import javafxproyectoguiado.modelo.pojo.LGAC;
 import javafxproyectoguiado.modelo.pojo.LGACRespuesta;
 import modelo.ConexionBD;
 import util.Constantes;
+import util.Utilidades;
 
 public class LGACDAO {
     public static LGACRespuesta obtenerInformacionLGAC(){
@@ -44,7 +46,7 @@ public class LGACDAO {
         if(conexionBD != null){
             try{
                 String sentencia = "INSERT INTO LGAC (nombre) "
-                        + "VALUES(?)";
+                    + "VALUES(?)";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
                 prepararSentencia.setString(1, lgacNuevo.getNombre());
                 int filasAfectadas = prepararSentencia.executeUpdate();
@@ -58,7 +60,7 @@ public class LGACDAO {
         return respuesta;
     }
     
-     public static int modificarLGAC (LGAC lgacEdicion){
+    public static int modificarLGAC (LGAC lgacEdicion){
         int respuesta;
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD != null){
