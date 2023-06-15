@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLInicioSesionController">
+<AnchorPane id="AnchorPane" prefHeight="364.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLInicioSesionController">
    <children>
-      <AnchorPane layoutX="399.0" layoutY="-3.0" prefHeight="400.0" prefWidth="314.0">
-         <children>
-            <Label layoutX="100.0" layoutY="38.0" text="Inicio Sesión" />
-            <Label fx:id="lbErrorUsuario" layoutX="15.0" layoutY="78.0" prefHeight="27.0" prefWidth="260.0" />
-            <Label layoutX="58.0" layoutY="113.0" text="usuario" />
-            <Label layoutX="57.0" layoutY="203.0" text="contraseña" />
-            <Label fx:id="lbErrorContra" layoutX="20.0" layoutY="283.0" prefHeight="27.0" prefWidth="260.0" />
-            <TextField fx:id="tfUsuario" layoutX="38.0" layoutY="150.0" promptText="usuario" />
-            <PasswordField fx:id="tfContra" layoutX="40.0" layoutY="230.0" promptText="contraseña" />
-            <Button fx:id="ButtonIngresar" layoutX="108.0" layoutY="319.0" mnemonicParsing="false" onAction="#ClicIngresar" text="Ingresar" />
-         </children>
-      </AnchorPane>
+      <Button fx:id="ButtonIngresar" layoutX="99.0" layoutY="290.0" mnemonicParsing="false" onAction="#ClicIngresar" style="-fx-background-radius: 15 15 15 15; -fx-background-color: #516aab;" text="INICIAR SESIÓN" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="tfContra" layoutX="38.0" layoutY="215.0" prefWidth="301.0" promptText="contraseña">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="tfUsuario" layoutX="37.0" layoutY="112.0" prefHeight="31.0" prefWidth="301.0" promptText="usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="37.0" layoutY="179.0" text="contraseña">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="75.0" text="usuario">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="14.0" text="Inicio Sesión">
+         <font>
+            <Font name="Footlight MT Light" size="39.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

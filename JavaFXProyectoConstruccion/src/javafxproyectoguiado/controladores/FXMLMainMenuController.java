@@ -112,6 +112,7 @@ public class FXMLMainMenuController implements Initializable {
             case "Administrador":
                 btnActividadesMenu.setVisible(false);
                 btnProyectosMenu.setVisible(false);
+                btnValidacionProyectosMenu.setVisible(false);
                 break;
         }
     }
