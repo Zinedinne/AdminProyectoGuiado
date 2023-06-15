@@ -80,7 +80,6 @@ public class FXMLFormularioResponsableController implements Initializable {
         tfNumeroResponsable.setText(responsableEdicion.getNumeroTelefono());
         int posicionCuerpoAcademico = obtenerPosicionComboCuerpoAcademico(responsableEdicion.getIdAcademia());
         cbCuerpoResponsable.getSelectionModel().select(posicionCuerpoAcademico);
-        cbCuerpoResponsable.setEditable(false);
         cbCuerpoResponsable.setDisable(false);
         cbCuerpoResponsable.setStyle("-fx-opacity: 1; -fx-background-color: #ffffff;");
     }
@@ -158,7 +157,7 @@ public class FXMLFormularioResponsableController implements Initializable {
             responsableValidado.setNumeroTrabajador(numeroTrabajador);
             responsableValidado.setIdAcademia(academias.get(posicionCuerpoAcademico).getIdAcademia());
             
-            int idAcademiaAsignada = responsableValidado.getIdAcademia();
+            /*int idAcademiaAsignada = responsableValidado.getIdAcademia();
             
             int cantidadAcademia = CuerpoAcademicoDAO.obtenerCantidadAcademia(idAcademiaAsignada);
             
@@ -173,16 +172,14 @@ public class FXMLFormularioResponsableController implements Initializable {
                 } else {
                     registrarResponsable(responsableValidado);
                 }
-            }
+            }*/
             
-            /*
             if(esEdicion){
                 responsableValidado.setIdUsuario(responsableEdicion.getIdUsuario());
                 actualizarDirectorTesis(responsableValidado);
             }else{
                 registrarResponsable(responsableValidado);
             }
-            */
         }
     }
     
