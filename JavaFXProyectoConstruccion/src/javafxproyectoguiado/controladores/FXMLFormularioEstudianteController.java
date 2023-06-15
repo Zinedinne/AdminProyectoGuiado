@@ -108,7 +108,7 @@ public class FXMLFormularioEstudianteController implements Initializable {
             tfNumeroEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(matricula.isEmpty()){
+        if(matricula.isEmpty() || matricula.length() != 10){
             tfMatricula.setStyle(estiloError);
             datosValidados = false;
         }

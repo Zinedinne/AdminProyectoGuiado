@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="364.0" prefWidth="376.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLInicioSesionController">
    <children>
-      <Button fx:id="ButtonIngresar" layoutX="99.0" layoutY="290.0" mnemonicParsing="false" onAction="#ClicIngresar" style="-fx-background-radius: 15 15 15 15; -fx-background-color: #516aab;" text="INICIAR SESIÓN" textFill="WHITE">
+      <Button fx:id="ButtonIngresar" layoutX="99.0" layoutY="308.0" mnemonicParsing="false" onAction="#ClicIngresar" style="-fx-background-radius: 15 15 15 15; -fx-background-color: #516aab;" text="INICIAR SESIÓN" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
@@ -39,5 +39,7 @@
             <Font name="Footlight MT Light" size="39.0" />
          </font>
       </Label>
+      <Label fx:id="lbErrorUsuario" layoutX="38.0" layoutY="158.0" />
+      <Label fx:id="lbErrorContra" layoutX="38.0" layoutY="263.0" />
    </children>
 </AnchorPane>

@@ -13,7 +13,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -24,7 +23,6 @@ import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.SesionDAO;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 import javafxproyectoguiado.modelo.pojo.Usuario;
-import javafxproyectoguiado.vistas.Main;
 import util.Constantes;
 import util.Utilidades;
 
@@ -81,7 +79,6 @@ public class FXMLInicioSesionController implements Initializable {
     
     private void validarCredencialesUsuario(String usuario, String password){
         Usuario usuarioRespuesta = SesionDAO.verificarUsuarioSesion(usuario, password);
-         System.out.println(usuarioRespuesta.getCodigoRespuesta());
         switch(usuarioRespuesta.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
                 Utilidades.mostrarDiallogoSimple("Error de conexión", 

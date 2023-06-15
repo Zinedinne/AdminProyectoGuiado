@@ -29,7 +29,6 @@ import util.Utilidades;
  */
 public class FXMLAsignarEstudianteAnteproyectoController implements Initializable {
 
-    private Label lbNombreAnteproyecto;
     @FXML
     private ComboBox<Estudiante> cbEstudiantes;
     private ObservableList<Estudiante> estudiantes;
@@ -143,7 +142,7 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
     }
     
     private void cerrarVentana(){
-        Stage escenarioBase = (Stage) lbNombreAnteproyecto.getScene().getWindow();
+        Stage escenarioBase = (Stage) cbEstudiantes.getScene().getWindow();
         escenarioBase.close();
     }
     

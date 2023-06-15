@@ -13,11 +13,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafxproyectoguiado.modelo.dao.TableActivitiesDAO;
 import javafxproyectoguiado.modelo.dao.TableAnteproyectoDAO;
 import javafxproyectoguiado.modelo.dao.UsuarioDAO;
 import javafxproyectoguiado.modelo.pojo.Singleton;
-import javafxproyectoguiado.modelo.pojo.TableActivities;
 import javafxproyectoguiado.modelo.pojo.TableAnteproyecto;
 import javafxproyectoguiado.modelo.pojo.Usuario;
 import util.Constantes;
@@ -107,7 +105,6 @@ public class FXMLConsultarProyecto implements Initializable {
                 StackPane.setAlignment(button, Pos.CENTER);
                 button.setOnAction(event -> {
                     TableAnteproyecto activity = getTableView().getItems().get(getIndex());
-                    System.out.println("Button clicked for activity ID: " + activity.getIdAnteproyecto());
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLConsultarActividades.fxml"));
                     try {
                         Parent root = loader.load();

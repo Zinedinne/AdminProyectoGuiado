@@ -100,7 +100,6 @@ public class FXMLConsultarActividadesController implements Initializable {
                 StackPane.setAlignment(button, Pos.CENTER);
                 button.setOnAction(event -> {
                     TableActivities activity = getTableView().getItems().get(getIndex());
-                    System.out.println("Button clicked for activity ID: " + activity.getIdActividad());
                     if (Singleton.getRol().equals("Estudiante")) {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/javafxproyectoguiado/vistas/FXMLGestionarActividad.fxml"));
                         try {

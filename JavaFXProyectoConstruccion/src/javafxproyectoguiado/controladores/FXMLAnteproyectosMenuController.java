@@ -55,7 +55,6 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
     private TableColumn colEstado;
     @FXML
     private TableColumn colAlumnoAsignado;
-    private TextField tfBusquedaAnteproyecto;
     @FXML
     private Button btnAsignarEstudiante;
 
@@ -104,7 +103,7 @@ public class FXMLAnteproyectosMenuController implements Initializable, INotifica
     
     @FXML
     private void clicCerrarVentana(MouseEvent event) {
-        Stage escenarioPrincipal = (Stage) tfBusquedaAnteproyecto.getScene().getWindow();
+        Stage escenarioPrincipal = (Stage) tvAnteproyectos.getScene().getWindow();
         escenarioPrincipal.close();
     }
 

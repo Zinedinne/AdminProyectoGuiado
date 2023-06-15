@@ -96,7 +96,7 @@ public class FXMLMainMenuController implements Initializable {
                 btnProyectosMenu.setVisible(false);
                 btnValidacionProyectosMenu.setVisible(false);
                 break;
-            case "Encargado de Tesis":
+            case "Encargado de tesis":
                 btnCurso.setVisible(false);
                 btnCuerpoAcademico.setVisible(false);
                 btnLGAC.setVisible(false);

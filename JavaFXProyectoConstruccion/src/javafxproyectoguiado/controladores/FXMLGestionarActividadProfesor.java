@@ -86,7 +86,6 @@ public class FXMLGestionarActividadProfesor implements Initializable {
         try {
             Parent root = loader.load();
             FXMLConsultarActividadesController controller = loader.getController();
-            Utilidades.mostrarDiallogoSimple("Exito", idActividad + nombreAlumno, Alert.AlertType.INFORMATION);
             controller.setIdAlumno(idAlumno, nombreAlumno, nombreAnteProyecto);
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

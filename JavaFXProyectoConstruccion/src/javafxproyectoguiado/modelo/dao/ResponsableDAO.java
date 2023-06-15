@@ -23,7 +23,7 @@ public class ResponsableDAO {
                         +"From Academico " 
                         +"Inner join Usuario ON Academico.idUsuario = Usuario.idUsuario "
                         + "Inner join Academia ON Academico.idAcademia = Academia.idAcademia "
-                        + "WHERE usuario.tipoUsuario = 'Responsable de Academia';";
+                        + "WHERE usuario.tipoUsuario = 'Responsable de academia';";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
                 ResultSet resultado = prepararSentencia.executeQuery();
                     ArrayList<Responsable> ResponsableConsulta = new ArrayList();
@@ -71,7 +71,7 @@ public class ResponsableDAO {
                 prepararSentencia.setString(5, ResponsableNuevo.getPassword());
                 prepararSentencia.setString(6, ResponsableNuevo.getCorreoInstitucional());
                 prepararSentencia.setString(7, ResponsableNuevo.getNumeroTelefono());
-                prepararSentencia.setString(8, "Responsable de Academia");
+                prepararSentencia.setString(8, "Responsable de academia");
                 int filasAfectadas = prepararSentencia.executeUpdate();
                 if (filasAfectadas > 0){
                     String queryLastID = "SELECT LAST_INSERT_ID() as idUltimo";

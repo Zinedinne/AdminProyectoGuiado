@@ -52,7 +52,6 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable{
     private TableColumn colEstado;
     @FXML
     private TableColumn colResponsable;
-    private TextField tfBusquedaAnteproyecto;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -94,7 +93,7 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable{
     
     @FXML
     private void clicCerrarVentana(MouseEvent event) {
-        Stage escenarioPrincipal = (Stage) tfBusquedaAnteproyecto.getScene().getWindow();
+        Stage escenarioPrincipal = (Stage) tvAnteproyectosValidados.getScene().getWindow();
         escenarioPrincipal.close();
     }
 
