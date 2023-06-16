@@ -56,6 +56,26 @@ public class Utilidades {
         }
     }
     
+    public static boolean correoValidoEstudiante(String correo){
+        if(correo != null && !correo.isEmpty()){
+            Pattern patronCorreo = Pattern.compile("([zS]+(\\.?[a-z0-9A-Z])*)+@(([estudiantes]+)\\.([uv]+))\\.(([mx]))+");
+            Matcher matchPatron = patronCorreo.matcher(correo);
+            return matchPatron.find();
+        }else{
+            return false;
+        }
+    }
+    
+    public static boolean correoValidoAcademico(String correo){
+        if(correo != null && !correo.isEmpty()){
+            Pattern patronCorreo = Pattern.compile("([a-z0-9A-Z]+(\\.?[a-z0-9A-Z])*)+@(([uv]+))\\.(([mx]))+");
+            Matcher matchPatron = patronCorreo.matcher(correo);
+            return matchPatron.find();
+        }else{
+            return false;
+        }
+    }
+    
 
     public static boolean soloLetras(String campo){
         if(campo != null && !campo.isEmpty()){
@@ -72,6 +92,16 @@ public class Utilidades {
     public static boolean soloNumeros(String campo){
         if(campo != null && !campo.isEmpty()){
             Pattern patronCorreo = Pattern.compile("(^[0-9]+$)");
+            Matcher matchPatron = patronCorreo.matcher(campo);
+            return matchPatron.find();
+        }else{
+            return false;
+        }
+    }
+    
+    public static boolean matricula(String campo){
+        if(campo != null && !campo.isEmpty()){
+            Pattern patronCorreo = Pattern.compile("(([zS]+))+(([0-9]))+");
             Matcher matchPatron = patronCorreo.matcher(campo);
             return matchPatron.find();
         }else{

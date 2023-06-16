@@ -117,7 +117,7 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
             tfNumeroTrabajadorTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValido(correo)){
+        if(!Utilidades.correoValidoAcademico(correo)){
             tfCorreoTesis.setStyle(estiloError);
             datosValidados = false;
         }

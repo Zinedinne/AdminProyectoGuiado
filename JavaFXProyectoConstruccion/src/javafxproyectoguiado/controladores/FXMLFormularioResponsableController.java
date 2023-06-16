@@ -136,7 +136,7 @@ public class FXMLFormularioResponsableController implements Initializable {
             tfNumeroTrabajadorResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValido(correo)){
+        if(!Utilidades.correoValidoAcademico(correo)){
             tfCorreoResponsable.setStyle(estiloError);
             datosValidados = false;
         }

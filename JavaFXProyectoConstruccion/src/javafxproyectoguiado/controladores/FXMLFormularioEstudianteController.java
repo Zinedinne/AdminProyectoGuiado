@@ -108,11 +108,11 @@ public class FXMLFormularioEstudianteController implements Initializable {
             tfNumeroEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(matricula.isEmpty() || matricula.length() != 10){
+        if(!Utilidades.matricula(matricula) || matricula.length() != 10){
             tfMatricula.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValido(correo)){
+        if(!Utilidades.correoValidoEstudiante(correo)){
             tfCorreoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }

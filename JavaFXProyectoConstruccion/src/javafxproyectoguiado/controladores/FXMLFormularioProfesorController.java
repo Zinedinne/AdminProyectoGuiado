@@ -122,7 +122,7 @@ public class FXMLFormularioProfesorController implements Initializable {
             tfNumeroTrabajadorProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValido(correo)){
+        if(!Utilidades.correoValidoAcademico(correo)){
             tfCorreoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
