@@ -35,7 +35,7 @@
          </font>
       </Button>
       <TextField fx:id="tfNombre" layoutX="101.0" layoutY="166.0" prefHeight="35.0" prefWidth="409.0" promptText="pj. Academia de Tecnologia" />
-      <Label layoutX="209.0" layoutY="131.0" text="Nombre de Academia" textFill="#bd9240">
+      <Label layoutX="180.0" layoutY="130.0" text="Nombre de Cuerpo Academia" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>

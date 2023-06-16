@@ -5,12 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javafx.scene.control.Alert;
 import javafxproyectoguiado.modelo.pojo.LGAC;
 import javafxproyectoguiado.modelo.pojo.LGACRespuesta;
 import modelo.ConexionBD;
 import util.Constantes;
-import util.Utilidades;
 
 public class LGACDAO {
     public static LGACRespuesta obtenerInformacionLGAC(){

@@ -55,7 +55,7 @@ public class FXMLFormularioLGACController implements Initializable {
         
         String nombre = tfNombre.getText();
         
-        if(!Utilidades.soloLetras(nombre) || nombre.length() != 45){
+        if(!Utilidades.soloLetras(nombre) || nombre.length() > 45){
             tfNombre.setStyle(estiloError);
             datosValidados = false;
         }
