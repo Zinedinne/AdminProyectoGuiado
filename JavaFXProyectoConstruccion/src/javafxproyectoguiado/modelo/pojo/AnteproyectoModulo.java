@@ -1,8 +1,5 @@
 package javafxproyectoguiado.modelo.pojo;
 
-import java.util.List;
-import java.util.Set;
-
 /**
  *
  * @author Alvaro
@@ -23,11 +20,18 @@ public class AnteproyectoModulo {
     private String nombreEncargadoDeTesis;
     private int idEstudianteAsignado;
     private String estudianteAsignado;
+    private String comentario;
+    private String estudiantesAsignados;
+    private int idAcademia;
+    private String nombreAcademia;
 
     public AnteproyectoModulo() {
     }
 
-    public AnteproyectoModulo(int idAnteproyecto, String nombreAnteproyecto, String fechaInicio, String duracion, String modalidad, String estado, String descripcion, int idLGAC, String nombreLGAC, int idUsuario, String nombreCreador, int idEncargadoDeTesis, String nombreEncargadoDeTesis, int idEstudianteAsignado, String estudianteAsignado) {
+    public AnteproyectoModulo(int idAnteproyecto, String nombreAnteproyecto, String fechaInicio, String duracion, String modalidad, 
+            String estado, String descripcion, int idLGAC, String nombreLGAC, int idUsuario, String nombreCreador, int idEncargadoDeTesis, 
+            String nombreEncargadoDeTesis, int idEstudianteAsignado, String estudianteAsignado, String comentario, String estudiantesAsignados,
+            int idAcademia, String nombreAcademia) {
         this.idAnteproyecto = idAnteproyecto;
         this.nombreAnteproyecto = nombreAnteproyecto;
         this.fechaInicio = fechaInicio;
@@ -43,6 +47,10 @@ public class AnteproyectoModulo {
         this.nombreEncargadoDeTesis = nombreEncargadoDeTesis;
         this.idEstudianteAsignado = idEstudianteAsignado;
         this.estudianteAsignado = estudianteAsignado;
+        this.comentario = comentario;
+        this.estudiantesAsignados = estudiantesAsignados;
+        this.idAcademia = idAcademia;
+        this.nombreAcademia = nombreAcademia;
     }
 
     public int getIdAnteproyecto() {
@@ -163,6 +171,38 @@ public class AnteproyectoModulo {
 
     public void setEstudianteAsignado(String estudianteAsignado) {
         this.estudianteAsignado = estudianteAsignado;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public String getEstudiantesAsignados() {
+        return estudiantesAsignados;
+    }
+
+    public void setEstudiantesAsignados(String estudiantesAsignados) {
+        this.estudiantesAsignados = estudiantesAsignados;
+    }
+
+    public int getIdAcademia() {
+        return idAcademia;
+    }
+
+    public void setIdAcademia(int idAcademia) {
+        this.idAcademia = idAcademia;
+    }
+
+    public String getNombreAcademia() {
+        return nombreAcademia;
+    }
+
+    public void setNombreAcademia(String nombreAcademia) {
+        this.nombreAcademia = nombreAcademia;
     }
     
     public String toString(){

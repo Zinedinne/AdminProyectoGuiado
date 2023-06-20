@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
 import javafxproyectoguiado.modelo.dao.EstudianteDAO;
@@ -102,19 +101,54 @@ public class FXMLAsignarEstudianteAnteproyectoController implements Initializabl
             int idAnteproyecto = anteproyectoValido.getIdAnteproyecto();
             
             int cantidadAnteproyectoUsuario = AnteproyectoModuloDAO.obtenerCantidadAnteproyectoUsuario(idEstudianteAsignado);
+            int cantidadUsuariosAnteproyecto= AnteproyectoModuloDAO.obtenerCantidadEstudiantesAnteproyecto(idAnteproyecto);
             
             if(cantidadAnteproyectoUsuario >= 1){
                 Utilidades.mostrarDiallogoSimple("Alumno ya asignado", 
                         "El alumno seleccionado ya ha sido asignado a un anteproyecto", 
                         Alert.AlertType.WARNING);
             }else{
-            registrarAsignacion(anteproyectoValido);
+                if(cantidadUsuariosAnteproyecto >= 2){
+                    Utilidades.mostrarDiallogoSimple("Anteproyecto limitado", 
+                        "El anteproyecto seleccionado ya ha sido asignado a 2 estudiantes, no se le pueden asignar más", 
+                        Alert.AlertType.WARNING);
+                }else{
+                    if(cantidadUsuariosAnteproyecto == 1){
+                        registrarSegundaAsignacion(anteproyectoValido);
+                    }else{
+                        registrarPrimeraAsignacion(anteproyectoValido);
+                    }
+                    
+                }
             }
         }
     }
 
-    private void registrarAsignacion(AnteproyectoModulo anteproyectoValido){
-        int codigoRespuesta = AnteproyectoModuloDAO.asignarEstudianteAnteproyecto(anteproyectoValido);
+    private void registrarPrimeraAsignacion(AnteproyectoModulo anteproyectoValido){
+        int codigoRespuesta = AnteproyectoModuloDAO.asignarPrimerEstudianteAnteproyecto(anteproyectoValido);
+        switch(codigoRespuesta){
+            case Constantes.ERROR_CONEXION:
+                Utilidades.mostrarDiallogoSimple("Error de conexión", 
+                        "El anteproyecto no puede ser registrado debido a un error en la conexión...", 
+                        Alert.AlertType.ERROR);
+                break;
+            case Constantes.ERROR_CONSULTA:
+                Utilidades.mostrarDiallogoSimple("Error en la información", 
+                        "La información del anteproyecto no puede ser registradada, por favor verifique su información", 
+                        Alert.AlertType.WARNING);
+                
+                break;
+            case Constantes.OPERACION_EXITOSA:
+                Utilidades.mostrarDiallogoSimple("Anteproyecto asignado", 
+                        "El anteproyecto fue asignado correctamente al alumno", 
+                        Alert.AlertType.INFORMATION);
+                cerrarVentana();
+                break;
+        }
+    }
+    
+    private void registrarSegundaAsignacion(AnteproyectoModulo anteproyectoValido){
+        int codigoRespuesta = AnteproyectoModuloDAO.asignarSegundoEstudianteAnteproyecto(anteproyectoValido);
         switch(codigoRespuesta){
             case Constantes.ERROR_CONEXION:
                 Utilidades.mostrarDiallogoSimple("Error de conexión", 

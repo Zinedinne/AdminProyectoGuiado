@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="415.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAsignarComentarioAnteproyectoController">
+   <children>
+      <Pane prefHeight="75.0" prefWidth="633.0" style="-fx-background-color: #516aab;">
+         <children>
+            <Label layoutX="70.0" layoutY="15.0" text="Asignar Comentario de Anteproyecto" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ComboBox fx:id="cbAnteproyecto" layoutX="118.0" layoutY="119.0" prefHeight="29.0" prefWidth="397.0" />
+      <Label layoutX="118.0" layoutY="100.0" text="Nombre de Anteproyecto" />
+      <Label layoutX="118.0" layoutY="174.0" text="Comentario" />
+      <TextArea fx:id="taComentario" layoutX="118.0" layoutY="193.0" prefHeight="147.0" prefWidth="397.0" style="-fx-wrap-text: True;" />
+      <Button layoutX="469.0" layoutY="370.0" mnemonicParsing="false" onAction="#clicBtnAsignarComentario" text="Asignar comentario">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

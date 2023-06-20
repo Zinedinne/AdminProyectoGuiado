@@ -19,9 +19,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
+import javafxproyectoguiado.modelo.dao.CuerpoAcademicoDAO;
 import javafxproyectoguiado.modelo.dao.DirectorTesisDAO;
 import javafxproyectoguiado.modelo.dao.LGACDAO;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
+import javafxproyectoguiado.modelo.pojo.CuerpoAcademico;
+import javafxproyectoguiado.modelo.pojo.CuerpoAcademicoRespuesta;
 import javafxproyectoguiado.modelo.pojo.DirectorTesis;
 import javafxproyectoguiado.modelo.pojo.DirectorTesisRespuesta;
 import javafxproyectoguiado.modelo.pojo.LGAC;
@@ -54,10 +57,13 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
     @FXML
     private ComboBox<DirectorTesis> cbEncargadoDeTesis;
     @FXML
+    private ComboBox<CuerpoAcademico> cbAcademia;
+    @FXML
     private TextArea taDescripcion;
 
     private ObservableList<LGAC> lgacs;
     private ObservableList<DirectorTesis> encargados;
+    private ObservableList<CuerpoAcademico> academias;
     
     private AnteproyectoModulo anteproyectoEdicion;
     private boolean esEdicion;
@@ -81,6 +87,14 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends DirectorTesis> observable, 
                     DirectorTesis oldValue, DirectorTesis newValue) {
+            }
+        });
+        
+        cargarInformacionAcademia();
+        cbAcademia.valueProperty().addListener(new ChangeListener<CuerpoAcademico>() {
+            @Override
+            public void changed(ObservableValue<? extends CuerpoAcademico> observable, 
+                    CuerpoAcademico oldValue, CuerpoAcademico newValue) {
             }
         });
         dpFechaInicio.setEditable(false);
@@ -109,6 +123,8 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
         dpFechaFin.setValue(LocalDate.parse(anteproyectoEdicion.getDuracion()));
         int posicionEncargado = obtenerPosicionComboEncargado(anteproyectoEdicion.getIdEncargadoDeTesis());
         cbEncargadoDeTesis.getSelectionModel().select(posicionEncargado);
+        int posicionAcademia = obtenerPosicionComboAcademia(anteproyectoEdicion.getIdAcademia());
+        cbAcademia.getSelectionModel().select(posicionAcademia);
         taDescripcion.setText(anteproyectoEdicion.getDescripcion());
     }
     
@@ -130,6 +146,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
         dpFechaFin.setStyle(estiloNormal);
         cbEncargadoDeTesis.setStyle(estiloNormal);
         taDescripcion.setStyle(estiloNormal);
+        cbAcademia.setStyle(estiloNormal);
     }
     
     private void validarCamposRegistro(){
@@ -142,6 +159,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
         LocalDate fechaInicio = dpFechaInicio.getValue();
         LocalDate fechaFin = dpFechaFin.getValue();
         int posicionEncargado = cbEncargadoDeTesis.getSelectionModel().getSelectedIndex();
+        int posicionAcademia = cbAcademia.getSelectionModel().getSelectedIndex();
         String descripcion = taDescripcion.getText();
         
         if(nombreAnteproyecto.isEmpty()){
@@ -184,6 +202,11 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
+        if(posicionAcademia == -1){
+            cbAcademia.setStyle(estiloError);
+            datosValidos = false;
+        }
+        
         if(descripcion.isEmpty()){
             taDescripcion.setStyle(estiloError);
             datosValidos = false;
@@ -208,6 +231,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             anteproyectoValido.setFechaInicio(fechaInicio.toString());
             anteproyectoValido.setDuracion(fechaFin.toString());
             anteproyectoValido.setIdEncargadoDeTesis(encargados.get(posicionEncargado).getIdUsuario());
+            anteproyectoValido.setIdAcademia(academias.get(posicionAcademia).getIdAcademia());
             anteproyectoValido.setDescripcion(descripcion);
             
             if(esEdicion){
@@ -318,6 +342,33 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
     private int obtenerPosicionComboEncargado(int idEncargado){
         for (int i = 0; i < encargados.size(); i++) {
             if(encargados.get(i).getIdUsuario()== idEncargado)
+                return i;
+        }
+        return 0;
+    }
+    
+    private void cargarInformacionAcademia(){
+        academias = FXCollections.observableArrayList();
+        CuerpoAcademicoRespuesta productosBD = CuerpoAcademicoDAO.obtenerInformaciónCuerpoAcademico();
+        switch(productosBD.getCodigoRespuesta()){
+            case Constantes.ERROR_CONEXION:
+                    Utilidades.mostrarDiallogoSimple("Error de conexión", 
+                            "Error de conexion con la base de datos.", Alert.AlertType.ERROR);
+                break;
+            case Constantes.ERROR_CONSULTA:
+                    Utilidades.mostrarDiallogoSimple("Error de consulta", 
+                            "Por el momento no se puede obtener la información.", Alert.AlertType.WARNING);
+                break;
+            case Constantes.OPERACION_EXITOSA:
+                    academias.addAll(productosBD.getAcademias());
+                    cbAcademia.setItems(academias);
+                break;
+        }
+    }
+    
+    private int obtenerPosicionComboAcademia(int idAcademia){
+        for (int i = 0; i < academias.size(); i++) {
+            if(academias.get(i).getIdAcademia()== idAcademia)
                 return i;
         }
         return 0;

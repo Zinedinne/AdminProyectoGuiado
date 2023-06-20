@@ -16,7 +16,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
@@ -152,7 +151,7 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable{
     private void clicBtnDenegarAnteproyecto(ActionEvent event) {
         int posicion = tvAnteproyectosValidados.getSelectionModel().getSelectedIndex();
         if(posicion != -1){
-            
+            AnteproyectoModulo anteproyecto = anteproyectos.get(posicion);
             if (anteproyectos.get(posicion).getEstado().equals("1")) {
             Utilidades.mostrarDiallogoSimple("Anteproyecto ya validado", 
                     "No se puede denegar un anteproyecto que ya ha sido validado", 
@@ -170,8 +169,13 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable{
             boolean validarRegistro = Utilidades.mostrarDialogoConfirmacion("Denegar anteproyecto", 
                     "¿Estás seguro de que deseas denegar el registro del anteproyecto: "
                             +anteproyectos.get(posicion).getNombreAnteproyecto());
+            if(!validarRegistro){
+                return;
+            }
             if(validarRegistro){
-                 int codigoRespuesta = AnteproyectoModuloDAO.denegarEstadoAnteproyecto(anteproyectos.get(posicion).getIdAnteproyecto(), 
+                irComentario(anteproyecto);
+                cargarInformacionTabla();
+                int codigoRespuesta = AnteproyectoModuloDAO.denegarEstadoAnteproyecto(anteproyectos.get(posicion).getIdAnteproyecto(), 
                          anteproyectos.get(posicion).getEstado());
                 switch(codigoRespuesta){
                     case Constantes.ERROR_CONEXION:
@@ -198,13 +202,31 @@ public class FXMLAnteproyectosValidacionMenuController implements Initializable{
                     Alert.AlertType.WARNING);
         }
     }
-
+    
+    private void irComentario(AnteproyectoModulo anteproyectoConsulta){
+        try{
+            FXMLLoader accesoControlador = new FXMLLoader
+                    (JavaFXProyectoConstruccion.class.getResource("/javafxproyectoguiado/vistas/FXMLAsignarComentarioAnteproyecto.fxml"));
+            Parent vista = accesoControlador.load();
+            FXMLAsignarComentarioAnteproyectoController consulta = accesoControlador.getController();
+            
+            consulta.inicializarInformacionConsulta(anteproyectoConsulta);
+            
+            Stage escenarioFormulario = new Stage();
+            escenarioFormulario.setScene(new Scene (vista));
+            escenarioFormulario.setTitle("Asignar Anteproyecto");
+            escenarioFormulario.initModality(Modality.APPLICATION_MODAL);
+            escenarioFormulario.showAndWait();
+        } catch (IOException ex){
+            Logger.getLogger(FXMLAsignarComentarioAnteproyectoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @FXML
     private void clicBtnConsultarAnteproyecto(ActionEvent event) {
         int posicion = tvAnteproyectosValidados.getSelectionModel().getSelectedIndex();
         if(posicion != -1){
             irConsulta(anteproyectos.get(posicion));
-            //tvAlumnos.getSelectionModel().getSelectedItem();
         }else{
             Utilidades.mostrarDiallogoSimple("Selecione un anteproyecto", 
                     "Debe seleccionar un registro en la tabla de anteproyectos para su consulta", 

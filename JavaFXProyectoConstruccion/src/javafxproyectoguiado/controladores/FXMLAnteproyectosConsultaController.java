@@ -39,6 +39,10 @@ public class FXMLAnteproyectosConsultaController implements Initializable {
     private Label lbLGAC;
     @FXML
     private Label lbAlumnoAsignado;
+    @FXML
+    private Label lbComentario;
+    @FXML
+    private Label lbCuerpoAcademico;
     
     private AnteproyectoModulo anteproyectoConsulta;
     
@@ -59,12 +63,14 @@ public class FXMLAnteproyectosConsultaController implements Initializable {
         lbModalidadTrabajo.setText(anteproyectoConsulta.getModalidad());
         lbFechainicio.setText(anteproyectoConsulta.getFechaInicio());
         lbFechaFin.setText(anteproyectoConsulta.getDuracion());
-        lbAlumnoAsignado.setText(anteproyectoConsulta.getEstudianteAsignado());
+        lbAlumnoAsignado.setText(anteproyectoConsulta.getEstudiantesAsignados());
         lbDescripcion.setText(anteproyectoConsulta.getDescripcion());
         lbDirector.setText(anteproyectoConsulta.getNombreEncargadoDeTesis());
         lbEncargado.setText(anteproyectoConsulta.getNombreCreador());
         lbEstadoAnteproyecto.setText(anteproyectoConsulta.getEstado());
         Utilidades.asignarTextoLabelEstado(lbEstadoAnteproyecto, anteproyectoConsulta.getEstado());
+        lbComentario.setText(anteproyectoConsulta.getComentario());
+        lbCuerpoAcademico.setText(anteproyectoConsulta.getNombreAcademia());
     }
 
     @FXML
