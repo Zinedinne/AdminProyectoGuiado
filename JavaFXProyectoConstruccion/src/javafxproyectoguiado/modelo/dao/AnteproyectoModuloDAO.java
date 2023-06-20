@@ -76,6 +76,67 @@ public class AnteproyectoModuloDAO {
         return respuesta;
     }
     
+    public static AnteproyectoModuloRespuesta obtenerInformacionAnteproyectoDirector(){
+        AnteproyectoModuloRespuesta respuesta = new AnteproyectoModuloRespuesta();
+        respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
+        Connection conexionBD = ConexionBD.abrirConexionBD();
+        if(conexionBD != null){
+            try {
+                String consulta = "SELECT anteproyecto.idAnteproyecto, " +
+                        "CONCAT_WS(', ', estudiante.nombre, IFNULL(estudiante2.nombre, '')) AS estudiantesAsignados, " +
+                        "nombreAnteproyecto, fechaInicio, duracion, modalidad, estado, descripcion, " +
+                        "anteproyecto.LGAC_idLGAC, lgac.nombre AS nombreLGAC, " +
+                        "anteproyecto.Usuarios_idUsuarios, creador.nombre AS nombreCreador, " +
+                        "anteproyecto.idEncargadoDeTesis, encargado.nombre AS nombreEncargadoDeTesis, " +
+                        "comentario, " +
+                        "anteproyecto.Academia_idAcademia, academia.nombreAcademia AS nombreAcademia " +
+                        "FROM anteproyecto " +
+                        "INNER JOIN lgac ON anteproyecto.LGAC_idLGAC = lgac.idLGAC " +
+                        "INNER JOIN usuario AS creador ON anteproyecto.Usuarios_idUsuarios = creador.idUsuario " +
+                        "INNER JOIN usuario AS encargado ON anteproyecto.idEncargadoDeTesis = encargado.idUsuario " +
+                        "INNER JOIN academia ON anteproyecto.Academia_idAcademia = academia.idAcademia " +
+                        "LEFT JOIN anteproyectousuario ON anteproyecto.idAnteproyecto = anteproyectousuario.Anteproyecto_idAnteproyecto " +
+                        "LEFT JOIN usuario AS estudiante ON anteproyectousuario.Usuario_idUsuario = estudiante.idUsuario " +
+                        "LEFT JOIN usuario AS estudiante2 ON anteproyectousuario.Usuario_idUsuario2 = estudiante2.idUsuario " +
+                        "WHERE encargado.idUsuario = ? ";
+                int idDirectorTesis = Singleton.getId();
+                PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+                prepararSentencia.setInt(1, idDirectorTesis);
+                ResultSet resultado = prepararSentencia.executeQuery();
+                ArrayList<AnteproyectoModulo> anteproyectoConsulta = new ArrayList();
+                while(resultado.next()){
+                    AnteproyectoModulo anteproyecto = new AnteproyectoModulo();
+                    anteproyecto.setIdAnteproyecto(resultado.getInt("idAnteproyecto"));
+                    anteproyecto.setNombreAnteproyecto(resultado.getString("nombreAnteproyecto"));
+                    anteproyecto.setFechaInicio(resultado.getString("fechaInicio"));
+                    anteproyecto.setDuracion(resultado.getString("duracion"));
+                    anteproyecto.setModalidad(resultado.getString("modalidad"));
+                    anteproyecto.setEstado(resultado.getString("estado"));
+                    anteproyecto.setDescripcion(resultado.getString("descripcion"));
+                    anteproyecto.setIdLGAC(resultado.getInt("LGAC_idLGAC"));
+                    anteproyecto.setNombreLGAC(resultado.getString("nombreLGAC"));
+                    anteproyecto.setIdUsuario(resultado.getInt("Usuarios_idUsuarios"));
+                    anteproyecto.setNombreCreador(resultado.getString("nombreCreador"));
+                    anteproyecto.setIdEncargadoDeTesis(resultado.getInt("idEncargadoDeTesis"));
+                    anteproyecto.setNombreEncargadoDeTesis(resultado.getString("nombreEncargadoDeTesis"));
+                    anteproyecto.setComentario(resultado.getString("comentario"));
+                    anteproyecto.setEstudiantesAsignados(resultado.getString("estudiantesAsignados"));
+                    anteproyecto.setIdAcademia(resultado.getInt("Academia_idAcademia"));
+                    anteproyecto.setNombreAcademia(resultado.getString("nombreAcademia"));
+                    anteproyectoConsulta.add(anteproyecto);
+                }
+                respuesta.setAnteproyectosModulo(anteproyectoConsulta);
+                conexionBD.close();
+            } catch (SQLException e){
+                e.printStackTrace();
+                respuesta.setCodigoRespuesta(Constantes.ERROR_CONSULTA);
+            }
+        }else{
+            respuesta.setCodigoRespuesta(Constantes.ERROR_CONEXION);
+        }
+        return respuesta;
+    }
+    
     public static AnteproyectoModuloRespuesta obtenerInformacionAnteproyectoUsuario(){
         AnteproyectoModuloRespuesta respuesta = new AnteproyectoModuloRespuesta();
         respuesta.setCodigoRespuesta(Constantes.OPERACION_EXITOSA);
@@ -409,9 +470,10 @@ public class AnteproyectoModuloDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if (conexionBD != null) {
             try {
-                String consulta = "SELECT COUNT(*) FROM Proyecto.AnteproyectoUsuario WHERE Usuario_idUsuario = ?";
+                String consulta = "SELECT COUNT(*) FROM Proyecto.AnteproyectoUsuario WHERE Usuario_idUsuario = ? OR Usuario_idUsuario2 = ? ";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
                 prepararSentencia.setInt(1, idUsuario);
+                prepararSentencia.setInt(2, idUsuario);
                 ResultSet resultado = prepararSentencia.executeQuery();
                 if (resultado.next()) {
                     cantidad = resultado.getInt(1);

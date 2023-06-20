@@ -81,7 +81,7 @@ public class FXMLAnteproyectosMenuController implements Initializable {
     
     private void cargarInformacionTabla(){
         anteproyectos = FXCollections.observableArrayList();
-        AnteproyectoModuloRespuesta respuestaBD = AnteproyectoModuloDAO.obtenerInformacionAnteproyecto();
+        AnteproyectoModuloRespuesta respuestaBD = AnteproyectoModuloDAO.obtenerInformacionAnteproyectoDirector();
         switch(respuestaBD.getCodigoRespuesta()){
             case Constantes.ERROR_CONEXION:
                     Utilidades.mostrarDiallogoSimple("Sin conexión",
