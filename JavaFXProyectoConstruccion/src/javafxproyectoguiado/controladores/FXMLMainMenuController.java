@@ -105,6 +105,7 @@ public class FXMLMainMenuController implements Initializable {
                 btnActividadesMenu.setVisible(false);
                 btnProyectosMenu.setVisible(false);
                 btnValidacionProyectosMenu.setVisible(false);
+                btnProyectosMenuUsuario.setVisible(false);
                 break;
         }
     }
