@@ -5,6 +5,8 @@
 package util;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -159,6 +161,11 @@ public class Utilidades {
         alertaConfirmacion.setHeaderText(null);
         Optional<ButtonType> botonClic = alertaConfirmacion.showAndWait();
         return (botonClic.get() == ButtonType.OK);
+    }
+    
+    public static String convertirFecha(String fecha) {
+        LocalDate localDate = LocalDate.parse(fecha);
+        return localDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
 
 }

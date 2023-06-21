@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,6 +23,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
 import javafxproyectoguiado.modelo.dao.AnteproyectoModuloDAO;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
@@ -69,14 +72,30 @@ public class FXMLAnteproyectosMenuController implements Initializable {
     
     private void configurarTabla(){
         colNombreAnteproyecto.setCellValueFactory(new PropertyValueFactory("nombreAnteproyecto"));
-        colFechaInicio.setCellValueFactory(new PropertyValueFactory("fechaInicio"));
-        colFechaFin.setCellValueFactory(new PropertyValueFactory("duracion"));
         colModalidad.setCellValueFactory(new PropertyValueFactory("modalidad"));
         colLGAC.setCellValueFactory(new PropertyValueFactory("nombreLGAC"));
         colEstado.setCellValueFactory(new PropertyValueFactory("estado"));
         Utilidades.asignarTextoEstado(colEstado);
         colResponsable.setCellValueFactory(new PropertyValueFactory("nombreCreador"));
         colAlumnoAsignado.setCellValueFactory(new PropertyValueFactory("estudiantesAsignados"));
+        
+        colFechaInicio.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AnteproyectoModulo, String>, ObservableValue<String>>() {
+        @Override
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<AnteproyectoModulo, String> data) {
+            String fechaInicio = data.getValue().getFechaInicio();
+            String fechaInicioFormateada = Utilidades.convertirFecha(fechaInicio);
+            return new SimpleStringProperty(fechaInicioFormateada);
+            }
+        });
+
+        colFechaFin.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<AnteproyectoModulo, String>, ObservableValue<String>>() {
+        @Override
+        public ObservableValue<String> call(TableColumn.CellDataFeatures<AnteproyectoModulo, String> data) {
+            String fechaFin = data.getValue().getDuracion();
+            String fechaFinFormateada = Utilidades.convertirFecha(fechaFin);
+            return new SimpleStringProperty(fechaFinFormateada);
+            }
+        });
     }
     
     private void cargarInformacionTabla(){

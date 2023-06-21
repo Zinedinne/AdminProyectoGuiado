@@ -61,8 +61,12 @@ public class FXMLAnteproyectosConsultaController implements Initializable {
         lbNombreAnteproyecto.setText(anteproyectoConsulta.getNombreAnteproyecto());
         lbLGAC.setText(anteproyectoConsulta.getNombreLGAC());
         lbModalidadTrabajo.setText(anteproyectoConsulta.getModalidad());
-        lbFechainicio.setText(anteproyectoConsulta.getFechaInicio());
-        lbFechaFin.setText(anteproyectoConsulta.getDuracion());
+        
+        String fechaInicio = Utilidades.convertirFecha(anteproyectoConsulta.getFechaInicio());
+        lbFechainicio.setText(fechaInicio);
+        String fechaFin = Utilidades.convertirFecha(anteproyectoConsulta.getDuracion());
+        lbFechaFin.setText(fechaFin);
+        
         lbAlumnoAsignado.setText(anteproyectoConsulta.getEstudiantesAsignados());
         lbDescripcion.setText(anteproyectoConsulta.getDescripcion());
         lbDirector.setText(anteproyectoConsulta.getNombreEncargadoDeTesis());
