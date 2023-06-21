@@ -162,7 +162,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
         int posicionAcademia = cbAcademia.getSelectionModel().getSelectedIndex();
         String descripcion = taDescripcion.getText();
         
-        if(nombreAnteproyecto.isEmpty()){
+        if(nombreAnteproyecto.isEmpty() || nombreAnteproyecto.length() >= 100){
             tfNombreAnteproyecto.setStyle(estiloError);
             datosValidos = false;
         }
@@ -172,7 +172,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
-        if(modalidad.isEmpty()){
+        if(modalidad.isEmpty() || modalidad.length() >= 45){
             tfModalidadTrabajo.setStyle(estiloError);
             datosValidos = false;
         }
@@ -207,7 +207,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
-        if(descripcion.isEmpty()){
+        if(descripcion.isEmpty() || descripcion.length() >= 250){
             taDescripcion.setStyle(estiloError);
             datosValidos = false;
         }
