@@ -167,7 +167,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
-        if(!Utilidades.soloLetras(nombreAnteproyecto)){
+        if(!Utilidades.soloLetras(nombreAnteproyecto) || nombreAnteproyecto.length() >= 100){
             tfNombreAnteproyecto.setStyle(estiloError);
             datosValidos = false;
         }
@@ -177,7 +177,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
-        if(!Utilidades.soloLetras(modalidad)){
+        if(!Utilidades.soloLetras(modalidad) || modalidad.length() >= 45){
             tfModalidadTrabajo.setStyle(estiloError);
             datosValidos = false;
         }
@@ -207,7 +207,7 @@ public class FXMLAnteproyectosFormularioController implements Initializable {
             datosValidos = false;
         }
         
-        if(descripcion.isEmpty()){
+        if(descripcion.isEmpty() || descripcion.length() >= 250){
             taDescripcion.setStyle(estiloError);
             datosValidos = false;
         }
