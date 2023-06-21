@@ -7,79 +7,78 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="703.0" prefWidth="600.0" style="-fx-background-color: #DDD6CC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioResponsableController">
+<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="730.0" style="-fx-background-color: #DDD6CC;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLFormularioResponsableController">
    <children>
-      <Pane layoutY="674.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #19222b;" />
-      <Pane prefHeight="81.0" prefWidth="600.0" style="-fx-background-color: #19222b;">
+      <Pane layoutY="674.0" prefHeight="30.0" prefWidth="730.0" style="-fx-background-color: #19222b;" />
+      <Pane prefHeight="81.0" prefWidth="730.0" style="-fx-background-color: #19222b;">
          <children>
-            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" text="Registrar Responsable" textFill="#bd9240">
+            <Label fx:id="lbTitulo" layoutX="14.0" layoutY="22.0" text="Editar información del Responsable de Academia" textFill="#bd9240">
                <font>
                   <Font name="Footlight MT Light" size="35.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <ComboBox fx:id="cbCuerpoResponsable" layoutX="207.0" layoutY="542.0" prefHeight="35.0" prefWidth="187.0" />
-      <Label layoutX="216.0" layoutY="515.0" text="Cuerpo Academico" textFill="#bd9240">
+      <ComboBox fx:id="cbCuerpoResponsable" layoutX="146.0" layoutY="553.0" prefHeight="35.0" prefWidth="438.0" />
+      <Label layoutX="281.0" layoutY="514.0" text="Cuerpo Academico" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfPasswordResponsable" layoutX="367.0" layoutY="349.0" prefHeight="35.0" promptText="pj. juan12345" />
-      <Button layoutX="36.0" layoutY="614.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
+      <TextField fx:id="tfPasswordResponsable" layoutX="432.0" layoutY="348.0" prefHeight="35.0" promptText="pj. juan12345" />
+      <Button layoutX="101.0" layoutY="613.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Cancelar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="422.0" layoutY="614.0" mnemonicParsing="false" onAction="#clicBtnGuardarResponsable" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
+      <Button layoutX="487.0" layoutY="613.0" mnemonicParsing="false" onAction="#clicBtnGuardarResponsable" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #B84357; -fx-background-radius: 18 18 18 18;" text="Guardar" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="tfNombreResponsable" layoutX="366.0" layoutY="139.0" prefHeight="35.0" promptText="pj. Juan" />
-      <TextField fx:id="tfNumeroTrabajadorResponsable" layoutX="47.0" layoutY="139.0" prefHeight="35.0" promptText="pj. 2015709" />
-      <Label layoutX="48.0" layoutY="110.0" text="Numero de Trabajador" textFill="#bd9240">
+      <TextField fx:id="tfNombreResponsable" layoutX="431.0" layoutY="138.0" prefHeight="35.0" promptText="pj. Juan" />
+      <TextField fx:id="tfNumeroTrabajadorResponsable" layoutX="112.0" layoutY="138.0" prefHeight="35.0" promptText="pj. 2015709" />
+      <Label layoutX="113.0" layoutY="109.0" text="Numero de Trabajador" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="366.0" layoutY="110.0" text="Nombre" textFill="#bd9240">
+      <Label layoutX="431.0" layoutY="109.0" text="Nombre" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="366.0" layoutY="222.0" text="Apellido Materno" textFill="#bd9240">
+      <Label layoutX="431.0" layoutY="221.0" text="Apellido Materno" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="47.0" layoutY="222.0" text="Apellido Paterno" textFill="#bd9240">
+      <Label layoutX="112.0" layoutY="221.0" text="Apellido Paterno" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfApellidoPaternoResponsable" layoutX="47.0" layoutY="251.0" prefHeight="35.0" promptText="pj. Florez" />
-      <TextField fx:id="tfApellidoMaternoResponsable" layoutX="366.0" layoutY="251.0" prefHeight="35.0" promptText="pj. Gomez" />
-      <TextField fx:id="tfUsernameResponsable" layoutX="48.0" layoutY="349.0" prefHeight="35.0" promptText="pj. juanflores" />
-      <Label layoutX="48.0" layoutY="320.0" text="Username" textFill="#bd9240">
+      <TextField fx:id="tfApellidoPaternoResponsable" layoutX="112.0" layoutY="250.0" prefHeight="35.0" promptText="pj. Florez" />
+      <TextField fx:id="tfApellidoMaternoResponsable" layoutX="431.0" layoutY="250.0" prefHeight="35.0" promptText="pj. Gomez" />
+      <TextField fx:id="tfUsernameResponsable" layoutX="113.0" layoutY="348.0" prefHeight="35.0" promptText="pj. juanflores" />
+      <Label layoutX="113.0" layoutY="319.0" text="Username" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="366.0" layoutY="320.0" text="Password" textFill="#bd9240">
+      <Label layoutX="432.0" layoutY="319.0" text="Password" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="tfNumeroResponsable" layoutX="367.0" layoutY="458.0" prefHeight="35.0" promptText="pj. 9231268459" />
-      <TextField fx:id="tfCorreoResponsable" layoutX="48.0" layoutY="458.0" prefHeight="35.0" prefWidth="223.0" promptText="pj. GJua@uv.mx" />
-      <Label layoutX="48.0" layoutY="429.0" text="Correo Institucional" textFill="#bd9240">
+      <TextField fx:id="tfNumeroResponsable" layoutX="432.0" layoutY="457.0" prefHeight="35.0" promptText="pj. 9231268459" />
+      <TextField fx:id="tfCorreoResponsable" layoutX="113.0" layoutY="457.0" prefHeight="35.0" prefWidth="223.0" promptText="pj. GJua@uv.mx" />
+      <Label layoutX="113.0" layoutY="428.0" text="Correo Institucional" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="367.0" layoutY="429.0" text="Numero Telefonico" textFill="#bd9240">
+      <Label layoutX="432.0" layoutY="428.0" text="Numero Telefonico" textFill="#bd9240">
          <font>
             <Font name="Tahoma Bold" size="18.0" />
          </font>

@@ -51,6 +51,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioProyectos.setTitle("Administración de anteproyectos");
         escenarioProyectos.initModality(Modality.APPLICATION_MODAL);
         escenarioProyectos.showAndWait(); 
+        escenarioProyectos.centerOnScreen();
     }
     @FXML
     void btnActividadesMenuOnAction(ActionEvent event) {
@@ -63,6 +64,7 @@ public class FXMLMainMenuController implements Initializable {
             stage.setTitle("Menú de Actividades");
             stage.setScene(scene);
             stage.show();
+            stage.centerOnScreen();
         }catch(IOException ioException){
             Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
         }
@@ -118,6 +120,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioCursos.setTitle("Gestión de Cursos");
         escenarioCursos.initModality(Modality.APPLICATION_MODAL);
         escenarioCursos.showAndWait();
+        escenarioCursos.centerOnScreen();
     }
 
     @FXML
@@ -128,6 +131,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioLGAC.setTitle("Gestión de LGAC");
         escenarioLGAC.initModality(Modality.APPLICATION_MODAL);
         escenarioLGAC.showAndWait();
+        escenarioLGAC.centerOnScreen();
     }
 
     @FXML
@@ -138,6 +142,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioCuerpoAcademico.setTitle("Gestión de Cuerpo Academico");
         escenarioCuerpoAcademico.initModality(Modality.APPLICATION_MODAL);
         escenarioCuerpoAcademico.showAndWait();
+        escenarioCuerpoAcademico.centerOnScreen();
     }
 
     @FXML
@@ -148,6 +153,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioUsuarios.setTitle("Gestión de Usuarios");
         escenarioUsuarios.initModality(Modality.APPLICATION_MODAL);
         escenarioUsuarios.showAndWait();
+        escenarioUsuarios.centerOnScreen();
     }
 
     @FXML
@@ -158,6 +164,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioAlumnos.setTitle("Administración de validación de anteproyectos");
         escenarioAlumnos.initModality(Modality.APPLICATION_MODAL);
         escenarioAlumnos.showAndWait();  
+        escenarioAlumnos.centerOnScreen();
     }
 
     @FXML
@@ -170,6 +177,7 @@ public class FXMLMainMenuController implements Initializable {
                 escenarioBase.setScene(Utilidades.inicializarEscena("/javafxproyectoguiado/vistas/FXMLInicioSesion.fxml"));
                 escenarioBase.setTitle("Inicio Sesión");
                 escenarioBase.show();
+                escenarioBase.centerOnScreen();
         }
     }
 
@@ -181,6 +189,7 @@ public class FXMLMainMenuController implements Initializable {
         escenarioProyectos.setTitle("Administración de anteproyectos");
         escenarioProyectos.initModality(Modality.APPLICATION_MODAL);
         escenarioProyectos.showAndWait(); 
+        escenarioProyectos.centerOnScreen();
     }
 
 

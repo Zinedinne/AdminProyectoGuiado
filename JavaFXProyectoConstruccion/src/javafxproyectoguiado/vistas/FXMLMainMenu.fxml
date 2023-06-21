@@ -6,45 +6,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLMainMenuController">
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLMainMenuController">
    <children>
-      <Button fx:id="btnUsuarios" layoutX="150.0" layoutY="182.0" mnemonicParsing="false" onAction="#clicBtnGestionUsuarios" prefHeight="91.0" prefWidth="173.0" style="-fx-background-radius: 18 18 18 18;" text="Gestion de Usuarios">
+      <Button fx:id="btnUsuarios" layoutX="556.0" layoutY="141.0" mnemonicParsing="false" onAction="#clicBtnGestionUsuarios" prefHeight="91.0" prefWidth="173.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestion de Usuarios" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnProyectosMenu" layoutX="536.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnProyectosMenusOnAction" prefHeight="91.0" prefWidth="185.0" style="-fx-background-radius: 18 18 18 18; -fx-wrap-text: True;" text="Consultar proyectos para asignación">
+      <Button fx:id="btnProyectosMenu" layoutX="264.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnProyectosMenusOnAction" prefHeight="91.0" prefWidth="185.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab; -fx-wrap-text: True;" text="Consultar proyectos para asignación" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnActividadesMenu" layoutX="925.0" layoutY="182.0" mnemonicParsing="false" onAction="#btnActividadesMenuOnAction" prefHeight="91.0" prefWidth="192.0" style="-fx-background-radius: 18 18 18 18;" text="Gestion de Actividades">
+      <Button fx:id="btnActividadesMenu" layoutX="824.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnActividadesMenuOnAction" prefHeight="91.0" prefWidth="192.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestion de Actividades" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
 
-      <Button fx:id="btnCurso" layoutX="155.0" layoutY="363.0" mnemonicParsing="false" onAction="#clicBtnCursos" prefHeight="91.0" prefWidth="163.0" style="-fx-background-radius: 18 18 18 18;" text="Gestion de Cursos">
+      <Button fx:id="btnCurso" layoutX="270.0" layoutY="247.0" mnemonicParsing="false" onAction="#clicBtnCursos" prefHeight="91.0" prefWidth="173.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestion de Cursos" textFill="#fcfcfc">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnLGAC" layoutX="547.0" layoutY="363.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="91.0" prefWidth="163.0" style="-fx-background-radius: 18 18 18 18;" text="Gestion de LGAC">
+      <Button fx:id="btnLGAC" layoutX="561.0" layoutY="247.0" mnemonicParsing="false" onAction="#clicBtnLGAC" prefHeight="91.0" prefWidth="163.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestion de LGAC" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnCuerpoAcademico" layoutX="940.0" layoutY="363.0" mnemonicParsing="false" onAction="#clicBtnCuerpoAcademico" prefHeight="91.0" prefWidth="163.0" style="-fx-wrap-text: true; -fx-background-radius: 18 18 18 18;" text="Gestion de Cuerpo Academico">
+      <Button fx:id="btnCuerpoAcademico" layoutX="834.0" layoutY="247.0" mnemonicParsing="false" onAction="#clicBtnCuerpoAcademico" prefHeight="91.0" prefWidth="173.0" style="-fx-wrap-text: true; -fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestion de Cuerpo Academico" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="btnValidacionProyectosMenu" layoutX="547.0" layoutY="531.0" mnemonicParsing="false" onAction="#btnValidacionProyectosMenuOnAction" prefHeight="91.0" prefWidth="163.0" style="-fx-wrap-text: true; -fx-background-radius: 18 18 18 18;" text="Consultar proyectos para validación">
+      <Button fx:id="btnValidacionProyectosMenu" layoutX="270.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnValidacionProyectosMenuOnAction" prefHeight="91.0" prefWidth="173.0" style="-fx-wrap-text: true; -fx-background-color: #516aab; -fx-background-radius: 18 18 18 18;" text="Consultar proyectos para validación" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>
       <Pane prefHeight="102.0" prefWidth="1280.0" style="-fx-background-color: #516aab;" />
-      <Pane layoutY="683.0" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: #516aab;" />
-      <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="1235.0" layoutY="646.0" onMouseClicked="#clicCerrarSesion" pickOnBounds="true" preserveRatio="true">
+      <Pane layoutY="460.0" prefHeight="37.0" prefWidth="1280.0" style="-fx-background-color: #516aab;" />
+      <ImageView fitHeight="54.0" fitWidth="54.0" layoutX="1194.0" layoutY="392.0" onMouseClicked="#clicCerrarSesion" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/Salir..png" />
          </image>
       </ImageView>
-      <Button fx:id="btnProyectosMenuUsuario" layoutX="155.0" layoutY="531.0" mnemonicParsing="false" onAction="#btnProyectosMenuUsuarioOnAction" prefHeight="91.0" prefWidth="163.0" style="-fx-background-radius: 18 18 18 18;" text="Gestión Proyectos">
+      <Button fx:id="btnProyectosMenuUsuario" layoutX="561.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnProyectosMenuUsuarioOnAction" prefHeight="91.0" prefWidth="163.0" style="-fx-background-radius: 18 18 18 18; -fx-background-color: #516aab;" text="Gestión Proyectos" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="15.0" />
          </font></Button>

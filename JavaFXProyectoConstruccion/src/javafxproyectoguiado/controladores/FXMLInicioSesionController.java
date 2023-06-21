@@ -113,6 +113,7 @@ public class FXMLInicioSesionController implements Initializable {
             stage.setTitle("Menú principal");
             stage.setScene(scene);
             stage.show();
+            stage.centerOnScreen();
         }catch(IOException ioException){
             Logger.getLogger(FXMLInicioSesionController.class.getName()).log(Level.SEVERE, null, ioException);
         }

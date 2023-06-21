@@ -35,6 +35,7 @@ public class FXMLGestionUsuarioController implements Initializable {
         escenarioEstudiante.setTitle("Administracion de Estudiantes");
         escenarioEstudiante.initModality(Modality.APPLICATION_MODAL);
         escenarioEstudiante.showAndWait();
+        escenarioEstudiante.centerOnScreen();
     }
 
     @FXML
