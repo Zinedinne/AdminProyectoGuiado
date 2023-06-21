@@ -1,10 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package util;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -22,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.util.Callback;
 import javafxproyectoconstruccion.JavaFXProyectoConstruccion;
 import javafxproyectoguiado.modelo.pojo.AnteproyectoModulo;
+import modelo.ConexionBD;
 
 /**
  *
@@ -167,5 +168,33 @@ public class Utilidades {
         LocalDate localDate = LocalDate.parse(fecha);
         return localDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
-
+    
+    public static String obtenerNombreCompletoPorIdUsuario(int idUsuario) {
+    String nombreCompleto = null;
+    Connection conexionBD = ConexionBD.abrirConexionBD();
+    
+    if (conexionBD != null) {
+        try {
+            String consulta = "SELECT CONCAT(nombre, ' ', apellidoPaterno, ' ', apellidoMaterno) AS nombreCompleto " +
+                              "FROM usuario " +
+                              "WHERE idUsuario = ?";
+            
+            PreparedStatement prepararSentencia = conexionBD.prepareStatement(consulta);
+            prepararSentencia.setInt(1, idUsuario);
+            
+            ResultSet resultado = prepararSentencia.executeQuery();
+            
+            if (resultado.next()) {
+                nombreCompleto = resultado.getString("nombreCompleto");
+            }
+            
+            conexionBD.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    return nombreCompleto;
+    }
+   
 }

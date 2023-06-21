@@ -10,6 +10,8 @@ import javafxproyectoguiado.modelo.pojo.AnteproyectoModuloRespuesta;
 import javafxproyectoguiado.modelo.pojo.Singleton;
 import modelo.ConexionBD;
 import util.Constantes;
+import util.Utilidades;
+import static util.Utilidades.obtenerNombreCompletoPorIdUsuario;
 
 /**
  *
@@ -55,9 +57,13 @@ public class AnteproyectoModuloDAO {
                     anteproyecto.setIdLGAC(resultado.getInt("LGAC_idLGAC"));
                     anteproyecto.setNombreLGAC(resultado.getString("nombreLGAC"));
                     anteproyecto.setIdUsuario(resultado.getInt("Usuarios_idUsuarios"));
-                    anteproyecto.setNombreCreador(resultado.getString("nombreCreador"));
+                    int nombreCreador = resultado.getInt("Usuarios_idUsuarios");
+                    String Usuarios_idUsuarios = Utilidades.obtenerNombreCompletoPorIdUsuario(nombreCreador);
+                    anteproyecto.setNombreCreador(Usuarios_idUsuarios);
                     anteproyecto.setIdEncargadoDeTesis(resultado.getInt("idEncargadoDeTesis"));
-                    anteproyecto.setNombreEncargadoDeTesis(resultado.getString("nombreEncargadoDeTesis"));
+                    int idEncargadoDeTesis = resultado.getInt("idEncargadoDeTesis");
+                    String nombreEncargadoDeTesis = Utilidades.obtenerNombreCompletoPorIdUsuario(idEncargadoDeTesis);
+                    anteproyecto.setNombreEncargadoDeTesis(nombreEncargadoDeTesis);
                     anteproyecto.setComentario(resultado.getString("comentario"));
                     anteproyecto.setEstudiantesAsignados(resultado.getString("estudiantesAsignados"));
                     anteproyecto.setIdAcademia(resultado.getInt("Academia_idAcademia"));
@@ -83,12 +89,12 @@ public class AnteproyectoModuloDAO {
         if(conexionBD != null){
             try {
                 String consulta = "SELECT anteproyecto.idAnteproyecto, " +
-                        "CONCAT_WS(', ', estudiante.nombre, IFNULL(estudiante2.nombre, '')) AS estudiantesAsignados, " +
+                        "CONCAT_WS(', ', anteproyectousuario.nombreUsuario, IF(anteproyectousuario.nombreUsuario2 IS NOT NULL, anteproyectousuario.nombreUsuario2, '')) AS estudiantesAsignados, " +
                         "nombreAnteproyecto, fechaInicio, duracion, modalidad, estado, descripcion, " +
                         "anteproyecto.LGAC_idLGAC, lgac.nombre AS nombreLGAC, " +
                         "anteproyecto.Usuarios_idUsuarios, creador.nombre AS nombreCreador, " +
                         "anteproyecto.idEncargadoDeTesis, encargado.nombre AS nombreEncargadoDeTesis, " +
-                        "comentario, " +
+                        " comentario, " +
                         "anteproyecto.Academia_idAcademia, academia.nombreAcademia AS nombreAcademia " +
                         "FROM anteproyecto " +
                         "INNER JOIN lgac ON anteproyecto.LGAC_idLGAC = lgac.idLGAC " +
@@ -116,9 +122,13 @@ public class AnteproyectoModuloDAO {
                     anteproyecto.setIdLGAC(resultado.getInt("LGAC_idLGAC"));
                     anteproyecto.setNombreLGAC(resultado.getString("nombreLGAC"));
                     anteproyecto.setIdUsuario(resultado.getInt("Usuarios_idUsuarios"));
-                    anteproyecto.setNombreCreador(resultado.getString("nombreCreador"));
+                    int nombreCreador = resultado.getInt("Usuarios_idUsuarios");
+                    String Usuarios_idUsuarios = Utilidades.obtenerNombreCompletoPorIdUsuario(nombreCreador);
+                    anteproyecto.setNombreCreador(Usuarios_idUsuarios);
                     anteproyecto.setIdEncargadoDeTesis(resultado.getInt("idEncargadoDeTesis"));
-                    anteproyecto.setNombreEncargadoDeTesis(resultado.getString("nombreEncargadoDeTesis"));
+                    int idEncargadoDeTesis = resultado.getInt("idEncargadoDeTesis");
+                    String nombreEncargadoDeTesis = Utilidades.obtenerNombreCompletoPorIdUsuario(idEncargadoDeTesis);
+                    anteproyecto.setNombreEncargadoDeTesis(nombreEncargadoDeTesis);
                     anteproyecto.setComentario(resultado.getString("comentario"));
                     anteproyecto.setEstudiantesAsignados(resultado.getString("estudiantesAsignados"));
                     anteproyecto.setIdAcademia(resultado.getInt("Academia_idAcademia"));
@@ -144,12 +154,12 @@ public class AnteproyectoModuloDAO {
         if(conexionBD != null){
             try {
                 String consulta = "SELECT anteproyecto.idAnteproyecto, " +
-                        "CONCAT_WS(', ', estudiante.nombre, IFNULL(estudiante2.nombre, '')) AS estudiantesAsignados, " +
+                        "CONCAT_WS(', ', anteproyectousuario.nombreUsuario, IF(anteproyectousuario.nombreUsuario2 IS NOT NULL, anteproyectousuario.nombreUsuario2, '')) AS estudiantesAsignados, " +
                         "nombreAnteproyecto, fechaInicio, duracion, modalidad, estado, descripcion, " +
                         "anteproyecto.LGAC_idLGAC, lgac.nombre AS nombreLGAC, " +
                         "anteproyecto.Usuarios_idUsuarios, creador.nombre AS nombreCreador, " +
                         "anteproyecto.idEncargadoDeTesis, encargado.nombre AS nombreEncargadoDeTesis, " +
-                        "comentario, " +
+                        " comentario, " +
                         "anteproyecto.Academia_idAcademia, academia.nombreAcademia AS nombreAcademia " +
                         "FROM anteproyecto " +
                         "INNER JOIN lgac ON anteproyecto.LGAC_idLGAC = lgac.idLGAC " +
@@ -179,9 +189,13 @@ public class AnteproyectoModuloDAO {
                     anteproyecto.setIdLGAC(resultado.getInt("LGAC_idLGAC"));
                     anteproyecto.setNombreLGAC(resultado.getString("nombreLGAC"));
                     anteproyecto.setIdUsuario(resultado.getInt("Usuarios_idUsuarios"));
-                    anteproyecto.setNombreCreador(resultado.getString("nombreCreador"));
+                    int nombreCreador = resultado.getInt("Usuarios_idUsuarios");
+                    String Usuarios_idUsuarios = Utilidades.obtenerNombreCompletoPorIdUsuario(nombreCreador);
+                    anteproyecto.setNombreCreador(Usuarios_idUsuarios);
                     anteproyecto.setIdEncargadoDeTesis(resultado.getInt("idEncargadoDeTesis"));
-                    anteproyecto.setNombreEncargadoDeTesis(resultado.getString("nombreEncargadoDeTesis"));
+                    int idEncargadoDeTesis = resultado.getInt("idEncargadoDeTesis");
+                    String nombreEncargadoDeTesis = Utilidades.obtenerNombreCompletoPorIdUsuario(idEncargadoDeTesis);
+                    anteproyecto.setNombreEncargadoDeTesis(nombreEncargadoDeTesis);
                     anteproyecto.setComentario(resultado.getString("comentario"));
                     anteproyecto.setEstudiantesAsignados(resultado.getString("estudiantesAsignados"));
                     anteproyecto.setIdAcademia(resultado.getInt("Academia_idAcademia"));
@@ -207,12 +221,12 @@ public class AnteproyectoModuloDAO {
         if(conexionBD != null){
             try {
                 String consulta = "SELECT anteproyecto.idAnteproyecto, " +
-                        "CONCAT_WS(', ', estudiante.nombre, IFNULL(estudiante2.nombre, '')) AS estudiantesAsignados, " +
+                        "CONCAT_WS(', ', anteproyectousuario.nombreUsuario, IF(anteproyectousuario.nombreUsuario2 IS NOT NULL, anteproyectousuario.nombreUsuario2, '')) AS estudiantesAsignados, " +
                         "nombreAnteproyecto, fechaInicio, duracion, modalidad, estado, descripcion, " +
                         "anteproyecto.LGAC_idLGAC, lgac.nombre AS nombreLGAC, " +
                         "anteproyecto.Usuarios_idUsuarios, creador.nombre AS nombreCreador, " +
                         "anteproyecto.idEncargadoDeTesis, encargado.nombre AS nombreEncargadoDeTesis, " +
-                        "comentario, " +
+                        " comentario, " +
                         "anteproyecto.Academia_idAcademia, academia.nombreAcademia AS nombreAcademia " +
                         "FROM anteproyecto " +
                         "INNER JOIN lgac ON anteproyecto.LGAC_idLGAC = lgac.idLGAC " +
@@ -241,9 +255,13 @@ public class AnteproyectoModuloDAO {
                     anteproyecto.setIdLGAC(resultado.getInt("LGAC_idLGAC"));
                     anteproyecto.setNombreLGAC(resultado.getString("nombreLGAC"));
                     anteproyecto.setIdUsuario(resultado.getInt("Usuarios_idUsuarios"));
-                    anteproyecto.setNombreCreador(resultado.getString("nombreCreador"));
+                    int nombreCreador = resultado.getInt("Usuarios_idUsuarios");
+                    String Usuarios_idUsuarios = Utilidades.obtenerNombreCompletoPorIdUsuario(nombreCreador);
+                    anteproyecto.setNombreCreador(Usuarios_idUsuarios);
                     anteproyecto.setIdEncargadoDeTesis(resultado.getInt("idEncargadoDeTesis"));
-                    anteproyecto.setNombreEncargadoDeTesis(resultado.getString("nombreEncargadoDeTesis"));
+                    int idEncargadoDeTesis = resultado.getInt("idEncargadoDeTesis");
+                    String nombreEncargadoDeTesis = Utilidades.obtenerNombreCompletoPorIdUsuario(idEncargadoDeTesis);
+                    anteproyecto.setNombreEncargadoDeTesis(nombreEncargadoDeTesis);
                     anteproyecto.setComentario(resultado.getString("comentario"));
                     anteproyecto.setEstudiantesAsignados(resultado.getString("estudiantesAsignados"));
                     anteproyecto.setIdAcademia(resultado.getInt("Academia_idAcademia"));
@@ -398,11 +416,13 @@ public class AnteproyectoModuloDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD !=null){
             try{
-                String sentencia = "INSERT INTO proyecto.anteproyectousuario (Anteproyecto_idAnteproyecto, Usuario_idUsuario) " +
-                        "VALUES (?, ?) ";
+                String nombreCompleto = obtenerNombreCompletoPorIdUsuario(anteproyectoValido.getIdEstudianteAsignado());
+                String sentencia = "INSERT INTO proyecto.anteproyectousuario (Anteproyecto_idAnteproyecto, Usuario_idUsuario, nombreUsuario) " +
+                        "VALUES (?, ?, ?) ";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
                 prepararSentencia.setInt(1, anteproyectoValido.getIdAnteproyecto());
                 prepararSentencia.setInt(2, anteproyectoValido.getIdEstudianteAsignado());
+                prepararSentencia.setString(3, nombreCompleto);
  
                 int filasAfectadas = prepararSentencia.executeUpdate();
                 respuesta = (filasAfectadas == 1) ? Constantes.OPERACION_EXITOSA : Constantes.ERROR_CONSULTA;
@@ -422,14 +442,16 @@ public class AnteproyectoModuloDAO {
         Connection conexionBD = ConexionBD.abrirConexionBD();
         if(conexionBD !=null){
             try{
+                String nombreCompleto = obtenerNombreCompletoPorIdUsuario(anteproyectoValido.getIdEstudianteAsignado());
                 String sentencia = "UPDATE proyecto.anteproyectousuario " +
                         "SET Usuario_idUsuario = IFNULL(Usuario_idUsuario, ?), " +
-                        "Usuario_idUsuario2 = ? " +
+                        "Usuario_idUsuario2 = ? , nombreUsuario2 = ? " +
                         "WHERE Anteproyecto_idAnteproyecto = ? ";
                 PreparedStatement prepararSentencia = conexionBD.prepareStatement(sentencia);
                 prepararSentencia.setInt(1, anteproyectoValido.getIdEstudianteAsignado());
                 prepararSentencia.setInt(2, anteproyectoValido.getIdEstudianteAsignado());
-                prepararSentencia.setInt(3, anteproyectoValido.getIdAnteproyecto());
+                prepararSentencia.setString(3, nombreCompleto);
+                prepararSentencia.setInt(4, anteproyectoValido.getIdAnteproyecto());
                 int filasAfectadas = prepararSentencia.executeUpdate();
                 respuesta = (filasAfectadas == 1) ? Constantes.OPERACION_EXITOSA : Constantes.ERROR_CONSULTA;
                 conexionBD.close();

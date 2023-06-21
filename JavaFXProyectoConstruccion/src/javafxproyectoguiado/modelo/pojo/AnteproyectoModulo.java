@@ -24,6 +24,8 @@ public class AnteproyectoModulo {
     private String estudiantesAsignados;
     private int idAcademia;
     private String nombreAcademia;
+    private String estudianteAsignado1;
+    private String estudianteAsignado2;
 
     public AnteproyectoModulo() {
     }
@@ -31,7 +33,7 @@ public class AnteproyectoModulo {
     public AnteproyectoModulo(int idAnteproyecto, String nombreAnteproyecto, String fechaInicio, String duracion, String modalidad, 
             String estado, String descripcion, int idLGAC, String nombreLGAC, int idUsuario, String nombreCreador, int idEncargadoDeTesis, 
             String nombreEncargadoDeTesis, int idEstudianteAsignado, String estudianteAsignado, String comentario, String estudiantesAsignados,
-            int idAcademia, String nombreAcademia) {
+            int idAcademia, String nombreAcademia, String estudianteAsignado1, String estudianteAsignado2) {
         this.idAnteproyecto = idAnteproyecto;
         this.nombreAnteproyecto = nombreAnteproyecto;
         this.fechaInicio = fechaInicio;
@@ -51,6 +53,9 @@ public class AnteproyectoModulo {
         this.estudiantesAsignados = estudiantesAsignados;
         this.idAcademia = idAcademia;
         this.nombreAcademia = nombreAcademia;
+        
+        this.estudianteAsignado1 = estudianteAsignado1;
+        this.estudianteAsignado2 = estudianteAsignado2;
     }
 
     public int getIdAnteproyecto() {
@@ -203,6 +208,22 @@ public class AnteproyectoModulo {
 
     public void setNombreAcademia(String nombreAcademia) {
         this.nombreAcademia = nombreAcademia;
+    }
+
+    public String getEstudianteAsignado1() {
+        return estudianteAsignado1;
+    }
+
+    public void setEstudianteAsignado1(String estudianteAsignado1) {
+        this.estudianteAsignado1 = estudianteAsignado1;
+    }
+
+    public String getEstudianteAsignado2() {
+        return estudianteAsignado2;
+    }
+
+    public void setEstudianteAsignado2(String estudianteAsignado2) {
+        this.estudianteAsignado2 = estudianteAsignado2;
     }
     
     public String toString(){
