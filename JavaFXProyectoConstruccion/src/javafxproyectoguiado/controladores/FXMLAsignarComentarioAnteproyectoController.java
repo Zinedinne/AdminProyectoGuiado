@@ -77,7 +77,7 @@ public class FXMLAsignarComentarioAnteproyectoController implements Initializabl
         int posicionAnteproyecto = cbAnteproyecto.getSelectionModel().getSelectedIndex();
         String comentario = taComentario.getText();
         
-        if(comentario.isEmpty() || comentario.length() >= 300){
+        if(comentario.isEmpty()){
             taComentario.setStyle(estiloError);
             datosValidos = false;
         }
