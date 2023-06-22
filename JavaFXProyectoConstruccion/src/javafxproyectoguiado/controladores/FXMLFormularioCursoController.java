@@ -90,7 +90,7 @@ public class FXMLFormularioCursoController implements Initializable {
         int posicionMateria = cbMateria.getSelectionModel().getSelectedIndex();
         int posicionPeriodo = cbPeriodo.getSelectionModel().getSelectedIndex();
         
-        if(!Utilidades.soloNumeros(bloque)){
+        if(!Utilidades.soloNumeros(bloque) || bloque.length() > 5){
             tfBloque.setStyle(estiloError);
             datosValidados = false;
         }

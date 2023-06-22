@@ -84,23 +84,23 @@ public class FXMLFormularioEstudianteController implements Initializable {
         String numero = tfNumeroEstudiante.getText();
         String matricula = tfMatricula.getText();
         
-        if(!Utilidades.soloLetras(nombre)){
+        if(!Utilidades.soloLetras(nombre) || nombre.length() > 60){
             tfNombreEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoPaterno)){
+        if(!Utilidades.soloLetras(apellidoPaterno) || apellidoPaterno.length() > 45){
             tfApellidoPaternoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoMaterno)){
+        if(!Utilidades.soloLetras(apellidoMaterno) || apellidoMaterno.length() > 45){
             tfApellidoMaternoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(username.isEmpty() || username.length() > 45){
             tfUsernameEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(password.isEmpty() || password.length() > 45){
             tfPasswordEstudiante.setStyle(estiloError);
             datosValidados = false;
         }
@@ -112,7 +112,7 @@ public class FXMLFormularioEstudianteController implements Initializable {
             tfMatricula.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValidoEstudiante(correo)){
+        if(!Utilidades.correoValidoEstudiante(correo) || correo.length() > 45){
             tfCorreoEstudiante.setStyle(estiloError);
             datosValidados = false;
         }

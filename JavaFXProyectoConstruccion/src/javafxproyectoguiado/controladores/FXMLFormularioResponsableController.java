@@ -108,23 +108,23 @@ public class FXMLFormularioResponsableController implements Initializable {
         String numeroTrabajador = tfNumeroTrabajadorResponsable.getText();
         int posicionCuerpoAcademico = cbCuerpoResponsable.getSelectionModel().getSelectedIndex();
         
-        if(!Utilidades.soloLetras(nombre)){
+        if(!Utilidades.soloLetras(nombre) || nombre.length() > 60){
             tfNombreResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoPaterno)){
+        if(!Utilidades.soloLetras(apellidoPaterno) || apellidoPaterno.length() > 45){
             tfApellidoPaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoMaterno)){
+        if(!Utilidades.soloLetras(apellidoMaterno) || apellidoMaterno.length() > 45){
             tfApellidoMaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(username.isEmpty() || username.length() > 4){
             tfUsernameResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(password.isEmpty() || password.length() > 45){
             tfPasswordResponsable.setStyle(estiloError);
             datosValidados = false;
         }
@@ -136,7 +136,7 @@ public class FXMLFormularioResponsableController implements Initializable {
             tfNumeroTrabajadorResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValidoAcademico(correo)){
+        if(!Utilidades.correoValidoAcademico(correo) || correo.length() > 45){
             tfCorreoResponsable.setStyle(estiloError);
             datosValidados = false;
         }

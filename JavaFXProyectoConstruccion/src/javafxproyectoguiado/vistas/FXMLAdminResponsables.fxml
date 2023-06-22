@@ -8,10 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="753.0" prefWidth="1513.0" style="-fx-background-color: #19222b;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="javafxproyectoguiado.controladores.FXMLAdminResponsablesController">
+<AnchorPane id="AnchorPane" prefHeight="753.0" prefWidth="1575.0" style="-fx-background-color: #19222b;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAdminResponsablesController">
    <children>
-      <TableView fx:id="tvResponsable" layoutX="43.0" layoutY="163.0" prefHeight="526.0" prefWidth="1426.0">
+      <TableView fx:id="tvResponsable" layoutX="43.0" layoutY="163.0" prefHeight="526.0" prefWidth="1493.0">
          <columns>
             <TableColumn fx:id="tcNumeroTrabajador" prefWidth="182.0" text="Numero de Trabajador" />
             <TableColumn fx:id="tcNombre" prefWidth="140.0" text="Nombre" />
@@ -21,10 +20,10 @@
             <TableColumn fx:id="tcPassword" prefWidth="129.0" text="Password" />
             <TableColumn fx:id="tcCorreo" prefWidth="197.0" text="Correo Institucional" />
             <TableColumn fx:id="tcTelefono" prefWidth="116.0" text="Telefono" />
-            <TableColumn fx:id="tcNombreAcademia" prefWidth="200.0" text="Nombre de Academia" />
+            <TableColumn fx:id="tcNombreAcademia" prefWidth="267.0" text="Nombre de Cuerpo Academia" />
          </columns>
       </TableView>
-      <Pane prefHeight="91.0" prefWidth="1513.0" style="-fx-background-color: #DDD6CC;">
+      <Pane prefHeight="91.0" prefWidth="1575.0" style="-fx-background-color: #DDD6CC;">
          <children>
             <Label layoutX="304.0" layoutY="14.0" text="Gestión de Responsables de Academia" textFill="#bd9240">
                <font>
@@ -48,6 +47,6 @@
             <Font name="Tahoma Bold" size="15.0" />
          </font>
       </Button>
-      <Pane layoutY="715.0" prefHeight="38.0" prefWidth="1513.0" style="-fx-background-color: #DDD6CC;" />
+      <Pane layoutY="715.0" prefHeight="38.0" prefWidth="1575.0" style="-fx-background-color: #DDD6CC;" />
    </children>
 </AnchorPane>

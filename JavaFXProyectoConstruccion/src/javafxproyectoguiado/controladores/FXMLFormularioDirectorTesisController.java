@@ -89,23 +89,23 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
         String numero = tfNumeroTesis.getText();
         String numeroTrabajador = tfNumeroTrabajadorTesis.getText();
         
-        if(!Utilidades.soloLetras(nombre)){
+        if(!Utilidades.soloLetras(nombre) || nombre.length() > 60){
             tfNombreTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoPaterno)){
+        if(!Utilidades.soloLetras(apellidoPaterno) || apellidoPaterno.length() > 45){
             tfApellidoPaternoTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoMaterno)){
+        if(!Utilidades.soloLetras(apellidoMaterno) || apellidoMaterno.length() > 45){
             tfApellidoMaternoTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(username.isEmpty() || username.length() > 45){
             tfUsernameTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(password.isEmpty() || password.length() > 45){
             tfPasswordTesis.setStyle(estiloError);
             datosValidados = false;
         }
@@ -117,7 +117,7 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
             tfNumeroTrabajadorTesis.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValidoAcademico(correo)){
+        if(!Utilidades.correoValidoAcademico(correo) || correo.length() > 45){
             tfCorreoTesis.setStyle(estiloError);
             datosValidados = false;
         }

@@ -94,27 +94,27 @@ public class FXMLFormularioProfesorController implements Initializable {
         String numero = tfNumeroProfesor.getText();
         String numeroTrabajador = tfNumeroTrabajadorProfesor.getText();
         
-        if(!Utilidades.soloLetras(nombre)){
+        if(!Utilidades.soloLetras(nombre) || nombre.length() > 60){
             tfNombreProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoPaterno)){
+        if(!Utilidades.soloLetras(apellidoPaterno) || apellidoPaterno.length() > 45){
             tfApellidoPaternoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloLetras(apellidoMaterno)){
+        if(!Utilidades.soloLetras(apellidoMaterno) || apellidoMaterno.length() > 45){
             tfApellidoMaternoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty()){
+        if(username.isEmpty() || username.length() > 45){
             tfUsernameProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(password.isEmpty()){
+        if(password.isEmpty() || password.length() > 45){
             tfPasswordProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.soloNumeros(numero)|| numero.length() != 10){
+        if(!Utilidades.soloNumeros(numero) || numero.length() != 10){
             tfNumeroProfesor.setStyle(estiloError);
             datosValidados = false;
         }
@@ -122,7 +122,7 @@ public class FXMLFormularioProfesorController implements Initializable {
             tfNumeroTrabajadorProfesor.setStyle(estiloError);
             datosValidados = false;
         }
-        if(!Utilidades.correoValidoAcademico(correo)){
+        if(!Utilidades.correoValidoAcademico(correo) || correo.length() > 45){
             tfCorreoProfesor.setStyle(estiloError);
             datosValidados = false;
         }
