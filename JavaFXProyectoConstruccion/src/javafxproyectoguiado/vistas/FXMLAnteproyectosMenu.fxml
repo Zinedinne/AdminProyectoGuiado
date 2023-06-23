@@ -8,11 +8,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1208.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosMenuController">
+<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1319.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosMenuController">
    <children>
-      <Pane prefHeight="83.0" prefWidth="1208.0" style="-fx-background-color: #516aab;">
+      <Pane prefHeight="83.0" prefWidth="1319.0" style="-fx-background-color: #516aab;">
          <children>
-            <Label layoutX="286.0" layoutY="19.0" text="Administración de Asignación de Anteproyectos" textFill="WHITE">
+            <Label layoutX="342.0" layoutY="19.0" text="Administración de Asignación de Anteproyectos" textFill="WHITE">
                <font>
                   <Font size="30.0" />
                </font>
@@ -24,12 +24,12 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="1015.0" layoutY="94.0" mnemonicParsing="false" onAction="#clicBtnConsultarAnteproyecto" text="Consultar anteproyecto">
+      <Button layoutX="1117.0" layoutY="94.0" mnemonicParsing="false" onAction="#clicBtnConsultarAnteproyecto" text="Consultar anteproyecto">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tvAnteproyectos" layoutX="19.0" layoutY="145.0" prefHeight="480.0" prefWidth="1171.0">
+      <TableView fx:id="tvAnteproyectos" layoutX="19.0" layoutY="145.0" prefHeight="480.0" prefWidth="1281.0">
         <columns>
           <TableColumn fx:id="colNombreAnteproyecto" prefWidth="181.0" text="Nombre" />
             <TableColumn fx:id="colFechaInicio" prefWidth="131.0" text="Fecha de Inicio" />
@@ -38,10 +38,10 @@
             <TableColumn fx:id="colLGAC" minWidth="0.0" prefWidth="144.0" text="LGAC" />
             <TableColumn fx:id="colEstado" minWidth="7.0" prefWidth="128.0" text="Estado" />
             <TableColumn fx:id="colResponsable" prefWidth="129.0" text="Responsable" />
-            <TableColumn fx:id="colAlumnoAsignado" prefWidth="167.0" text="Alumno asignado" />
+            <TableColumn fx:id="colAlumnoAsignado" prefWidth="279.0" text="Alumnos asignados" />
         </columns>
       </TableView>
-      <Button fx:id="btnAsignarEstudiante" layoutX="943.0" layoutY="643.0" mnemonicParsing="false" onAction="#clicBtnAsignarEstudiante" text="Asignar estudiante a anteproyecto">
+      <Button fx:id="btnAsignarEstudiante" layoutX="1037.0" layoutY="645.0" mnemonicParsing="false" onAction="#clicBtnAsignarEstudiante" text="Asignar estudiante a anteproyecto">
          <font>
             <Font size="15.0" />
          </font>

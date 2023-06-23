@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1084.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosUsuarioMenuController">
+<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1220.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxproyectoguiado.controladores.FXMLAnteproyectosUsuarioMenuController">
    <children>
-      <Pane prefHeight="83.0" prefWidth="1084.0" style="-fx-background-color: #516aab;">
+      <Pane prefHeight="83.0" prefWidth="1229.0" style="-fx-background-color: #516aab;">
          <children>
             <Label layoutX="345.0" layoutY="19.0" text="Administración de Anteproyectos" textFill="WHITE">
                <font>
@@ -24,22 +24,22 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="516.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnCrearAnteproyecto" text="Crear anteproyecto">
+      <Button layoutX="664.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnCrearAnteproyecto" text="Crear anteproyecto">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="689.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnModificarAnteproyecto" text="Modificar anteproyecto">
+      <Button layoutX="837.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnModificarAnteproyecto" text="Modificar anteproyecto">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="884.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnConsultarAnteproyecto" text="Consultar anteproyecto">
+      <Button layoutX="1032.0" layoutY="97.0" mnemonicParsing="false" onAction="#clicBtnConsultarAnteproyecto" text="Consultar anteproyecto">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <TableView fx:id="tvAnteproyectos" layoutX="19.0" layoutY="145.0" prefHeight="480.0" prefWidth="1040.0">
+      <TableView fx:id="tvAnteproyectos" layoutX="19.0" layoutY="145.0" prefHeight="480.0" prefWidth="1188.0">
         <columns>
           <TableColumn fx:id="colNombreAnteproyecto" prefWidth="181.0" text="Nombre" />
             <TableColumn fx:id="colFechaInicio" prefWidth="131.0" text="Fecha de Inicio" />
@@ -47,10 +47,10 @@
             <TableColumn fx:id="colModalidad" prefWidth="141.0" text="Modalidad" />
             <TableColumn fx:id="colLGAC" minWidth="0.0" prefWidth="144.0" text="LGAC" />
             <TableColumn fx:id="colEstado" minWidth="7.0" prefWidth="128.0" text="Estado" />
-            <TableColumn fx:id="colAlumnoAsignado" prefWidth="167.0" text="Alumno asignado" />
+            <TableColumn fx:id="colAlumnoAsignado" prefWidth="315.0" text="Alumnos asignados" />
         </columns>
       </TableView>
-      <Button layoutX="894.0" layoutY="642.0" mnemonicParsing="false" onAction="#clicBtnEliminarAnteproyecto" text="Eliminar anteproyecto">
+      <Button layoutX="1042.0" layoutY="646.0" mnemonicParsing="false" onAction="#clicBtnEliminarAnteproyecto" text="Eliminar anteproyecto">
          <font>
             <Font size="15.0" />
          </font></Button>

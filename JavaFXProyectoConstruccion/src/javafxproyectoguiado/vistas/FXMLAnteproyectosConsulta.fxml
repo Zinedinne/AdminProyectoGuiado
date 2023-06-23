@@ -42,8 +42,8 @@
       <Label layoutX="356.0" layoutY="217.0" text="Estado" />
       <Label fx:id="lbEstadoAnteproyecto" layoutX="356.0" layoutY="236.0" prefHeight="29.0" prefWidth="227.0" style="-fx-background-color: #d0d0d0;" />
       <Label fx:id="lbLGAC" layoutX="662.0" layoutY="147.0" prefHeight="29.0" prefWidth="305.0" style="-fx-background-color: #d0d0d0;" />
-      <Label layoutX="32.0" layoutY="388.0" text="Alumno asignado" />
-      <Label fx:id="lbAlumnoAsignado" layoutX="32.0" layoutY="407.0" prefHeight="29.0" prefWidth="227.0" style="-fx-background-color: #d0d0d0;" />
+      <Label layoutX="32.0" layoutY="388.0" text="Alumnos asignados" />
+      <Label fx:id="lbAlumnoAsignado" layoutX="32.0" layoutY="407.0" prefHeight="29.0" prefWidth="283.0" style="-fx-background-color: #d0d0d0;" />
       <Label fx:id="lbTitulo" layoutX="32.0" layoutY="83.0" text="Consulta: " />
       <Label layoutX="662.0" layoutY="398.0" text="Comentario" />
       <Label fx:id="lbComentario" layoutX="662.0" layoutY="417.0" prefHeight="122.0" prefWidth="408.0" style="-fx-background-color: #d0d0d0;" wrapText="true" />
