@@ -19,9 +19,9 @@
                         <Font name="Footlight MT Light" size="49.0" />
                      </font>
                   </Label>
-                  <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+                  <ImageView fitHeight="63.0" fitWidth="122.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#clicBtnRegresar" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../recursos/flecha-derecha.png" />
+                        <Image url="@../recursos/angulo-doble-izquierda.png" />
                      </image>
                   </ImageView>
                </children>

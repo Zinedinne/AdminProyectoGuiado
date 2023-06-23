@@ -64,7 +64,7 @@ public class FXMLFormularioCursoController implements Initializable {
             lbTitulo.setText("Editar información del Curso");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo Curso");
+            lbTitulo.setText("Registrar Curso");
         }
     }
     

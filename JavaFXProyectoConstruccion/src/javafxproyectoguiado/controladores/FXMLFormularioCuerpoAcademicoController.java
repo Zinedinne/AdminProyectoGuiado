@@ -41,7 +41,7 @@ public class FXMLFormularioCuerpoAcademicoController implements Initializable {
             lbTitulo.setText("Editar información del Cuerpo Academico");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo Cuerpo Academico");
+            lbTitulo.setText("Registrar Cuerpo Academico");
         }
     }
     

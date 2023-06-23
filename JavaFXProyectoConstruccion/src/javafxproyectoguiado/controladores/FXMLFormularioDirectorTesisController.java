@@ -55,7 +55,7 @@ public class FXMLFormularioDirectorTesisController implements Initializable {
             lbTitulo.setText("Editar información del Director de Tesis");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo Director de Tesis");
+            lbTitulo.setText("Registrar Director de Tesis");
         }
     }
     

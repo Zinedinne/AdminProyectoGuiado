@@ -55,7 +55,7 @@ public class FXMLFormularioProfesorController implements Initializable {
             lbTitulo.setText("Editar información del Profesor");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo Profesor");
+            lbTitulo.setText("Registrar Profesor");
         }
     }
     

@@ -38,10 +38,10 @@ public class FXMLFormularioLGACController implements Initializable {
         this.interfazNotificacion = interfazNotificacion;
         
         if(esEdicion){
-            lbTitulo.setText("Editar información del LGAC");
+            lbTitulo.setText("Editar información de la Línea de generación y aplicación del conocimiento");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo LGAC");
+            lbTitulo.setText("Registrar Línea de generación y aplicación del conocimiento");
         }
     }
     

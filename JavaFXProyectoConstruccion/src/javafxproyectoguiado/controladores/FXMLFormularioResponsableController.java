@@ -64,7 +64,7 @@ public class FXMLFormularioResponsableController implements Initializable {
             lbTitulo.setText("Editar información del Responsable de Academia");
             cargarInformacionEdicion();
         }else{
-            lbTitulo.setText("Registrar nuevo Responsable de Academia");
+            lbTitulo.setText("Registrar Responsable de Academia");
         }
     }
     
@@ -120,7 +120,7 @@ public class FXMLFormularioResponsableController implements Initializable {
             tfApellidoMaternoResponsable.setStyle(estiloError);
             datosValidados = false;
         }
-        if(username.isEmpty() || username.length() > 4){
+        if(username.isEmpty() || username.length() > 45){
             tfUsernameResponsable.setStyle(estiloError);
             datosValidados = false;
         }
